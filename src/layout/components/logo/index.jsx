@@ -1,5 +1,7 @@
+const srcLogo = "/assets/images/logo/logo.png";
+
 function Logo() {
-  return <div>Logo</div>;
+  return <img src={srcLogo} />;
 }
 
 export default Logo;

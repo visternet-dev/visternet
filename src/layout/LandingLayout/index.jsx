@@ -1,7 +1,12 @@
-import React from 'react';
+import HeaderLanding from "./header";
 
 function LandingLayout({ children }) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <HeaderLanding />
+      {children}
+    </div>
+  );
 }
 
 export default LandingLayout;

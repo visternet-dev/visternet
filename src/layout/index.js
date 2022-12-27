@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
-
 // project import
-import LAYOUT from 'constant';
-import MainLayout from './MainLayout';
-import MinimalLayout from './MinimalLayout';
-import AuthGuard from 'utils/route-guard/AuthGuard';
-import GuestGuard from 'utils/route-guard/GuestGuard';
-import LandingLayout from './LandingLayout';
+import LAYOUT from "constant";
+import PropTypes from "prop-types";
+import AuthGuard from "utils/route-guard/AuthGuard";
+import GuestGuard from "utils/route-guard/GuestGuard";
+
+import React from "react";
+
+import LandingLayout from "./LandingLayout";
+import MainLayout from "./MainLayout";
+import MinimalLayout from "./MinimalLayout";
 
 // ==============================|| LAYOUTS - STRUCTURE ||============================== //
 
@@ -33,7 +35,6 @@ export default function Layout({ variant = LAYOUT.main, children }) {
 //       </AuthGuard>
 //     );
 // }
-
 
 // Layout.propTypes = {
 //   children: PropTypes.node,
