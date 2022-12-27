@@ -31,7 +31,6 @@
     "@mui/x-date-pickers": "^5.0.0",
     "@reduxjs/toolkit": "^1.8.5",
     "@tabler/icons": "^1.92.0",
-    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "amazon-cognito-identity-js": "^5.2.10",
     "apexcharts": "^3.35.5",
     "axios": "^0.27.2",
@@ -92,6 +91,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@babel/core": "^7.19.0",
     "@babel/eslint-parser": "^7.18.9",
     "babel-eslint": "^10.1.0",
