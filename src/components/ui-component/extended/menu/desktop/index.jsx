@@ -3,8 +3,7 @@ import { ButtonBase, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useRouter } from "next/router";
 
-import CustomButton from "../../Button";
-import { checkActiveItem } from "./tools";
+import { checkActiveItem } from "../tools";
 import Link from "/src/Link";
 
 /**
@@ -16,8 +15,6 @@ import Link from "/src/Link";
 function MenuDesktop({ data }) {
   const theme = useTheme();
   const { pathname } = useRouter();
-
-  console.log("pathname:", pathname);
 
   const activeStyle = { navigate: { width: "100% !important" }, title: { fontWeight: 600, color: theme.palette.primary.main } };
 
