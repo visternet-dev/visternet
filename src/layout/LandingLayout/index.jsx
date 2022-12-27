@@ -1,3 +1,4 @@
+import FooterLanding from "./footer";
 import HeaderLanding from "./header";
 
 function LandingLayout({ children }) {
@@ -5,6 +6,7 @@ function LandingLayout({ children }) {
     <div>
       <HeaderLanding />
       {children}
+      <FooterLanding />
     </div>
   );
 }
