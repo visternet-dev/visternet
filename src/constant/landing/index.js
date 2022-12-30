@@ -1,10 +1,12 @@
+import translate from "utils/locales/translate";
+
 const LANDING = {
   LIST_MENU: [
-    { title: "Home", url: "/", isActive: true },
-    { title: "Find a consultant", url: "/?" },
-    { title: "Blog", url: "blog" },
-    { title: "About Us", url: "about" },
-    { title: "Concat Us", url: "concat" }
+    { title: translate("Home"), url: "/", isActive: true },
+    { title: translate("Find a consultant"), url: "/?" },
+    { title: translate("Blog"), url: "blog" },
+    { title: translate("About Us"), url: "about" },
+    { title: translate("Concat Us"), url: "concat" }
   ]
 };
 

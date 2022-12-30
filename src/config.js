@@ -37,8 +37,8 @@ const config = {
   layout: LAYOUT_CONST.VERTICAL_LAYOUT, // vertical, horizontal
   drawerType: LAYOUT_CONST.DEFAULT_DRAWER, // default, mini-drawer
   fontFamily: `'exo2', sans-serif`,
-  borderRadius: 8,
-  outlinedFilled: true,
+  borderRadius: 2,
+  outlinedFilled: false,
   navType: 'light', // light, dark
   presetColor: 'default', // default, theme1, theme2, theme3, theme4, theme5, theme6
   locale: 'en', // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
