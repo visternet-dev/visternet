@@ -20,9 +20,9 @@ const FontFamily = () => {
     case `'Poppins', sans-serif`:
       initialFont = 'Poppins';
       break;
-    case `'Roboto', sans-serif`:
+    case `'exo2','Roboto', sans-serif`:
     default:
-      initialFont = 'Roboto';
+      initialFont = 'exo2';
       break;
   }
 

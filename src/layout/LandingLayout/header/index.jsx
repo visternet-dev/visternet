@@ -1,28 +1,20 @@
 import CustomMenu from "components/ui-component/extended/menu";
+import LANDING from "constant/landing";
 import Logo from "layout/components/logo";
 
-import { useTheme } from "@emotion/react";
 import { Box } from "@mui/system";
 
-import LandingActions from "../Actions";
+import { useTheme } from "@emotion/react";
 
-const dataMenuList = [
-  { title: "Home", url: "/", isActive: true },
-  { title: "Find a consultant", url: "/?" },
-  { title: "Blog", url: "blog" },
-  { title: "About Us", url: "about" },
-  { title: "Concat Us", url: "concat" }
-];
+import LandingActions from "../Actions";
 
 function HeaderLanding() {
   const theme = useTheme();
 
-  console.log("theme:", theme);
-
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", py: 2, px: 3 }}>
       <Logo />
-      <CustomMenu data={dataMenuList} />
+      <CustomMenu data={LANDING.LIST_MENU} />
       <LandingActions />
     </Box>
   );
