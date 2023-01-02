@@ -13,8 +13,7 @@ import Loader from 'components/ui-component/Loader';
  * @param {PropTypes.node} children children element/node
  */
 const AuthGuard = ({ children }) => {
-  // const { isLoggedIn } = useAuth();
-  const isLoggedIn = true;
+  const { isLoggedIn } = useAuth();
   const router = useRouter();
   useEffect(() => {
     if (!isLoggedIn) {

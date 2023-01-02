@@ -15,9 +15,8 @@ import Loader from 'components/ui-component/Loader';
  */
 
 const GuestGuard = ({ children }) => {
-  // const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   const router = useRouter();
-  const isLoggedIn = true
 
   useEffect(() => {
     if (isLoggedIn) {
