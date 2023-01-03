@@ -1,4 +1,4 @@
-import CustomButton from "components/ui-component/Button";
+import CustomButton from "components/ui-component/HOC/Button";
 import translate from "utils/locales/translate";
 
 import { Stack } from "@mui/material";
