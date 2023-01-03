@@ -76,7 +76,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
-const MainLayout = ({ children }) => {
+const DashboardLayout = ({ children }) => {
   const theme = useTheme();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -148,8 +148,8 @@ const MainLayout = ({ children }) => {
   );
 };
 
-MainLayout.propTypes = {
+DashboardLayout.propTypes = {
   children: PropTypes.node
 };
 
-export default MainLayout;
+export default DashboardLayout;
