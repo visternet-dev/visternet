@@ -1,5 +1,5 @@
 import LandingFilter from "components/pages/landing/filter";
-import LandingGetStarted from "components/pages/landing/get-start";
+import LandingGetStarted from "components/pages/landing/sections/get-start";
 import LandingMinimalRows from "components/pages/landing/rows/MinimalRows";
 import MUK_LANDING from "constant/landing/muk";
 import Layout from "layout";

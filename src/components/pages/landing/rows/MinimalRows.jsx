@@ -1,10 +1,9 @@
-import translate from "utils/locales/translate";
-
-import { FormattedMessage } from "react-intl";
 
 import { Stack, Typography } from "@mui/material";
 
 import { useTheme } from "@emotion/react";
+
+import translate from "utils/locales/translate";
 
 function LandingMinimalRows({ data = [], haveTranslate = false, prefix = "", suffix = "" }) {
   const theme = useTheme();
