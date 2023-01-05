@@ -4,8 +4,8 @@ import { Stack } from "@mui/material";
 
 import translate from "utils/locales/translate";
 
-import ComingSoon from "components/ui-component/coming-soon";
 import CustomDivider from "components/ui-component/HOC/Divider";
+import CustomTabSection from "components/ui-component/HOC/Tabs";
 import CustomTabsHeader from "components/ui-component/HOC/Tabs/header";
 
 import LandingTitle from "../../title";
@@ -31,16 +31,15 @@ function LandingGetStarted() {
   };
 
   return (
-    <Stack alignItems="center" sx={{ mb: 5 }}>
+    <Stack alignItems="center">
       <LandingTitle subTitle={translate("working-progress")} center sx={{ mb: 3 }}>
-        {translate("get-started-width-visternet")}
+        {translate("how-it-work-for-applicants")}
       </LandingTitle>
 
       <CustomDivider>
         <CustomTabsHeader value={value} onChange={handleChange} data={dataTableHeader} noBorder />
       </CustomDivider>
 
-      <ComingSoon />
     </Stack>
   );
 }
