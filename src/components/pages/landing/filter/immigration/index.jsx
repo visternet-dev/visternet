@@ -8,7 +8,7 @@ import { Box } from "@mui/system";
 function LandingImmigration() {
   return (
     <Box>
-      <Stack direction="row" sx={{ width: "100%" }} justifyContent="space-between" spacing={2}>
+      <Stack flexWrap="wrap" direction="row" sx={{ width: "100%" }} justifyContent="space-between" spacing={2}>
         <CustomAutocomplete
           sx={{ flex: 1 }}
           options={["12", "2121", "$23"]}
