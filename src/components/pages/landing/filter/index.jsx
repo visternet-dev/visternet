@@ -9,9 +9,31 @@ import { useTheme } from "@emotion/react";
 
 import translate from "utils/locales/translate";
 
+import CustomTabsHeader from "components/ui-component/HOC/Tabs/header";
+
 import LandingAdvanceSearch from "./advance";
 import GoDown from "./go-down";
 import LandingImmigration from "./immigration";
+
+// Data
+const dataTabsHeader = [
+  {
+    label: (
+      <Typography variant="h3" color="inherit">
+        {translate("search-immigration-programs")}
+      </Typography>
+    ),
+    value: "search-immigration-programs"
+  },
+  {
+    label: (
+      <Typography variant="h3" color="inherit">
+        {translate("advance-search")}
+      </Typography>
+    ),
+    value: "advance-search"
+  }
+];
 
 function LandingFilter() {
   const theme = useTheme();
@@ -32,27 +54,8 @@ function LandingFilter() {
         boxShadow: "0px 0px 56px -22px rgba(0, 0, 0, 0.25)"
       }}
     >
-      <TabContext value={value} sx={{}}>
-        <Box sx={{ borderBottom: 1, border: "none !important" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab
-              label={
-                <Typography variant="h3" color="inherit">
-                  {translate("search-immigration-programs")}
-                </Typography>
-              }
-              value="search-immigration-programs"
-            />
-            <Tab
-              label={
-                <Typography variant="h3" color="inherit">
-                  {translate("advance-search")}
-                </Typography>
-              }
-              value="advance-search"
-            />
-          </TabList>
-        </Box>
+      <TabContext value={value}>
+        <CustomTabsHeader value={value} onChange={handleChange} data={dataTabsHeader} noBorder />
         <TabPanel value="search-immigration-programs" sx={{ px: "0 !important" }}>
           <LandingImmigration />
         </TabPanel>
@@ -60,6 +63,8 @@ function LandingFilter() {
           <LandingAdvanceSearch />
         </TabPanel>
       </TabContext>
+ 
+      {/* arrow go down */}
       <GoDown />
     </Box>
   );

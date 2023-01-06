@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { TabContext, TabPanel } from "@mui/lab";
 import { Stack } from "@mui/material";
 
 import translate from "utils/locales/translate";
@@ -9,9 +10,10 @@ import CustomDivider from "components/ui-component/HOC/Divider";
 import CustomTabsHeader from "components/ui-component/HOC/Tabs/header";
 
 import LandingTitle from "../../title";
+import LandingSectionApplicants from "./applicants";
 
 // Data
-const dataTableHeader = [
+const dataTabsHeader = [
   {
     label: translate("applicants"),
     value: "one"
@@ -36,12 +38,18 @@ function LandingSectionGetStarted() {
         {translate("get-started-width-visternet")}
       </LandingTitle>
 
-      <CustomDivider>
-        <CustomTabsHeader value={value} onChange={handleChange} data={dataTableHeader} noBorder />
-      </CustomDivider>
-
-      {/* TODO: must be develop this section */}
-      <ComingSoon />
+      <TabContext value={value} >
+        <CustomDivider>
+          <CustomTabsHeader value={value} onChange={handleChange} data={dataTabsHeader} noBorder />
+        </CustomDivider>
+        <TabPanel value="one" sx={{ px: "0 !important" , width: "100%" }}>
+          <LandingSectionApplicants />
+        </TabPanel>
+        <TabPanel value="two" sx={{ px: "0 !important" }}>
+          {/* TODO: must be develop this section */}
+          <ComingSoon />
+        </TabPanel>
+      </TabContext>
     </Stack>
   );
 }
