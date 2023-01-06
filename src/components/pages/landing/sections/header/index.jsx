@@ -6,7 +6,7 @@ import LandingFilter from "../../filter";
 import LandingMinimalRows from "../../rows/MinimalRows";
 import LandingWorldMap from "../../world-map";
 
-function LandingHeader() {
+function LandingSectionHeader() {
   return (
     <Box sx={{ height: "calc(100vh - 70px)" }}>
       <Container>
@@ -20,4 +20,4 @@ function LandingHeader() {
   );
 }
 
-export default LandingHeader;
+export default LandingSectionHeader;

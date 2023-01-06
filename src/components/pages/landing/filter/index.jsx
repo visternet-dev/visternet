@@ -11,7 +11,7 @@ import translate from "utils/locales/translate";
 
 import LandingAdvanceSearch from "./advance";
 import GoDown from "./go-down";
-import LandingImmigrationSearch from "./immigration";
+import LandingImmigration from "./immigration";
 
 function LandingFilter() {
   const theme = useTheme();
@@ -54,7 +54,7 @@ function LandingFilter() {
           </TabList>
         </Box>
         <TabPanel value="search-immigration-programs" sx={{ px: "0 !important" }}>
-          <LandingImmigrationSearch />
+          <LandingImmigration />
         </TabPanel>
         <TabPanel value="advance-search" sx={{ px: "0 !important" }}>
           <LandingAdvanceSearch />

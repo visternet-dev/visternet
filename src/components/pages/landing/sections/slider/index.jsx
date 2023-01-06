@@ -6,11 +6,11 @@ import ComingSoon from "components/ui-component/coming-soon";
 
 import LandingTitle from "../../title";
 
-function LandingSectionHowWork() {
+function LandingSectionSlider() {
   return (
     <Stack alignItems="center">
-      <LandingTitle subTitle={translate("working-progress")} center sx={{ mb: 3 }}>
-        {translate("how-it-work-for-applicants")}
+      <LandingTitle subTitleBottom={translate("show-read-more")} center sx={{ mb: 3 }} leftLine={false} rightLine={false}>
+        {translate("a-platform-to-empower-all-stakeholders-in-immigration-ecosystem")}
       </LandingTitle>
 
       {/* TODO: must be develop this section */}
@@ -19,4 +19,4 @@ function LandingSectionHowWork() {
   );
 }
 
-export default LandingSectionHowWork;
+export default LandingSectionSlider;

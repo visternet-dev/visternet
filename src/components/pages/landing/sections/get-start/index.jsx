@@ -23,7 +23,7 @@ const dataTableHeader = [
   }
 ];
 
-function LandingGetStarted() {
+function LandingSectionGetStarted() {
   const [value, setValue] = useState("one");
 
   const handleChange = (event, newValue) => {
@@ -40,9 +40,10 @@ function LandingGetStarted() {
         <CustomTabsHeader value={value} onChange={handleChange} data={dataTableHeader} noBorder />
       </CustomDivider>
 
+      {/* TODO: must be develop this section */}
       <ComingSoon />
     </Stack>
   );
 }
 
-export default LandingGetStarted;
+export default LandingSectionGetStarted;

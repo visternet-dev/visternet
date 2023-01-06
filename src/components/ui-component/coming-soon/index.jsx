@@ -12,7 +12,7 @@ function ComingSoon() {
   return (
     <Stack alignItems="center" justifyContent="center" sx={{ py: 10, width: "100%" }}>
       <CodeIcon sx={{ color: theme.palette.primary.main, fontSize: "5rem" }} />
-      <Typography sx={{ fontSize: "1.75rem", fontWeight: 700, color: theme.palette.primary.main }}>{translate("coming-soon")}</Typography>
+      <Typography sx={{ fontSize: "1.75rem", fontWeight: 900, color: theme.palette.primary.main }}>{translate("coming-soon")}</Typography>
     </Stack>
   );
 }
