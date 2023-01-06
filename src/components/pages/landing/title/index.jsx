@@ -11,7 +11,8 @@ function LandingTitle({
   variant = "h2",
   leftLine = true,
   rightLine = true,
-  fontSize = "2rem"
+  fontSize = "2rem",
+  subTitleBottom = ""
 }) {
   const theme = useTheme();
 
@@ -27,6 +28,7 @@ function LandingTitle({
   return (
     <Stack sx={{ ...sx }}>
       {subTitle && <Typography sx={styles.subTitle}>{subTitle}</Typography>}
+
       <Stack direction="row" spacing={1.5} alignItems="center">
         {leftLine && <Box sx={styles.line} />}
         <Typography variant={variant} sx={{ fontSize, textTransform: "uppercase" }}>
@@ -34,6 +36,8 @@ function LandingTitle({
         </Typography>
         {rightLine && <Box sx={styles.line} />}
       </Stack>
+
+      {subTitleBottom && <Typography sx={styles.subTitle}>{subTitleBottom}</Typography>}
     </Stack>
   );
 }

@@ -5,7 +5,7 @@ import CustomInput from "components/ui-component/HOC/fields/input";
 import { Stack } from "@mui/material";
 import { Box } from "@mui/system";
 
-function LandingImmigrationSearch() {
+function LandingImmigration() {
   return (
     <Box>
       <Stack direction="row" sx={{ width: "100%" }} justifyContent="space-between" spacing={2}>
@@ -38,4 +38,4 @@ function LandingImmigrationSearch() {
   );
 }
 
-export default LandingImmigrationSearch;
+export default LandingImmigration;
