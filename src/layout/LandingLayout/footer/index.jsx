@@ -1,11 +1,11 @@
-import Logo from "layout/components/logo";
-
 import Image from "next/image";
 import Link from "next/link";
 
 import { Box, Grid, List, ListItem, Typography } from "@mui/material";
 
 import { useTheme } from "@emotion/react";
+
+import Logo from "layout/components/logo";
 
 function FooterLanding() {
   const data = {
@@ -45,11 +45,12 @@ function FooterLanding() {
               {data.info.socialMedia.title}
             </Typography>
             <Box sx={{ display: "flex", marginTop: "0.5rem" }}>
-              {data.info.socialMedia.media.map((each) => (
+              {data.info.socialMedia.media.map((each, index) => (
                 <img
                   style={{ width: "25px", height: "25px", marginLeft: 10, cursor: "pointer" }}
                   src={each.icon}
                   onClick={() => window.open(each.path, "_black")}
+                  key={index}
                 />
               ))}
             </Box>
@@ -57,8 +58,8 @@ function FooterLanding() {
         </Grid>
         <Grid xs={12} md={3} item>
           <List>
-            {data.routes.map((each) => (
-              <ListItem sx={{ cursor: "pointer" }}>
+            {data.routes.map((each, index) => (
+              <ListItem sx={{ cursor: "pointer" }} key={index}>
                 <Link href={each.path}>
                   <Typography
                     sx={{ color: theme.palette.primary.main, textTransform: "capitalize", flex: { xs: 4, sm: 1 } }}
