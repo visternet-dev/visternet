@@ -1,11 +1,11 @@
 import CodeIcon from "@mui/icons-material/Code";
-import { Stack } from "@mui/material";
+
+import useScreen from "hooks/useScreen";
 
 import translate from "utils/locales/translate";
 
-import PolygonCard from "components/ui-component/cards/Polygon";
-
-const worldMap = "/assets/images/landing/airLine.svg";
+import LandingSectionApplicantsDesktop from "./desktop";
+import LandingSectionApplicantsMobile from "./mobile";
 
 const data = [
   {
@@ -16,23 +16,12 @@ const data = [
   }
 ];
 
-const styles = {
-  card: {
-    position: "absolute"
-  }
-};
-
 function LandingSectionApplicants() {
-  return (
-    <Stack alignItems="center" sx={{ py: 10, position: "relative" }}>
-      <img src={worldMap} style={{ width: "100%" }} />
+  const { tablet } = useScreen();
 
-      <PolygonCard {...data[0]} count={"1"} sx={{ ...styles.card, left: "10%", bottom: "20%" }} />
-      <PolygonCard {...data[0]} count={"2"} sx={{ ...styles.card, left: "30%", bottom: "5%" }} />
-      <PolygonCard {...data[0]} count={"3"} sx={{ ...styles.card, left: "60%", bottom: "30%" }} />
-      <PolygonCard {...data[0]} count={"4"} sx={{ ...styles.card, left: "80%", bottom: "25%" }} />
-    </Stack>
-  );
+  if (tablet) return <LandingSectionApplicantsMobile data={data} />;
+
+  return <LandingSectionApplicantsDesktop data={data} />;
 }
 
 export default LandingSectionApplicants;
