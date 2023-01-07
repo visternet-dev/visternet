@@ -1,17 +1,15 @@
-<svg width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_125_7404)">
-<path d="M98.5 43.6491V71.3509C98.5 75.8869 95.8253 80.0991 91.5011 82.4076L65.0212 96.299C60.697 98.567 55.3476 98.567 50.9788 96.299L24.4989 82.4076C20.1747 80.1396 17.5 75.9274 17.5 71.3509V43.6491C17.5 39.1131 20.1747 34.9009 24.4989 32.5924L50.9788 18.701C55.303 16.433 60.6524 16.433 65.0212 18.701L91.5011 32.5924C95.8253 34.9009 98.5 39.0726 98.5 43.6491Z" fill="white"/>
-</g>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
 <defs>
-<filter id="filter0_d_125_7404" x="0.5" y="0" width="115" height="115" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="8.5"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.247059 0 0 0 0 0.317647 0 0 0 0 0.709804 0 0 0 0.23 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_125_7404"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_125_7404" result="shape"/>
-</filter>
 </defs>
+<g transform="matrix(1 0 0 1 540 540)" id="09e18a1a-6038-479f-98cf-e1eaf2376d12"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="f6c1819d-3139-463b-b130-f359f6ae8ab0"  >
+</g>
+<g transform="matrix(13.16 0 0 13.16 540 540)" id="f7ef62db-8920-4310-b82a-17e000880384"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-58, -57.5)" d="M 98.5 43.6491 L 98.5 71.3509 C 98.5 75.8869 95.8253 80.0991 91.5011 82.4076 L 65.0212 96.299 C 60.697 98.567 55.3476 98.567 50.9788 96.299 L 24.4989 82.4076 C 20.1747 80.1396 17.5 75.9274 17.5 71.3509 L 17.5 43.6491 C 17.5 39.1131 20.1747 34.9009 24.4989 32.5924 L 50.9788 18.701 C 55.303 16.433 60.6524 16.433 65.0212 18.701 L 91.5011 32.5924 C 95.8253 34.9009 98.5 39.0726 98.5 43.6491 Z" stroke-linecap="round" />
+</g>
 </svg>

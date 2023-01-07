@@ -1,22 +1,16 @@
-import React from "react";
+import { Stack } from "@mui/material";
 
-import { Box } from "@mui/system";
+import PolygonCardBody from "./body";
+import PolygonCardHeader from "./header";
 
-const BG = "/assets/images/landing/5-sided.svg";
-
-function PolygonCard() {
+function PolygonCard({ sx, sxHeader, sxBody, icon = <></>, count = "0", title = "", linkUrl = "#", linkText = translate("read-more") }) {
   return (
-    <Box>
-      <Box
-        sx={{
-          bgcolor: "red",
-          height: "200px",
-          width: "200px",
-        }}
-      >
-        <img src={BG} style={{ height: "100%", width: "100%" }} />
-      </Box>
-    </Box>
+    <Stack spacing={1} sx={{ ...sx }} alignItems="center" justifyContent="center">
+      {/* Header Card */}
+      <PolygonCardHeader sx={{ ...sxHeader }} icon={icon} count={count} />
+      {/* Body Card */}
+      <PolygonCardBody sx={{ ...sxBody }} title={title} linkUrl={linkUrl} linkText={linkText} />
+    </Stack>
   );
 }
 
