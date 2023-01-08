@@ -1,4 +1,5 @@
 import { Grid, Stack } from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import Layout from "layout";
 
@@ -17,14 +18,14 @@ const Landing = () => (
     <LandingSectionHeader />
     <LandingSectionGetStarted />
     <LandingSectionHowWork />
-    <Grid container>
-      <Grid item xs={12} md={6}>
+    <Grid2 container sx={{ px: 5 }} spacing={10}>
+      <Grid2 xs={12} md={6}>
         <LandingSectionUpdateVisas />
-      </Grid>
-      <Grid item xs={12} md={6}>
+      </Grid2>
+      <Grid2 xs={12} md={6}>
         <LandingSectionImmigration />
-      </Grid>
-    </Grid>
+      </Grid2>
+    </Grid2>
     <LandingSectionSlider />
     <LandingSectionUserExperience />
   </Stack>

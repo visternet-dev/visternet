@@ -3,7 +3,7 @@ import { Stack } from "@mui/material";
 
 import PolygonCard from "components/ui-component/cards/Polygon";
 
-const worldMap = "/assets/images/landing/airLine.svg";
+const airLine = "/assets/images/landing/airLine.svg";
 
 const styles = {
   card: {
@@ -15,7 +15,7 @@ const styles = {
 function LandingSectionApplicantsDesktop({ data }) {
   return (
     <Stack alignItems="center" sx={{ py: 10, position: "relative" }}>
-      <img src={worldMap} style={{ width: "100%" }} />
+      <img src={airLine} style={{ width: "100%" }} />
       {/* Number 1 */}
       <PolygonCard
         {...data[0]}

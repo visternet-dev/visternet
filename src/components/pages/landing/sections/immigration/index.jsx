@@ -8,7 +8,7 @@ import LandingTitle from "../../title";
 
 function LandingSectionImmigration() {
   return (
-    <Stack alignItems="flex-start" sx={{ pl: 3 }}>
+    <Stack alignItems="flex-start">
       <LandingTitle subTitle={translate("category")} rightLine={false} sx={{ mb: 3 }}>
         {translate("immigration-opportunities")}
       </LandingTitle>

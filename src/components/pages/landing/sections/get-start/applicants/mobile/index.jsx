@@ -3,20 +3,13 @@ import { Box } from "@mui/system";
 
 import PolygonCard from "components/ui-component/cards/Polygon";
 
-const worldMap = "/assets/images/landing/airLine.svg";
-
-const styles = {
-  card: {
-    position: "absolute",
-    transition: "0.5s"
-  }
-};
+const airLine = "/assets/images/landing/airLine.svg";
 
 function LandingSectionApplicantsMobile({ data }) {
   return (
     <Stack alignItems="center" justifyContent="center" sx={{ py: 5, position: "relative" }}>
       <Box sx={{ display: { xs: "none", sm: "block" } }}>
-        <img src={worldMap} style={{ width: "100%", position: "absolute", inset: 0, top: "30%" }} />
+        <img src={airLine} style={{ width: "100%", position: "absolute", inset: 0, top: "30%" }} />
       </Box>
 
       <Grid container sx={{ position: "relative", zIndex: 9 }}>

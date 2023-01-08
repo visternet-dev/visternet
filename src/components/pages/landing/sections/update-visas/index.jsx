@@ -16,7 +16,7 @@ const data = [
 
 function LandingSectionUpdateVisas() {
   return (
-    <Stack alignItems="flex-start" sx={{ pl: { xs: 0, md: 4, lg: 5 } }}>
+    <Stack alignItems="flex-start">
       <LandingTitle subTitle={translate("news")} rightLine={false} sx={{ mb: 3 }}>
         {translate("new-updates-about-visas")}
       </LandingTitle>
