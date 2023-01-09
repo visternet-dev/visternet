@@ -18,7 +18,7 @@ const Landing = () => (
     <LandingSectionHeader />
     <LandingSectionGetStarted />
     <LandingSectionHowWork />
-    <Grid2 container sx={{ px: 5 }} spacing={10}>
+    <Grid2 container sx={{ px: 5, maxWidth: "100%" }} spacing={10}>
       <Grid2 xs={12} md={6}>
         <LandingSectionUpdateVisas />
       </Grid2>
