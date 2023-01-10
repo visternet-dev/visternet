@@ -6,12 +6,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { each } from "lodash";
 import translate from "utils/locales/translate";
 
 import LandingTitle from "../../title";
 import Card from "./card";
 
-function LandingSectionSlider() {
+function LandingSectionSlider({ data }) {
   return (
     <Stack
       sx={{
@@ -50,20 +51,14 @@ function LandingSectionSlider() {
             spaceBetween: 50
           }
         }}
+        modules={[Pagination]}
         className="immigration-swiper"
       >
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
+        {data.map((each, index) => (
+          <SwiperSlide key={index}>
+            <Card thumbnail={each.thumbnail} date={each.date} title={each.title} description={each.description} path={each.path} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Stack>
   );

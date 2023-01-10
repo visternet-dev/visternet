@@ -11,7 +11,7 @@ import translate from "utils/locales/translate";
 import LandingTitle from "../../title";
 import Card from "./card";
 
-function LandingSectionUserExperience() {
+function LandingSectionUserExperience({ data = [] }) {
   return (
     <Stack
       sx={{
@@ -54,18 +54,11 @@ function LandingSectionUserExperience() {
         }}
         className="experience-swiper"
       >
-        <SwiperSlide>
-          <Card user="ali" type="front end" text="hello" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card user="ali" type="front end" text="hello" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card user="ali" type="front end" text="hello" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card user="ali" type="front end" text="hello" />
-        </SwiperSlide>
+        {data.map((each, index) => (
+          <SwiperSlide key={index}>
+            <Card imageSrc={each.imageSrc} user={each.user} type={each.type} text={each.text} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Stack>
   );

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { Box, Grid, List, ListItem, Typography } from "@mui/material";
@@ -29,7 +28,24 @@ function FooterLanding() {
       { title: "Home", path: "/" },
       { title: "Blog", path: "/blog" },
       { title: "Contact Us", path: "/contact-us" }
-    ]
+    ],
+    backLinkBoxFirst: {
+      title: "Resources",
+      actions: [
+        { title: "Home", path: "/" },
+        { title: "Blog", path: "/blog" },
+        { title: "Contact Us", path: "/contact-us" }
+      ]
+    },
+    backLinkBoxSecond: {
+      title: "Resources",
+      actions: [
+        { title: "Home", path: "/" },
+        { title: "Blog", path: "/blog" },
+        { title: "Contact Us", path: "/contact-us" }
+      ]
+    },
+    copyRight: "© 2015-2022 Visternet Inc."
   };
   const theme = useTheme();
   return (
@@ -79,12 +95,14 @@ function FooterLanding() {
             variant="h3"
             noWrap
           >
-            Resources
+            {data.backLinkBoxFirst.title}
           </Typography>
           <List>
-            <ListItem sx={{ cursor: "pointer", textTransform: "capitalize" }}>
-              <Link href="/">blog</Link>
-            </ListItem>
+            {data.backLinkBoxFirst.actions.map((each, index) => (
+              <ListItem sx={{ cursor: "pointer", textTransform: "capitalize" }} key={index}>
+                <Link href={each.path}>{each.title}</Link>
+              </ListItem>
+            ))}
           </List>
         </Grid>
         <Grid xs={12} md={3} item>
@@ -93,18 +111,20 @@ function FooterLanding() {
             variant="h3"
             noWrap
           >
-            Resources
+            {data.backLinkBoxSecond.title}
           </Typography>
           <List>
-            <ListItem sx={{ cursor: "pointer", textTransform: "capitalize" }}>
-              <Link href="/">blog</Link>
-            </ListItem>
+            {data.backLinkBoxFirst.actions.map((each, index) => (
+              <ListItem sx={{ cursor: "pointer", textTransform: "capitalize" }} key={index}>
+                <Link href={each.path}>{each.title}</Link>
+              </ListItem>
+            ))}
           </List>
         </Grid>
       </Grid>
       <Grid width={"100%"} sm={12} md={12} item>
         <Typography sx={{ backgroundColor: "#eff6fd", textAlign: "center", color: "#333", padding: "1rem 0", width: "100%" }}>
-          © 2015-2022 Visternet Inc.
+          {data.copyRight}
         </Typography>
       </Grid>
     </Grid>

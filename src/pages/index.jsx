@@ -13,7 +13,7 @@ import LandingSectionUserExperience from "components/pages/landing/sections/user
 
 // =============================|| LANDING MAIN ||============================= //
 
-const Landing = () => (
+const Landing = ({ sectionUserExperience, sectionSlider }) => (
   <Stack>
     <LandingSectionHeader />
     <LandingSectionGetStarted />
@@ -26,13 +26,70 @@ const Landing = () => (
         <LandingSectionImmigration />
       </Grid2>
     </Grid2>
-    <LandingSectionSlider />
-    <LandingSectionUserExperience />
+    <LandingSectionSlider data={sectionSlider} />
+    <LandingSectionUserExperience data={sectionUserExperience} />
   </Stack>
 );
 
 Landing.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
+
+export async function getStaticProps() {
+  const sectionUserExperience = [
+    { imageSrc: "", user: "ali", type: "front end", text: "hello" },
+    { imageSrc: "", user: "ali", type: "front end", text: "hello" },
+    { imageSrc: "", user: "ali", type: "front end", text: "hello" },
+    { imageSrc: "", user: "ali", type: "front end", text: "hello" }
+  ];
+  const sectionSlider = [
+    {
+      thumbnail: "/assets/images/cards/card-1.jpg",
+      date: "10 Jun 2022",
+      title: "Top Winter Wonderlands for Students in Ontario This Year",
+      description:
+        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+      path: "/"
+    },
+    {
+      thumbnail: "/assets/images/cards/card-1.jpg",
+      date: "10 Jun 2022",
+      title: "Top Winter Wonderlands for Students in Ontario This Year",
+      description:
+        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+      path: "/"
+    },
+    {
+      thumbnail: "/assets/images/cards/card-1.jpg",
+      date: "10 Jun 2022",
+      title: "Top Winter Wonderlands for Students in Ontario This Year",
+      description:
+        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+      path: "/"
+    },
+    {
+      thumbnail: "/assets/images/cards/card-1.jpg",
+      date: "10 Jun 2022",
+      title: "Top Winter Wonderlands for Students in Ontario This Year",
+      description:
+        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+      path: "/"
+    },
+    {
+      thumbnail: "/assets/images/cards/card-1.jpg",
+      date: "10 Jun 2022",
+      title: "Top Winter Wonderlands for Students in Ontario This Year",
+      description:
+        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+      path: "/"
+    }
+  ];
+  return {
+    props: {
+      sectionUserExperience,
+      sectionSlider
+    }
+  };
+}
 
 export default Landing;

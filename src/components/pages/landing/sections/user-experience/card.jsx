@@ -9,7 +9,7 @@ const Card = ({ user = "", type = "", text = "", imageSrc = "" }) => {
         justifyContent: "space-around",
         minHeight: "10rem",
         padding: "1rem 2rem",
-        boxShadow: "0 0 20px 2px #dddddd"
+        boxShadow: "0px 4px 58px rgba(0, 0, 0, 0.07)"
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>

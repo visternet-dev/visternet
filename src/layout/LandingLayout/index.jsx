@@ -15,5 +15,4 @@ function LandingLayout({ children }) {
     </Stack>
   );
 }
-
 export default LandingLayout;

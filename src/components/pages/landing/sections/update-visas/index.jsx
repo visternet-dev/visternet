@@ -22,8 +22,8 @@ function LandingSectionUpdateVisas() {
       </LandingTitle>
 
       <Stack spacing={2} sx={{ maxHeight: "300px", overflow: "auto", width: "100%", px: 2 }}>
-        {data.map(({ date, content }) => (
-          <UpdateVisasCard subTitle={date} content={content} />
+        {data.map(({ date, content }, index) => (
+          <UpdateVisasCard subTitle={date} content={content} key={index} />
         ))}
       </Stack>
     </Stack>
