@@ -91,8 +91,8 @@ function LandingSectionImmigration({ data = init }) {
         }}
         className="immigrationSilder"
       >
-        {data.map((each) => (
-          <SwiperSlide>
+        {data.map((each, index) => (
+          <SwiperSlide key={index}>
             <Card image={each.src} text={each.text} onClick={each.onClick} />
           </SwiperSlide>
         ))}
