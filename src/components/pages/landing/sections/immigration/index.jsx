@@ -1,20 +1,102 @@
-import { Stack } from "@mui/material";
+import Image from "next/image";
+
+import { Box, Stack } from "@mui/material";
+
+// Import Swiper styles
+import "swiper/css";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import translate from "utils/locales/translate";
 
 import ComingSoon from "components/ui-component/coming-soon";
 
 import LandingTitle from "../../title";
+import Card from "./Card";
 
-function LandingSectionImmigration() {
+const init = [
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    onClick: () => {
+      console.log("clicked");
+    }
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    onClick: () => {
+      console.log("clicked");
+    }
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    onClick: () => {
+      console.log("clicked");
+    }
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    onClick: () => {
+      console.log("clicked");
+    }
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    onClick: () => {
+      console.log("clicked");
+    }
+  }
+];
+function LandingSectionImmigration({ data = init }) {
   return (
-    <Stack alignItems="flex-start">
+    <Stack
+      sx={{
+        ".swiper": { width: "100%", height: "100%", padding: "4rem 1rem" },
+        ".swiper-slide": {
+          textAlign: "center",
+          background: "#fff",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }
+      }}
+      alignItems="flex-start"
+    >
       <LandingTitle subTitle={translate("category")} rightLine={false} sx={{ mb: 3 }}>
         {translate("immigration-opportunities")}
       </LandingTitle>
-
-      {/* TODO: must be develop this section */}
-      <ComingSoon />
+      <Swiper
+        slidesPerView={3}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50
+          }
+        }}
+        creativeEffect
+        pagination={{
+          clickable: true
+        }}
+        className="immigrationSilder"
+      >
+        {data.map((each) => (
+          <SwiperSlide>
+            <Card image={each.src} text={each.text} onClick={each.onClick} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </Stack>
   );
 }

@@ -7,7 +7,7 @@ const Card = ({ thumbnail = "", date = "", title = "", description = "", path = 
     <Grid sx={{ background: "#fff", boxShadow: "0 4px 44px -14px grey", borderRadius: "11px" }} flexDirection="column" container>
       <Grid xs={12} item>
         <Box sx={{ borderRadius: "10px", overflow: "hidden" }}>
-          <img width="100%" height="200px" src={thumbnail} />
+          <img style={{ objectFit: "cover" }} width="100%" height="200px" src={thumbnail} />
         </Box>
       </Grid>
       <Grid sx={{ padding: "1rem" }} flexDirection="column" container>
