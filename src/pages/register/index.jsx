@@ -27,7 +27,8 @@ function Register() {
       <Grid
         sx={{
           position: "relative",
-          ".plane": { position: "absolute", right: "-8rem", top: "5rem" },
+          overflow: "hidden",
+          ".plane": { position: "absolute", right: "-8rem", top: "10%", zIndex: "0" },
           ".map": { position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)" }
         }}
         display="flex"
@@ -39,7 +40,16 @@ function Register() {
       >
         <img className="plane" src="/assets/images/pages/loginPlane.svg" alt="Plane" />
         <img className="map" src="/assets/images/pages/loginMap.svg" alt="Map" />
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minWidth: "22.5rem" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            minWidth: "22.5rem",
+            zIndex: "1"
+          }}
+        >
           <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", mb: 4 }}>
             <Typography sx={{ fontSize: "2rem", fontWeight: "bold" }} variant="p">
               Welcome back
@@ -67,7 +77,7 @@ function Register() {
         display={{ xs: "none", lg: "block" }}
         item
       >
-        <img className="section-right-bg" src="/assets/images/e-commerce/prod-3.jpg" />
+        <img className="section-right-bg" src="/assets/images/e-commerce/prod-2.jpg" />
       </Grid>
     </Grid>
   );
