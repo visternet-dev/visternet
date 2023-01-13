@@ -6,10 +6,11 @@ export const LAYOUT_CONST = {
 };
 
 export const LAYOUT = {
-  main: "main",
-  noauth: "noauth",
-  minimal: "minimal",
-  landing: "landing"
+  MAIN: "main",
+  NOAUTH: "noauth",
+  MINIMAL: "minimal",
+  LANDING: "landing",
+  DASHBOARD: "dashboard"
 };
 
 export default LAYOUT;

@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
+import Loader from "components/ui-component/Loader";
 // project imports
-import useAuth from 'hooks/useAuth';
-import Loader from 'components/ui-component/Loader';
+import useAuth from "hooks/useAuth";
+import PropTypes from "prop-types";
+
+import { useRouter } from "next/router";
+
+import { useEffect } from "react";
 
 // ==============================|| AUTH GUARD ||============================== //
 
@@ -13,11 +14,14 @@ import Loader from 'components/ui-component/Loader';
  * @param {PropTypes.node} children children element/node
  */
 const AuthGuard = ({ children }) => {
-  const { isLoggedIn } = useAuth();
+  // TODO: undo this line for handle auth
+  // const { isLoggedIn } = useAuth();
+  const isLoggedIn = true;
+
   const router = useRouter();
   useEffect(() => {
     if (!isLoggedIn) {
-      router.push('/login');
+      router.push("/login");
     }
     // eslint-disable-next-line
   }, [isLoggedIn]);

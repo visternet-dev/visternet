@@ -1,16 +1,21 @@
-import translate from "utils/locales/translate";
-
-import { FormattedMessage } from "react-intl";
-
 import { Stack, Typography } from "@mui/material";
 
 import { useTheme } from "@emotion/react";
 
-function LandingMinimalRows({ data = [], haveTranslate = false, prefix = "", suffix = "" }) {
+import translate from "utils/locales/translate";
+
+function LandingMinimalRows({ data = [], haveTranslate = false, prefix = "", suffix = "", sx, ...params }) {
   const theme = useTheme();
 
   return (
-    <Stack sx={{ py: 4 }} direction={{ xs: "column", md: "row" }} justifyContent="space-between" alignItems="center" spacing={2}>
+    <Stack
+      sx={{ ...sx, py: 4 }}
+      direction={{ xs: "column", md: "row" }}
+      justifyContent="space-between"
+      alignItems="center"
+      spacing={2}
+      {...params}
+    >
       {data.map(({ title, value }, index) => (
         <Stack
           sx={{ width: { xs: "100%", md: "auto" } }}
