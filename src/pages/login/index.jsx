@@ -27,7 +27,8 @@ function Login() {
       <Grid
         sx={{
           position: "relative",
-          ".plane": { position: "absolute", right: "-8rem", top: "5rem" },
+          overflow: "hidden",
+          ".plane": { position: "absolute", right: "-8rem", top: "10%" },
           ".map": { position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)" }
         }}
         display="flex"
