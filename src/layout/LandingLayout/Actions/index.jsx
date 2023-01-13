@@ -1,13 +1,21 @@
-import CustomButton from "components/ui-component/HOC/Button";
-import translate from "utils/locales/translate";
+import { useRouter } from "next/router";
 
 import { Stack } from "@mui/material";
 
+import translate from "utils/locales/translate";
+
+import CustomButton from "components/ui-component/HOC/Button";
+
 function LandingActions() {
+  const router = useRouter();
   return (
     <Stack direction="row" spacing={1}>
-      <CustomButton variant="contained">{translate("login")}</CustomButton>
-      <CustomButton variant="contained">{translate("register")}</CustomButton>
+      <CustomButton onClick={() => router.push("/login")} variant="contained">
+        {translate("login")}
+      </CustomButton>
+      <CustomButton onClick={() => router.push("/register")} variant="contained">
+        {translate("register")}
+      </CustomButton>
     </Stack>
   );
 }
