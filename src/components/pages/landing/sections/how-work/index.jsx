@@ -19,6 +19,7 @@ const colorList = [
   "#EFF6FC"
 ];
 
+
 function LandingSectionHowWork() {
   return (
     <Stack alignItems="center" justifyContent="center" sx={{ position: "relative" }}>
