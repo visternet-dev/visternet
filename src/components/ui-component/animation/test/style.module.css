@@ -1,0 +1,37 @@
+.testAnimation {
+  background-color: red;
+  position: relative;
+  /* display: inline-block; */
+}
+
+.airPlane {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  transform: rotate(45deg);
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  offset-path: path(
+    "M1488,0.5L982.787,116.278C937.057,126.758,889.097,120.827,847.296,99.5235L762.309,56.2099C695.243,22.0293,614.665,28.4001,553.803,72.6953L480.716,125.888C426.553,165.308,356.253,174.993,293.449,151.689L-114,0.5"
+  );
+  animation: fancy-name-here 10000ms both ease-in-out infinite;
+}
+
+.line {
+  width: 100%;
+}
+
+@keyframes fancy-name-here {
+  0% {
+    offset-distance: 0;
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    offset-distance: 100%;
+  }
+}
