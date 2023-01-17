@@ -12,11 +12,11 @@ const bgHowWork = "/assets/images/landing/bgHowWork.svg";
 const demo = "/assets/images/landing/demo.svg";
 
 const colorList = [
-  "rgba(173, 165, 239, 0.14)",
   "rgba(255, 108, 76, 0.3)",
   "rgba(14, 51, 122, 0.22)",
+  "#EFF6FC",
   "rgba(253, 214, 104, 0.26)",
-  "#EFF6FC"
+  "rgba(173, 165, 239, 0.14)"
 ];
 
 function LandingSectionHowWork() {
@@ -28,31 +28,17 @@ function LandingSectionHowWork() {
 
       <img src={bgHowWork} style={{ width: "100%", maxHeight: "70vh", position: "absolute", top: 0, bottom: 0 }} />
 
-      <Grid2 container>
+      <Grid2 container alignItems="center">
         <Grid2>
           <img src={demo} style={{ width: "100%", maxHeight: "70vh", position: "relative", zIndex: 2, alignSelf: "flex-start" }} />
         </Grid2>
         <Grid2>
-          <Grid2 container>
-            <Box sx={{ right: "10%", top: "24%" }}>
-              <HowWorkCard label={translate("title")} color={colorList[0]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
-            </Box>
-
-            <Box sx={{ right: "15%", top: "37%" }}>
-              <HowWorkCard label={translate("title")} color={colorList[1]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
-            </Box>
-
-            <Box sx={{ right: "24%", top: "48%" }}>
-              <HowWorkCard label={translate("title")} color={colorList[2]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
-            </Box>
-
-            <Box sx={{ right: "15.5%", top: "58%" }}>
-              <HowWorkCard label={translate("title")} color={colorList[3]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
-            </Box>
-
-            <Box sx={{ right: "33%", top: "44%" }}>
-              <HowWorkCard label={translate("title")} color={colorList[4]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
-            </Box>
+          <Grid2 container justifyContent="center" sx={{bgcolor: "red" }} spacing={2}>
+            {[0, 1, 2, 3].map((item, index) => (
+              <Grid2 xs={12} sm={6} justifyContent="center" alignItems="center" sx={{ display: "flex" , bgcolor: "green" , width: "fit-content" }}>
+                <HowWorkCard label={translate("title")} color={colorList[index]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
+              </Grid2>
+            ))}
           </Grid2>
         </Grid2>
       </Grid2>
