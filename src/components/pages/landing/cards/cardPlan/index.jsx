@@ -1,4 +1,4 @@
-import { Box, LinearProgress, Typography, useTheme } from "@mui/material";
+import { Avatar, Box, Button, Chip, LinearProgress, Typography, useTheme } from "@mui/material";
 
 function LinearProgressWithLabel(props, { sx }) {
   return (
@@ -27,16 +27,56 @@ const CardPlan = () => {
         Matching your information
       </Typography>
       <LinearProgressWithLabel sx={{ margin: "1rem" }} variant="determinate" color="primary" value={10} />
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <Typography sx={{ margin: "1rem 1rem", fontWeight: "700", fontSize: "1.125rem" }} variant="span">
-          Planning for Construction
-        </Typography>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: "0.5rem" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", overflow: "auto" }}>
+          <Typography sx={{ margin: "1rem 1rem", fontWeight: "700", fontSize: "1.125rem" }} variant="span">
+            Planning for Construction
+          </Typography>
+        </Box>
         <Typography sx={{ margin: "1rem 1rem" }} variant="span">
-          <Typography sx={{ color: theme.palette.primary.main }} component="span">
+          <Typography sx={{ color: theme.palette.primary.main, fontWeight: "700", mr: 0.5 }} component="span">
             Ex Date:
           </Typography>
           20.10.2023
         </Typography>
+      </Box>
+      <Box display="flex" gap="1rem" flexWrap="nowrap" overflow="auto" mb="1rem">
+        <Chip label="Toronto,Canada" avatar={<Avatar src="/static/images/avatar/1.jpg" />} />
+        <Chip color="primary" label="Start-up Visa" />
+        <Chip color="error" label="Cloese" />
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box sx={{ display: "flex", width: "100%" }}>
+          <Box sx={{ marginRight: "0.604rem" }}>
+            <img src="/assets/images/icons/governmental.svg" />
+          </Box>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Typography sx={{ fontWeight: "bold" }} variant="body1">
+              Governmental:
+            </Typography>
+            <Typography>£14,250.00 GBP</Typography>
+          </Box>
+        </Box>
+        <Box sx={{ display: "flex", width: "100%" }}>
+          <Box sx={{ marginRight: "0.604rem" }}>
+            <img src="/assets/images/icons/governmental.svg" />
+          </Box>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Typography sx={{ fontWeight: "bold" }} variant="body1">
+              Governmental:
+            </Typography>
+            <Typography>£14,250.00 GBP</Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Box mt="1.5rem" display="flex">
+        <Button fullWidth disableElevation size="large" variant="contained">
+          Start Application
+        </Button>
+
+        <Button fullWidth size="large" color="primary">
+          Program Details
+        </Button>
       </Box>
     </Box>
   );
