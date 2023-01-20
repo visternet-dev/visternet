@@ -1,7 +1,9 @@
+import { useEffect, useRef, useState } from "react";
+
 import CodeIcon from "@mui/icons-material/Code";
 import { Stack } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import { Box } from "@mui/system";
+import { Box, height } from "@mui/system";
 
 import translate from "utils/locales/translate";
 
@@ -20,28 +22,41 @@ const colorList = [
 ];
 
 function LandingSectionHowWork() {
+  const [height, setHeight] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setHeight(ref.current?.clientHeight);
+    console.log("ref.current.clientHeight:", ref.current);
+  });
+
   return (
-    <Stack alignItems="center" justifyContent="center" sx={{ position: "relative" }}>
+    <Stack alignItems="center" justifyContent="center">
       <LandingTitle subTitle={translate("working-progress")} center sx={{ mb: 3 }}>
         {translate("how-it-work-for-applicants")}
       </LandingTitle>
 
-      <img src={bgHowWork} style={{ width: "100%", maxHeight: "70vh", position: "absolute", top: 0, bottom: 0 }} />
+      <Stack sx={{ position: "relative", height: "70vh", width: "100%" }} justifyContent="center" alignItems="center">
+        <img
+          src={bgHowWork}
+          style={{ maxWidth: "100%", height: "100%", bgcolor: "red", maxHeight: "100%", position: "absolute", top: 0, bottom: 0 }}
+        />
 
-      <Grid2 container alignItems="center">
-        <Grid2>
-          <img src={demo} style={{ width: "100%", maxHeight: "70vh", position: "relative", zIndex: 2, alignSelf: "flex-start" }} />
-        </Grid2>
-        <Grid2>
-          <Grid2 container justifyContent="center" sx={{bgcolor: "red" }} spacing={2}>
-            {[0, 1, 2, 3].map((item, index) => (
-              <Grid2 xs={12} sm={6} justifyContent="center" alignItems="center" sx={{ display: "flex" , bgcolor: "green" , width: "fit-content" }}>
-                <HowWorkCard label={translate("title")} color={colorList[index]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
-              </Grid2>
-            ))}
+        <Grid2 container alignItems="center" justifyContent="space-around">
+          <Grid2 lg={6} sx={{ display: "flex" }} justifyContent="flex-end">
+            <img src={demo} style={{ height: "100%", position: "relative", zIndex: 2, alignSelf: "flex-start" }} />
+          </Grid2>
+          <Grid2 lg={6} justifyContent="center" sx={{ display: "flex" }}>
+            <Grid2 container justifyContent="center" sx={{ width: { xs: "100%", md: "270px" } }} spacing={2}>
+              {[0, 1, 2, 3].map((item, index) => (
+                <Grid2 xs={12} sm={6} justifyContent="center" alignItems="center" sx={{ display: "flex", width: "fit-content" }}>
+                  <HowWorkCard label={translate("title")} color={colorList[index]} icon={<CodeIcon sx={{ fontSize: "3rem" }} />} />
+                </Grid2>
+              ))}
+            </Grid2>
           </Grid2>
         </Grid2>
-      </Grid2>
+      </Stack>
     </Stack>
   );
 }

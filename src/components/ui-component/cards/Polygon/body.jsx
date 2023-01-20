@@ -10,7 +10,7 @@ import translate from "utils/locales/translate";
 
 const BG = "/assets/images/landing/5-sided.svg";
 
-function PolygonCardBody({ title, linkUrl, linkText }) {
+function PolygonCardBody({ title, path, subTitle }) {
   const theme = useTheme();
 
   return (
@@ -19,9 +19,9 @@ function PolygonCardBody({ title, linkUrl, linkText }) {
         {title}
       </Typography>
 
-      <Link href={linkUrl} noLinkStyle>
+      <Link href={path} noLinkStyle>
         <Stack sx={{ color: theme.palette.primary.main }} direction="row" spacing={0.5} alignItems="center" justifyContent="center">
-          <Typography>{linkText}</Typography>
+          <Typography>{subTitle}</Typography>
           <ArrowForwardIosIcon sx={{ fontSize: "1rem" }} />
         </Stack>
       </Link>

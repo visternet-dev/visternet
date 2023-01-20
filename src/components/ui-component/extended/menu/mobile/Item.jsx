@@ -5,12 +5,12 @@ import { useTheme } from "@emotion/react";
 
 import Link from "/src/Link";
 
-function ItemMenuMobile({ url, title, isActive }) {
+function ItemMenuMobile({ path, title, isActive }) {
   const theme = useTheme();
   const activeStyle = { navigate: { width: "100% !important" }, title: { fontWeight: 600, color: "#fff" } };
 
   return (
-    <Link href={url} noLinkStyle>
+    <Link href={path} noLinkStyle>
       <Stack
         sx={{
           position: "relative",

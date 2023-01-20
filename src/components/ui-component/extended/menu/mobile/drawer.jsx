@@ -25,10 +25,10 @@ function DrawerMenuMobile({ openDrawer, setOpenDrawer, data, width }) {
       }}
     >
       <Stack sx={{ p: 1, width, bgcolor: "#fff", mx: "auto", pb: 12, borderRadius: "4px" }} spacing={2}>
-        {data.map(({ title = "", url = "" }, index) => {
-          const isActive = checkActiveItem({ url, pathname });
+        {data.map(({ title = "", path = "" }, index) => {
+          const isActive = checkActiveItem({ path, pathname });
 
-          return <ItemMenuMobile url={url} title={title} isActive={isActive} key={index} />;
+          return <ItemMenuMobile path={path} title={title} isActive={isActive} key={index} />;
         })}
       </Stack>
     </Drawer>

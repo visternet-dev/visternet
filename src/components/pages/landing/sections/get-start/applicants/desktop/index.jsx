@@ -1,4 +1,3 @@
-import CodeIcon from "@mui/icons-material/Code";
 import { Stack } from "@mui/material";
 
 import PolygonCard from "components/ui-component/cards/Polygon";
@@ -10,6 +9,19 @@ const styles = {
     position: "absolute",
     transition: "0.5s"
   }
+};
+
+const PolygonStyles = [
+  { left: { xs: "8%", sm: "8%", md: "8%", lg: "10%", xl: "10%" }, bottom: { xs: "13%", sm: "13%", md: "13%", lg: "15%", xl: "20%" } },
+  { left: { xs: "27%", sm: "27%", md: "27%", lg: "30%", xl: "30%" }, bottom: { xs: "5%", sm: "5%", md: "5%", lg: "5%", xl: "5%" } },
+  { left: { xs: "55%", sm: "55%", md: "55%", lg: "60%", xl: "60%" }, bottom: { xs: "23%", sm: "23%", md: "23%", lg: "25%", xl: "30%" } },
+  { left: { xs: "80%", sm: "80%", md: "80%", lg: "80%", xl: "80%" }, bottom: { xs: "17%", sm: "17%", md: "17%", lg: "20%", xl: "25%" } }
+];
+
+const muck = {
+  count: "1" , 
+  title: "title" , 
+  icon: ""
 };
 
 function LandingSectionApplicantsDesktop({ data }) {

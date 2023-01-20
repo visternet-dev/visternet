@@ -11,8 +11,8 @@ const data = [
   {
     icon: <CodeIcon sx={{ fontSize: "3rem" }} />,
     title: translate("sample-title"),
-    linkUrl: "#3",
-    linkText: translate("read-more")
+    path: "#3",
+    subTitle: translate("read-more")
   }
 ];
 

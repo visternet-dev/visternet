@@ -9,7 +9,7 @@ import Link from "/src/Link";
 /**
  * @name data = [{}]
  * @property {String} title
- * @property {String} url
+ * @property {String} path
  */
 
 function MenuDesktop({ data }) {
@@ -21,11 +21,11 @@ function MenuDesktop({ data }) {
   if (data)
     return (
       <Stack direction="row" spacing={2}>
-        {data.map(({ title = "", url = "" }, index) => {
-          const isActive = checkActiveItem({ url, pathname });
+        {data.map(({ title = "", path = "" }, index) => {
+          const isActive = checkActiveItem({ path, pathname });
 
           return (
-            <Link href={url} noLinkStyle key={index}>
+            <Link href={path} noLinkStyle key={index}>
               <Stack
                 sx={{
                   "&:hover .navigate": {

@@ -30,11 +30,11 @@ function MinimalMenuMobile({ width, data, setOpenDrawer }) {
         bgcolor: "#fff"
       }}
     >
-      {data.map(({ title = "", url = "" }, index) => {
-        const isActive = checkActiveItem({ url, pathname });
+      {data.map(({ title = "", path = "" }, index) => {
+        const isActive = checkActiveItem({ path, pathname });
 
         if (index < COUNT_SHOW_MINIMAL_ITEM - 1 || countItems === COUNT_SHOW_MINIMAL_ITEM)
-          return <ItemMenuMobile url={url} title={title} isActive={isActive} key={index} />;
+          return <ItemMenuMobile path={path} title={title} isActive={isActive} key={index} />;
       })}
 
       {data.length > COUNT_SHOW_MINIMAL_ITEM && countItems !== COUNT_SHOW_MINIMAL_ITEM && (
