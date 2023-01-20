@@ -9,6 +9,11 @@ export const MuckMenuItems = [
 
 // Get Info Landing
 export const MuckLandingInfo = {
+  updates: [
+    { date: "10.10.2020", content: "UK government considers new visa sponsorship route for GPs" },
+    { date: "10.10.2020", content: "UK government considers new visa sponsorship route for GPs" }
+  ],
+
   statistics: [
     {
       title: "people helped",
@@ -35,17 +40,18 @@ export const MuckLandingInfo = {
   applicants: [
     {
       icon: "?",
-      title: translate("sample-title"),
+      title: "sample-title",
       path: "#3",
-      subTitle: translate("read-more")
+      subTitle: "read-more"
     }
   ],
+
   partners: [
     {
       icon: "?",
-      title: translate("sample-title"),
+      title: "sample-title",
       path: "#3",
-      subTitle: translate("read-more")
+      subTitle: "read-more"
     }
   ]
 };
