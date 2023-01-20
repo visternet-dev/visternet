@@ -11,9 +11,11 @@ import LandingSectionSlider from "components/pages/landing/sections/slider";
 import LandingSectionUpdateVisas from "components/pages/landing/sections/update-visas";
 import LandingSectionUserExperience from "components/pages/landing/sections/user-experience";
 
+import { immigration, sectionSlider, sectionUserExperience } from "mock/landing";
+
 // =============================|| LANDING MAIN ||============================= //
 
-const Landing = ({ sectionUserExperience, sectionSlider }) => (
+const Landing = ({ sectionUserExperience, sectionSlider, immigration }) => (
   <Stack>
     <LandingSectionHeader />
     <LandingSectionGetStarted />
@@ -23,7 +25,7 @@ const Landing = ({ sectionUserExperience, sectionSlider }) => (
         <LandingSectionUpdateVisas />
       </Grid2>
       <Grid2 xs={12} md={6}>
-        <LandingSectionImmigration />
+        <LandingSectionImmigration data={immigration} />
       </Grid2>
     </Grid2>
     <LandingSectionSlider data={sectionSlider} />
@@ -36,58 +38,11 @@ Landing.getLayout = function getLayout(page) {
 };
 
 export async function getStaticProps() {
-  const sectionUserExperience = [
-    { imageSrc: "", user: "ali", type: "front end", text: "hello" },
-    { imageSrc: "", user: "ali", type: "front end", text: "hello" },
-    { imageSrc: "", user: "ali", type: "front end", text: "hello" },
-    { imageSrc: "", user: "ali", type: "front end", text: "hello" }
-  ];
-  const sectionSlider = [
-    {
-      thumbnail: "/assets/images/cards/card-1.jpg",
-      date: "10 Jun 2022",
-      title: "Top Winter Wonderlands for Students in Ontario This Year",
-      description:
-        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
-      path: "/"
-    },
-    {
-      thumbnail: "/assets/images/cards/card-1.jpg",
-      date: "10 Jun 2022",
-      title: "Top Winter Wonderlands for Students in Ontario This Year",
-      description:
-        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
-      path: "/"
-    },
-    {
-      thumbnail: "/assets/images/cards/card-1.jpg",
-      date: "10 Jun 2022",
-      title: "Top Winter Wonderlands for Students in Ontario This Year",
-      description:
-        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
-      path: "/"
-    },
-    {
-      thumbnail: "/assets/images/cards/card-1.jpg",
-      date: "10 Jun 2022",
-      title: "Top Winter Wonderlands for Students in Ontario This Year",
-      description:
-        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
-      path: "/"
-    },
-    {
-      thumbnail: "/assets/images/cards/card-1.jpg",
-      date: "10 Jun 2022",
-      title: "Top Winter Wonderlands for Students in Ontario This Year",
-      description:
-        "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
-      path: "/"
-    }
-  ];
   return {
     props: {
       sectionUserExperience,
-      sectionSlider
+      sectionSlider,
+      immigration
     }
   };
 }

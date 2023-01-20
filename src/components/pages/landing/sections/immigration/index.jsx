@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { Box, Stack } from "@mui/material";
 
@@ -14,44 +15,8 @@ import ComingSoon from "components/ui-component/coming-soon";
 import LandingTitle from "../../title";
 import Card from "./Card";
 
-const init = [
-  {
-    src: "/assets/images/cards/card-1.jpg",
-    text: "ViSA Startup",
-    onClick: () => {
-      console.log("clicked");
-    }
-  },
-  {
-    src: "/assets/images/cards/card-1.jpg",
-    text: "ViSA Startup",
-    onClick: () => {
-      console.log("clicked");
-    }
-  },
-  {
-    src: "/assets/images/cards/card-1.jpg",
-    text: "ViSA Startup",
-    onClick: () => {
-      console.log("clicked");
-    }
-  },
-  {
-    src: "/assets/images/cards/card-1.jpg",
-    text: "ViSA Startup",
-    onClick: () => {
-      console.log("clicked");
-    }
-  },
-  {
-    src: "/assets/images/cards/card-1.jpg",
-    text: "ViSA Startup",
-    onClick: () => {
-      console.log("clicked");
-    }
-  }
-];
-function LandingSectionImmigration({ data = init }) {
+function LandingSectionImmigration({ data = [] }) {
+  const router = useRouter();
   return (
     <Stack
       sx={{
@@ -91,11 +56,12 @@ function LandingSectionImmigration({ data = init }) {
         }}
         className="immigrationSilder"
       >
-        {data.map((each, index) => (
-          <SwiperSlide key={index}>
-            <Card image={each.src} text={each.text} onClick={each.onClick} />
-          </SwiperSlide>
-        ))}
+        {data.length > 0 &&
+          data.map((each, index) => (
+            <SwiperSlide key={index}>
+              <Card image={each.src} text={each.text} onClick={() => router.push(each.navigate)} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </Stack>
   );

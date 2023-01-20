@@ -1,3 +1,5 @@
+import translate from "utils/locales/translate";
+
 // Get Menu List
 export const MuckMenuItems = [
   { title: "Home", path: "/" },
@@ -97,3 +99,85 @@ export const MuckFooterItems = {
   },
   copyRight: "© 2015-2022 Visternet Inc."
 };
+
+
+// sectionUserExperience data
+export const sectionUserExperience = [
+  { imageSrc: "", user: "ali", type: "front end", text: "Lorem Ipsum Generator Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!" },
+  { imageSrc: "", user: "mohammad", type: "front end", text: "Lorem Ipsum Generator Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!Lorem Ipsum Generator Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate!" },
+  { imageSrc: "", user: "hossein", type: "front end", text: "Lorem Ipsum Generator Generate Lorem Ipsum placeholder text. Select the number of characters, words, sentences or paragraphs, and hit generate! " },
+  { imageSrc: "", user: "reza", type: "front end", text: "Lorem Ipsum Generator Generate Lorem Ipsum placeholder text." }
+];
+
+// immigration data
+export const immigration = [
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    navigate: "/"
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    navigate: "/"
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    navigate: "/"
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    navigate: "/"
+  },
+  {
+    src: "/assets/images/cards/card-1.jpg",
+    text: "ViSA Startup",
+    navigate: "/"
+  }
+];
+
+// sectionSlider data
+export const sectionSlider = [
+  {
+    thumbnail: "/assets/images/cards/card-1.jpg",
+    date: "10 Jun 2022",
+    title: "Top Winter Wonderlands for Students in Ontario This Year",
+    description:
+      "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+    path: "/"
+  },
+  {
+    thumbnail: "/assets/images/cards/card-1.jpg",
+    date: "10 Jun 2022",
+    title: "Top Winter Wonderlands for Students in Ontario This Year",
+    description:
+      "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+    path: "/"
+  },
+  {
+    thumbnail: "/assets/images/cards/card-1.jpg",
+    date: "10 Jun 2022",
+    title: "Top Winter Wonderlands for Students in Ontario This Year",
+    description:
+      "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+    path: "/"
+  },
+  {
+    thumbnail: "/assets/images/cards/card-1.jpg",
+    date: "10 Jun 2022",
+    title: "Top Winter Wonderlands for Students in Ontario This Year",
+    description:
+      "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+    path: "/"
+  },
+  {
+    thumbnail: "/assets/images/cards/card-1.jpg",
+    date: "10 Jun 2022",
+    title: "Top Winter Wonderlands for Students in Ontario This Year",
+    description:
+      "Thinking about studying design and illustration in Canada? As an international student, there are many good reasons to choose Canada. Whether you’d like to become an animator, creative",
+    path: "/"
+  }
+];

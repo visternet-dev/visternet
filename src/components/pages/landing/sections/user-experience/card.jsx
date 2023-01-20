@@ -7,7 +7,8 @@ const Card = ({ user = "", type = "", text = "", imageSrc = "" }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
-        minHeight: "10rem",
+        minHeight: "13.813rem",
+        maxHeight: "13.813rem",
         padding: "1rem 2rem",
         boxShadow: "0px 4px 58px rgba(0, 0, 0, 0.07)"
       }}
@@ -26,7 +27,17 @@ const Card = ({ user = "", type = "", text = "", imageSrc = "" }) => {
         </Box>
         <img src="/assets/images/icons/dubble-quote.svg" alt="quote" />
       </Box>
-      <Box sx={{ marginBottom: "2rem" }}>{text}</Box>
+      <Box sx={{ marginBottom: "2rem", overflow: "hidden" }}>
+        <Typography
+          sx={{
+            height: "6rem",
+            maxHeight: "8rem"
+          }}
+          variant="body1"
+        >
+          {text}
+        </Typography>
+      </Box>
     </Box>
   );
 };
