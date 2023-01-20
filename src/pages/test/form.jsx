@@ -7,7 +7,7 @@ const muckFields = [
     type: "select",
     label: "test",
     name: "selectName",
-    options: ["1", "2" ,  "12321"],
+    options: ["1", "2", "12321"],
     col: { md: 4, sm: 6, xs: 12 },
     defaultValue: "12321"
   },
@@ -17,7 +17,8 @@ const muckFields = [
     name: "selectName2",
     options: [],
     col: { md: 4, sm: 6, xs: 12 },
-    disabled: true
+    disabled: true,
+    required: true
   }
 ];
 function PageForm() {

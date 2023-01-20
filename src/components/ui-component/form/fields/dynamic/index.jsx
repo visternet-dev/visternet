@@ -7,14 +7,14 @@ const Fields = {
 };
 
 function DynamicField(props) {
-  const { sx, options, label, name, col = {}, disabled = false, formik } = props;
+  const { sx, options, label, name, col = {}, disabled = false, required = false, formik } = props;
   const { xs = 12, sm = 12, md = 12 } = col;
 
   const Field = Fields.Select;
 
   return (
     <Grid2 xs={xs} sm={sm} md={md}>
-      <Field sx={sx} options={options} label={label} name={name} formik={formik} disabled={disabled} />
+      <Field sx={sx} options={options} label={label} name={name} formik={formik} disabled={disabled} required={required} />
     </Grid2>
   );
 }
