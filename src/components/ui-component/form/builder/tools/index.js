@@ -1,9 +1,23 @@
-export const generateInitialValue = (fields = []) => {
-  const initialValue = {};
+import * as Yup from "yup";
 
-  fields.forEach(({ name, defaultValue = "" }) => {
-    initialValue[name] = defaultValue;
+export function createYupSchema(schema, config) {
+  const { id, validationType = "string", validations = [] } = config;
+
+  if (!Yup[validationType]) {
+    return schema;
+  }
+
+  let validator = Yup[validationType]();
+
+  validations.forEach((validation) => {
+    const { params, type } = validation;
+    if (!validator[type]) {
+      return;
+    }
+    validator = validator[type](...params);
   });
 
-  return initialValue;
-};
+  schema[id] = validator;
+
+  return schema;
+}

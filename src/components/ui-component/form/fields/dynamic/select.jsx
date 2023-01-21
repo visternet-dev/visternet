@@ -1,25 +1,24 @@
-import produce from "immer";
-
 import CustomAutocomplete from "components/ui-component/HOC/fields/autocomplete";
 import CustomInput from "components/ui-component/HOC/fields/input";
 
 function DynamicFieldSelect(props) {
-  const { sx, options, label, name, disabled, required, formik } = props;
+  const { sx, options, label, id, disabled, required, placeholder, formik } = props;
   const { handleBlur, setFieldValue, values, errors, touched } = formik;
-  const haveError = touched[name] && errors[name];
+  const haveError = touched[id] && errors[id];
 
   return (
     <CustomAutocomplete
-      name={name}
-      id={name}
+      id={id}
       sx={{ ...sx }}
       options={options}
       disabled={disabled}
       onBlur={handleBlur}
-      value={values[name]}
-      onChange={(event, value) => setFieldValue(name, value)}
+      value={values[id]}
+      onChange={(event, value) => {
+        setFieldValue(id, value ?? "");
+      }}
       renderInput={(params) => (
-        <CustomInput {...params} label={label} error={haveError} helperText={haveError ? errors[name] : null} required={required} />
+        <CustomInput {...params} label={label} error={haveError} helperText={haveError ? errors[id] : null} required={required} placeholder={placeholder} />
       )}
     />
   );
