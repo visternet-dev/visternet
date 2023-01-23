@@ -6,10 +6,24 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
 
   return {
     MuiButton: {
+      variants: [
+        {
+          props: { textColor: 'dark' },
+          style: {
+            color: theme.palette.dark.main,
+          },
+        },
+        {
+          props: { textColor: 'light' },
+          style: {
+            color: theme.palette.background.paper,
+          },
+        },
+      ],
       styleOverrides: {
         root: {
           fontWeight: 500,
-          borderRadius: '4px'
+          borderRadius: '4px',
         }
       }
     },
@@ -208,6 +222,50 @@ export default function componentStyleOverrides(theme, borderRadius, outlinedFil
       }
     },
     MuiChip: {
+      variants: [
+        {
+          props: { variant: 'solid', color: 'error' },
+          style: {
+            color: theme.palette.error.dark,
+            background: theme.palette.error.light
+          },
+        },
+        {
+          props: { variant: 'solid', color: 'primary' },
+          style: {
+            color: theme.palette.primary.dark,
+            background: theme.palette.primary.light
+          },
+        }
+        , {
+          props: { variant: 'solid', color: 'secondary' },
+          style: {
+            color: theme.palette.secondary.dark,
+            background: theme.palette.secondary.light
+          },
+        }
+        , {
+          props: { variant: 'solid', color: 'warning' },
+          style: {
+            color: theme.palette.warning.dark,
+            background: theme.palette.warning.light
+          },
+        }
+        , {
+          props: { variant: 'solid', color: 'info' },
+          style: {
+            color: theme.palette.info.dark,
+            background: theme.palette.info.light
+          },
+        }
+        , {
+          props: { variant: 'solid', color: 'success' },
+          style: {
+            color: theme.palette.success.dark,
+            background: theme.palette.success.light
+          },
+        }
+      ],
       styleOverrides: {
         root: {
           '&.MuiChip-deletable .MuiChip-deleteIcon': {

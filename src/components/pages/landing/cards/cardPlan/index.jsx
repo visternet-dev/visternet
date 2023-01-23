@@ -42,8 +42,12 @@ const CardPlan = () => {
       </Box>
       <Box display="flex" gap="1rem" flexWrap="nowrap" overflow="auto" mb="1rem">
         <Chip label="Toronto,Canada" avatar={<Avatar src="/static/images/avatar/1.jpg" />} />
-        <Chip color="primary" label="Start-up Visa" />
-        <Chip color="error" label="Cloese" />
+        <Chip variant="solid" label="Start-up Visa" />
+        <Chip variant="solid" color="error" label="Cloese" />
+        <Chip variant="solid" color="info" label="Cloese" />
+        <Chip variant="solid" color="primary" label="Cloese" />
+        <Chip variant="solid" color="secondary" label="Cloese" />
+        <Chip variant="solid" color="success" label="Cloese" />
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", width: "100%" }}>
@@ -70,7 +74,7 @@ const CardPlan = () => {
         </Box>
       </Box>
       <Box mt="1.5rem" display="flex">
-        <Button fullWidth disableElevation size="large" variant="contained">
+        <Button fullWidth disableElevation size="large" textColor="light" variant="contained">
           Start Application
         </Button>
 
