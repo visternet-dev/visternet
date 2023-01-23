@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 
 // Import Swiper styles
 import "swiper/css";
@@ -9,8 +8,6 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import translate from "utils/locales/translate";
-
-import ComingSoon from "components/ui-component/coming-soon";
 
 import LandingTitle from "../../title";
 import Card from "./Card";

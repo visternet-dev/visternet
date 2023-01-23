@@ -26,12 +26,15 @@ function LandingTitle({
   };
 
   return (
-    <Stack sx={{ ...sx }}>
+    <Stack sx={{ ...sx, px: 2 }}>
       {subTitle && <Typography sx={styles.subTitle}>{subTitle}</Typography>}
 
       <Stack direction="row" spacing={1.5} alignItems="center">
         {leftLine && <Box sx={styles.line} />}
-        <Typography variant={variant} sx={{ fontSize, textTransform: "uppercase" }}>
+        <Typography
+          variant={variant}
+          sx={{ fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem", lg: "2rem" }, textTransform: "uppercase" }}
+        >
           {children}
         </Typography>
         {rightLine && <Box sx={styles.line} />}
