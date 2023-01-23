@@ -9,7 +9,7 @@ function UpdateVisasCard({ subTitle = "", content = "" }) {
   const theme = useTheme();
 
   return (
-    <Stack sx={{ px: 2, py: 3, bgcolor: theme.palette.grey[100], borderRadius: "4px" , width: "100%" }} alignItems="flex-start" spacing={0.5}>
+    <Stack sx={{ px: 2, py: 3, bgcolor: theme.palette.grey[100], borderRadius: "4px", width: "100%" }} alignItems="flex-start">
       <Typography sx={{ fontSize: "10px", color: theme.palette.grey[500] }}>{subTitle}</Typography>
       <Typography variant="body1" sx={{ fontWeight: 600 }}>
         {content}

@@ -1,6 +1,9 @@
 import { Stack } from "@mui/material";
 
+import { FreeMode, Scrollbar } from "swiper";
 import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import translate from "utils/locales/translate";
@@ -27,42 +30,45 @@ function LandingSectionUpdateVisas() {
       <Stack
         spacing={2}
         sx={{
-          maxHeight: "400px",
+          maxHeight: "277px",
           overflow: "auto",
           width: "100%",
-          px: 2,
+          ".swiper-scrollbar": {
+            right: "unset",
+            left: "0"
+          },
           ".swiper": { width: "100%", height: "100%" },
           ".swiper-slide": {
-            textAlign: "center",
             background: "#fff",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
+            display: "flex"
           }
         }}
       >
         <Swiper
-          slidesPerView={1}
+          slidesPerView={3}
+          spaceBetween={5}
           breakpoints={{
             640: {
-              slidesPerView: 2,
-              spaceBetween: 20
+              slidesPerView: 3,
+              spaceBetween: 10
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 40
+              spaceBetween: 10
             },
             1024: {
-              slidesPerView: 5,
-              spaceBetween: 50
+              slidesPerView: 3,
+              spaceBetween: 10
             }
           }}
           direction="vertical"
           creativeEffect
-          pagination={{
-            clickable: true
-          }}
-          className="immigrationSilder"
+          freeMode
+          scrollbar
+          mousewheel
+          sliderPerView="auto"
+          modules={[FreeMode, Scrollbar]}
+          className="updateVisaCard"
         >
           {data.map(({ date, content }, index) => (
             <SwiperSlide key={index}>

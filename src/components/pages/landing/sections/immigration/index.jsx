@@ -17,7 +17,7 @@ function LandingSectionImmigration({ data = [] }) {
   return (
     <Stack
       sx={{
-        ".swiper": { width: "100%", height: "100%", padding: "4rem 1rem" },
+        ".swiper": { width: "100%", height: "100%" },
         ".swiper-slide": {
           textAlign: "center",
           background: "#fff",
