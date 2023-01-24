@@ -2,30 +2,32 @@ import { useEffect } from "react";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
+import { createYupSchema } from "utils/schema";
 import capitalize from "utils/string/capiltalize";
 
-import { createYupSchema } from "../../builder/tools";
+import DynamicFieldCheckbox from "./checkbox";
 import DynamicFieldSelect from "./select";
 
 const Fields = {
-  Select: DynamicFieldSelect
+  Select: DynamicFieldSelect,
+  Checkbox: DynamicFieldCheckbox
 };
 
 function DynamicField(props) {
   const {
-    options = {},
     id,
-    label = "",
-    placeholder = "",
-    defaultValue = "",
-    col = {},
-    disabled = false,
-    validations = [],
-    validationType,
-    sx = {},
     type,
     formik,
-    setSchema
+    sx = {},
+    col = {},
+    setSchema,
+    label = "",
+    options = {},
+    validationType,
+    disabled = false,
+    placeholder = "",
+    validations = [],
+    defaultValue = ""
   } = props;
   const required = validations.some((validation) => validation.type === "required");
 

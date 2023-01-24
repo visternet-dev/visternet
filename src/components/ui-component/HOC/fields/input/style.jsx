@@ -1,73 +1,73 @@
 // mui
-import { styled } from '@mui/system';
-import { TextField } from '@mui/material';
+import { TextField } from "@mui/material";
+import { styled } from "@mui/system";
 
 const preventBorderBottom = {
-  '&:before': {
-    borderBottom: 'none !important'
+  "&:before": {
+    borderBottom: "none !important"
   },
-  '&:after': {
-    borderBottom: 'none !important'
+  "&:after": {
+    borderBottom: "none !important"
   }
 };
 
 const InputStyle = styled((props) => <TextField InputProps={{ disableUnderline: true }} variant="filled" {...props} />)(({ theme }) => ({
-  '& .MuiInputLabel-root': {
-    color: theme.palette.text.dark + ' !important',
+  "& .MuiInputLabel-root": {
+    color: theme.palette.text.dark + " !important",
 
-    '& .MuiInputLabel-asterisk': {
-      color: theme.palette.error.main + ' !important'
+    "& .MuiInputLabel-asterisk": {
+      color: theme.palette.error.main + " !important"
     },
 
-    '&.Mui-disabled': {
-      color: theme.palette.grey[400] + ' !important'
+    "&.Mui-disabled": {
+      color: theme.palette.grey[400] + " !important"
     }
   },
 
-  '& .MuiFilledInput-root': {
-    border: 'solid 1px',
-    borderColor: theme.palette.mode === 'dark' ? theme.palette.background.default : theme.palette.grey[100],
+  "& .MuiFilledInput-root": {
+    border: "solid 1px",
+    borderColor: theme.palette.mode === "dark" ? theme.palette.background.default : theme.palette.grey[100],
     borderRadius: "4px",
-    backgroundColor: 'transparent',
+    backgroundColor: theme.palette.background.paper,
     ...preventBorderBottom,
 
-    '& input': {
-      transition: 'background-color 5000s ease-in-out 0s',
-      boxShadow: 'none !important'
+    "& input": {
+      transition: "background-color 5000s ease-in-out 0s",
+      boxShadow: "none !important"
     },
 
-    '&:hover': {
-      background: 'transparent',
-      borderColor: theme.palette.mode === 'dark' ? theme.palette.background.default : theme.palette.grey[300],
+    "&:hover": {
+      background: theme.palette.background.paper,
+      borderColor: theme.palette.mode === "dark" ? theme.palette.background.default : theme.palette.grey[300],
 
       ...preventBorderBottom
     },
 
-    '&.Mui-focused': {
-      background: 'transparent',
-      borderColor: theme.palette.mode === 'dark' ? theme.palette.background.default : theme.palette.primary.main,
+    "&.Mui-focused": {
+      background: theme.palette.background.paper,
+      borderColor: theme.palette.mode === "dark" ? theme.palette.background.default : theme.palette.primary.main,
 
       ...preventBorderBottom
     },
 
-    '&.Mui-error': {
-      background: 'transparent',
-      borderColor: theme.palette.mode === 'dark' ? theme.palette.error.dark : theme.palette.error.main,
-      '& input': {
+    "&.Mui-error": {
+      background: theme.palette.background.paper,
+      borderColor: theme.palette.mode === "dark" ? theme.palette.error.dark : theme.palette.error.main,
+      "& input": {
         color: theme.palette.error.main
       }
     },
 
-    '&.Mui-disabled': {
+    "&.Mui-disabled": {
       background: theme.palette.grey[50] + 90,
-      cursor: 'not-allowed',
+      cursor: "not-allowed",
 
-      '& input': {
-        cursor: 'not-allowed'
+      "& input": {
+        cursor: "not-allowed"
       },
 
-      '&:hover': {
-        borderColor: theme.palette.mode === 'dark' ? theme.palette.background.default : theme.palette.grey[200]
+      "&:hover": {
+        borderColor: theme.palette.mode === "dark" ? theme.palette.background.default : theme.palette.grey[200]
       },
 
       ...preventBorderBottom

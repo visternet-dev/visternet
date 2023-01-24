@@ -29,7 +29,7 @@ const muckFields = [
     options: [
       {
         label: "test option",
-        id: "test1",
+        value: "test1",
         fields: [
           {
             id: "selectName2343434",
@@ -37,7 +37,29 @@ const muckFields = [
             label: "999999999",
             placeholder: "test22222",
             defaultValue: "test192",
-            options: [{ label: "options 2", id: "test192", fields: [] }],
+            options: [
+              {
+                label: "options 2",
+                value: "test192",
+                fields: [
+                  {
+                    id: "33333334",
+                    type: "select",
+                    label: "333333333",
+                    placeholder: "3333333",
+                    options: [{ label: "options 3221", value: "option 232", fields: [] }],
+                    col: { md: 4, sm: 6, xs: 12 },
+                    validationType: "string",
+                    validations: [
+                      {
+                        type: "required",
+                        params: ["this field is required"]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
             col: { md: 4, sm: 6, xs: 12 },
             validationType: "string",
             validations: [
@@ -45,14 +67,6 @@ const muckFields = [
                 type: "required",
                 params: ["this field is required"]
               }
-              // {
-              //   type: "min",
-              //   params: [1, "name cannot be less than 5 characters"]
-              // },
-              // {
-              //   type: "max",
-              //   params: [2, "name cannot be more than 10 characters"]
-              // }
             ]
           }
         ]
@@ -74,28 +88,50 @@ const muckFields = [
       //   params: [2, "name cannot be more than 10 characters"]
       // }
     ]
+  },
+  {
+    type: "checkbox",
+    label: "7777777777777",
+    id: "selectName232",
+    options: [
+      {
+        value: true,
+        fields: [
+          {
+            id: "55555",
+            type: "select",
+            label: "55555",
+            placeholder: "55",
+            options: [{ label: "options 555", value: "option 555", fields: [] }],
+            col: { xs: 12 },
+            validationType: "string",
+            validations: [
+              {
+                type: "required",
+                params: ["this field is required"]
+              }
+            ]
+          }
+        ]
+      },
+      { value: false, fields: [] }
+    ],
+    col: { xs: 12 }
+    // validations: [
+    //   {
+    //     type: "required",
+    //     params: ["this field is required"]
+    //   },
+    //   {
+    //     type: "min",
+    //     params: [1, "name cannot be less than 5 characters"]
+    //   },
+    //   {
+    //     type: "max",
+    //     params: [2, "name cannot be more than 10 characters"]
+    //   }
+    // ]
   }
-  // {
-  //   type: "select",
-  //   label: "7777777777777",
-  //   id: "selectName2",
-  //   options: ["test", "test2"],
-  //   col: { md: 4, sm: 6, xs: 12 }
-  //   // validations: [
-  //   //   {
-  //   //     type: "required",
-  //   //     params: ["this field is required"]
-  //   //   },
-  //   //   {
-  //   //     type: "min",
-  //   //     params: [1, "name cannot be less than 5 characters"]
-  //   //   },
-  //   //   {
-  //   //     type: "max",
-  //   //     params: [2, "name cannot be more than 10 characters"]
-  //   //   }
-  //   // ]
-  // }
 ];
 function PageForm() {
   return (
