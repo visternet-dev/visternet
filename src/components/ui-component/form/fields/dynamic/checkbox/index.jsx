@@ -23,15 +23,12 @@ function DynamicFieldCheckbox(props) {
 
   useEffect(() => {
     // if we have default value we update state and find option selected
-    setState(options.find((option) => option?.id === values?.[id]) ?? {});
+    setState(options.find((option) => option?.value === values?.[id]) ?? {});
 
     return () => {
       setState({});
     };
   }, [options]);
-
-  console.log("----- state", state);
-  console.log("----- options", options);
 
   return (
     <React.Fragment>

@@ -25,7 +25,7 @@ const muckFields = [
     type: "select",
     label: "test",
     placeholder: "test",
-    defaultValue: "test2",
+    defaultValue: "test1392876",
     options: [
       {
         label: "test option",
@@ -89,49 +89,49 @@ const muckFields = [
       // }
     ]
   },
-  {
-    type: "checkbox",
-    label: "7777777777777",
-    id: "selectName232",
-    options: [
-      {
-        value: true,
-        fields: [
-          {
-            id: "55555",
-            type: "select",
-            label: "55555",
-            placeholder: "55",
-            options: [{ label: "options 555", value: "option 555", fields: [] }],
-            col: { xs: 12 },
-            validationType: "string",
-            validations: [
-              {
-                type: "required",
-                params: ["this field is required"]
-              }
-            ]
-          }
-        ]
-      },
-      { value: false, fields: [] }
-    ],
-    col: { xs: 12 }
-    // validations: [
-    //   {
-    //     type: "required",
-    //     params: ["this field is required"]
-    //   },
-    //   {
-    //     type: "min",
-    //     params: [1, "name cannot be less than 5 characters"]
-    //   },
-    //   {
-    //     type: "max",
-    //     params: [2, "name cannot be more than 10 characters"]
-    //   }
-    // ]
-  }
+  // {
+  //   type: "checkbox",
+  //   label: "7777777777777",
+  //   id: "selectName232",
+  //   options: [
+  //     {
+  //       value: true,
+  //       fields: [
+  //         {
+  //           id: "55555",
+  //           type: "select",
+  //           label: "55555",
+  //           placeholder: "55",
+  //           options: [{ label: "options 555", value: "option 555", fields: [] }],
+  //           col: { xs: 12 },
+  //           validationType: "string",
+  //           validations: [
+  //             {
+  //               type: "required",
+  //               params: ["this field is required"]
+  //             }
+  //           ]
+  //         }
+  //       ]
+  //     },
+  //     { value: false, fields: [] }
+  //   ],
+  //   col: { xs: 12 },
+  //   validations: [
+  //     {
+  //       type: "required",
+  //       params: ["this field is required"]
+  //     },
+  //     {
+  //       type: "min",
+  //       params: [1, "name cannot be less than 5 characters"]
+  //     },
+  //     {
+  //       type: "max",
+  //       params: [2, "name cannot be more than 10 characters"]
+  //     }
+  //   ]
+  // }
 ];
 function PageForm() {
   return (

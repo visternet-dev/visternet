@@ -13,7 +13,7 @@ import Fields from "../fields";
 const FormBuilder = (props) => {
   const [schema, setSchema] = useState();
 
-  const { fields, onSubmit = (data) => console.log("SUBMIT:", data) } = props;
+  const { fields, onSubmit = (data) => console.log("----------------SUBMIT:", data) } = props;
 
   const formik = useFormik({
     initialValues: {},

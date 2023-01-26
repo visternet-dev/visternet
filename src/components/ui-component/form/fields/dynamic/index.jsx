@@ -37,8 +37,11 @@ function DynamicField(props) {
 
     return () => {
       console.log("delete component");
+      formik.setFieldValue(id, "");
     };
   }, []);
+
+  console.log("Valuessssss:", formik.values);
 
   const params = {
     sx,

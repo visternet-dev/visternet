@@ -18,14 +18,13 @@ function DynamicFieldSelect(props) {
     const optionsSeleted = options.find((option) => option?.value === values?.[id]);
 
     // if we have default value we update state and find option selected
-    setState(optionsSeleted);
+    setState(optionsSeleted ?? { label: values?.[id] } ?? "");
     // setFieldValue(id, optionsSeleted?.value ?? "");
 
     return () => {
       setState({});
-      setFieldValue(id, "");
     };
-  }, [options]);
+  }, [options, values[id]]);
 
   return (
     <React.Fragment>
@@ -48,7 +47,7 @@ function DynamicFieldSelect(props) {
         />
       </Grid2>
 
-      <Fields fields={state?.fields} formik={formik} setSchema={setSchema} animation />
+      <Fields fields={state?.fields} formik={formik} setSchema={setSchema} />
     </React.Fragment>
   );
 }

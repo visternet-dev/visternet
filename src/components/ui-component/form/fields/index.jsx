@@ -1,18 +1,13 @@
 import DynamicField from "./dynamic";
 
 function Fields(props) {
-  const { fields, formik, setSchema } = props || {};
-
-  const params = {
-    formik,
-    setSchema
-  };
+  const { fields } = props || {};
 
   if (fields)
     return (
       <>
         {fields.map((fieldProps, index) => (
-          <DynamicField {...fieldProps} {...params} key={index} />
+          <DynamicField {...fieldProps} {...props} key={index} />
         ))}
       </>
     );
