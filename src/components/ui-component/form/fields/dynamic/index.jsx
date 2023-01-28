@@ -6,11 +6,13 @@ import { createYupSchema } from "utils/schema";
 import capitalize from "utils/string/capiltalize";
 
 import DynamicFieldCheckbox from "./checkbox";
+import DynamicFieldMultiSelect from "./multi-select";
 import DynamicFieldSelect from "./select";
 
 const Fields = {
   Select: DynamicFieldSelect,
-  Checkbox: DynamicFieldCheckbox
+  Checkbox: DynamicFieldCheckbox,
+  MultiSelect: DynamicFieldMultiSelect
 };
 
 function DynamicField(props) {
@@ -29,6 +31,7 @@ function DynamicField(props) {
     validations = [],
     defaultValue = ""
   } = props;
+
   const required = validations.some((validation) => validation.type === "required");
 
   useEffect(() => {
@@ -36,12 +39,9 @@ function DynamicField(props) {
     setSchema((prev) => ({ ...prev, [id]: createYupSchema({ validationType, validations }) }));
 
     return () => {
-      console.log("delete component");
       formik.setFieldValue(id, "");
     };
   }, []);
-
-  console.log("Valuessssss:", formik.values);
 
   const params = {
     sx,
@@ -56,7 +56,9 @@ function DynamicField(props) {
     placeholder
   };
 
-  const Field = Fields?.[capitalize(type)];
+  console.log("--- test:", capitalize(type));
+
+  const Field = Fields?.[type];
 
   if (Field) return <Field {...params} />;
 

@@ -7,8 +7,8 @@ import CustomInput from "components/ui-component/HOC/fields/input";
 
 import Fields from "../..";
 
-function DynamicFieldSelect(props) {
-  const [state, setState] = useState({});
+function DynamicFieldMultiSelect(props) {
+  const [state, setState] = useState([]);
 
   const { sx, options, label, id, disabled, required, placeholder, col, formik, setSchema } = props;
   const { handleBlur, setFieldValue, values, errors, touched } = formik;
@@ -19,6 +19,7 @@ function DynamicFieldSelect(props) {
 
     // if we have default value we update state and find option selected
     setState(optionsSeleted ?? { label: values?.[id] } ?? "");
+    // setFieldValue(id, optionsSeleted?.value ?? "");
 
     return () => {
       setState({});
@@ -29,16 +30,19 @@ function DynamicFieldSelect(props) {
     <React.Fragment>
       <Grid2 {...col}>
         <CustomAutocomplete
+          multiple
           id={id}
           sx={{ ...sx }}
           options={options}
           disabled={disabled}
           onBlur={handleBlur}
-          value={state?.label ?? ""}
-          isOptionEqualToValue={(option, value) => option.label === value}
+          value={["122", "21221"] ?? ""}
+          //   getOptionLabel={(option) => option?.label ?? option ?? ""}
+          //   isOptionEqualToValue={(option, value) => option.label === value}
           onChange={(event, value) => {
+            console.log("VALUE --- ---:", value);
             setState(value);
-            setFieldValue(id, value?.value ?? "");
+            setFieldValue(id, value ?? "");
           }}
           renderInput={(params) => (
             <CustomInput {...params} label={label} error={haveError} helperText={haveError ? errors[id] : ""} required={required} placeholder={placeholder} />
@@ -51,4 +55,4 @@ function DynamicFieldSelect(props) {
   );
 }
 
-export default DynamicFieldSelect;
+export default DynamicFieldMultiSelect;
