@@ -8,23 +8,30 @@ import CustomInput from "components/ui-component/HOC/fields/input";
 import Fields from "../..";
 
 function DynamicFieldMultiSelect(props) {
-  const [state, setState] = useState([]);
-
-  const { sx, options, label, id, disabled, required, placeholder, col, formik, setSchema } = props;
+  const { sx, options, label, id, disabled, required, placeholder, col, formik, setSchema, defaultValue } = props;
   const { handleBlur, setFieldValue, values, errors, touched } = formik;
   const haveError = Boolean(touched[id] && errors[id]);
 
-  useEffect(() => {
-    const optionsSeleted = options.find((option) => option?.value === values?.[id]);
+  const [state, setState] = useState(
+    options.filter((option) => {
+      console.log("test:", defaultValue?.includes(option?.value), option, defaultValue);
+      return defaultValue?.includes(option?.value);
+    }) ?? []
+  );
 
-    // if we have default value we update state and find option selected
-    setState(optionsSeleted ?? { label: values?.[id] } ?? "");
-    // setFieldValue(id, optionsSeleted?.value ?? "");
+  console.log("state:", state);
 
-    return () => {
-      setState({});
-    };
-  }, [options, values[id]]);
+  const serializer = (data, name) => {
+    return data.map((item) => {
+      return item?.[name];
+    });
+  };
+
+  const serializerFields = (data) => {
+    return data.reduce((fields, obj) => {
+      return [...fields, ...obj?.fields];
+    }, []);
+  };
 
   return (
     <React.Fragment>
@@ -36,13 +43,11 @@ function DynamicFieldMultiSelect(props) {
           options={options}
           disabled={disabled}
           onBlur={handleBlur}
-          value={["122", "21221"] ?? ""}
-          //   getOptionLabel={(option) => option?.label ?? option ?? ""}
-          //   isOptionEqualToValue={(option, value) => option.label === value}
+          value={state}
+          getOptionLabel={(option) => option?.label ?? option ?? ""}
           onChange={(event, value) => {
-            console.log("VALUE --- ---:", value);
             setState(value);
-            setFieldValue(id, value ?? "");
+            setFieldValue(id, serializer(value, "value"));
           }}
           renderInput={(params) => (
             <CustomInput {...params} label={label} error={haveError} helperText={haveError ? errors[id] : ""} required={required} placeholder={placeholder} />
@@ -50,7 +55,7 @@ function DynamicFieldMultiSelect(props) {
         />
       </Grid2>
 
-      <Fields fields={state?.fields} formik={formik} setSchema={setSchema} />
+      <Fields fields={serializerFields(state)} formik={formik} setSchema={setSchema} />
     </React.Fragment>
   );
 }

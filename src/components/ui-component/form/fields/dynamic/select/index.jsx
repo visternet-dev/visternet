@@ -8,12 +8,14 @@ import CustomInput from "components/ui-component/HOC/fields/input";
 import Fields from "../..";
 
 function DynamicFieldSelect(props) {
+  // TODO: Hanlde Initial HERE sample multi select
   const [state, setState] = useState({});
 
   const { sx, options, label, id, disabled, required, placeholder, col, formik, setSchema } = props;
   const { handleBlur, setFieldValue, values, errors, touched } = formik;
   const haveError = Boolean(touched[id] && errors[id]);
 
+  // TODO: Hanlde inital in defined STate
   useEffect(() => {
     const optionsSeleted = options.find((option) => option?.value === values?.[id]);
 
@@ -35,6 +37,7 @@ function DynamicFieldSelect(props) {
           disabled={disabled}
           onBlur={handleBlur}
           value={state?.label ?? ""}
+          // TODO: fix console warning
           isOptionEqualToValue={(option, value) => option.label === value}
           onChange={(event, value) => {
             setState(value);

@@ -53,10 +53,9 @@ function DynamicField(props) {
     required,
     disabled,
     setSchema,
-    placeholder
+    placeholder,
+    defaultValue
   };
-
-  console.log("--- test:", capitalize(type));
 
   const Field = Fields?.[type];
 

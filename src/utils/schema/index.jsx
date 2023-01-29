@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export function createYupSchema({ validationType = "string", validations = [] }) {
+export function createYupSchema({ validationType = "mixed", validations = [] }) {
   let validator = Yup[validationType]();
 
   validations.forEach((validation) => {
