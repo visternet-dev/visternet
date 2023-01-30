@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
@@ -6,31 +6,25 @@ import CustomAutocomplete from "components/ui-component/HOC/fields/autocomplete"
 import CustomInput from "components/ui-component/HOC/fields/input";
 
 import Fields from "../..";
+import { serializerFields, serializerValue } from "./tools";
 
 function DynamicFieldMultiSelect(props) {
+  // Destructure Data
   const { sx, options, label, id, disabled, required, placeholder, col, formik, setSchema, defaultValue } = props;
-  const { handleBlur, setFieldValue, values, errors, touched } = formik;
-  const haveError = Boolean(touched[id] && errors[id]);
+  const { handleBlur, setFieldValue, errors, touched } = formik;
+  const showError = Boolean(touched[id] && errors[id]);
 
+  // Define state for handle UI
   const [state, setState] = useState(
     options.filter((option) => {
-      console.log("test:", defaultValue?.includes(option?.value), option, defaultValue);
       return defaultValue?.includes(option?.value);
     }) ?? []
   );
 
-  console.log("state:", state);
-
-  const serializer = (data, name) => {
-    return data.map((item) => {
-      return item?.[name];
-    });
-  };
-
-  const serializerFields = (data) => {
-    return data.reduce((fields, obj) => {
-      return [...fields, ...obj?.fields];
-    }, []);
+  // Handle change
+  const handleChange = (e, value) => {
+    setState(value);
+    setFieldValue(id, serializerValue(value));
   };
 
   return (
@@ -45,16 +39,14 @@ function DynamicFieldMultiSelect(props) {
           onBlur={handleBlur}
           value={state}
           getOptionLabel={(option) => option?.label ?? option ?? ""}
-          onChange={(event, value) => {
-            setState(value);
-            setFieldValue(id, serializer(value, "value"));
-          }}
+          onChange={handleChange}
           renderInput={(params) => (
-            <CustomInput {...params} label={label} error={haveError} helperText={haveError ? errors[id] : ""} required={required} placeholder={placeholder} />
+            <CustomInput {...params} label={label} error={showError} helperText={showError ? errors[id] : ""} required={required} placeholder={placeholder} />
           )}
         />
       </Grid2>
 
+      {/* Show Depended Fields */}
       <Fields fields={serializerFields(state)} formik={formik} setSchema={setSchema} />
     </React.Fragment>
   );

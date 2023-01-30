@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import { createYupSchema } from "utils/schema";
-import capitalize from "utils/string/capiltalize";
 
 import DynamicFieldCheckbox from "./checkbox";
 import DynamicFieldMultiSelect from "./multi-select";
