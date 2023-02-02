@@ -7,16 +7,20 @@ import FormBuilder from "components/ui-component/form/builder";
 
 /**
  * @name fields [field, ...]
- * @name field one element of fields
- * @property {String} id Mandatory*
- * @property {String} type Mandatory*
- * @property {String} label Optional - default=""
- * @property {String} placeholder Optional - default=""
- * @property {String} defaultValue Optional - default=""
- * @property {Array.<Object>} options (Based on Type Field) - default=[]
- * @property {Array.<Object>} col optional - default={xs:12, sm:12, md: 12}
- * @property {String} validationType Optional - default="String" - options= string, number, date
- * @property {Array.<Object>} validations Optional - default="String" - options= string, number, date
+ *    @name field one element of fields
+ *    @property {String} id Mandatory*
+ *    @property {String} type Mandatory*
+ *    @property {String} label Optional - default=""
+ *    @property {String} placeholder Optional - default=""
+ *    @property {String} defaultValue Optional - default=""
+ *    @property {Array.<Object>} options (Based on Type Field) - default=[]
+ *       @name options
+ *       @property {String} lable
+ *       @property {String} value
+ *       @property {Object} fields optional - default=[]
+ *    @property {Array.<Object>} col optional - default={xs:12, sm:12, md: 12}
+ *    @property {String} validationType Optional - default="String" - options= string, number, date
+ *    @property {Array.<Object>} validations Optional - default="String" - options= string, number, date
  */
 
 const muckFields = [
@@ -26,7 +30,7 @@ const muckFields = [
     label: "test",
     placeholder: "test",
     defaultValue: ["ID 1", "ID 3"],
-
+    disabled: true,
     options: [
       {
         label: "Lable 1",
@@ -126,67 +130,112 @@ const muckFields = [
         fields: []
       }
     ],
-    col: { md: 4, sm: 6, xs: 12 }
-    // validationType: "string",
-    // validations: [
-    //   {
-    //     type: "required",
-    //     params: ["this field is required"]
-    //   }
-    //   // {
-    //   //   type: "min",
-    //   //   params: [1, "name cannot be less than 5 characters"]
-    //   // },
-    //   // {
-    //   //   type: "max",
-    //   //   params: [2, "name cannot be more than 10 characters"]
-    //   // }
-    // ]
+    col: { md: 4, sm: 6, xs: 12 },
+    validationType: "string",
+    validations: [
+      {
+        type: "required",
+        params: ["this field is required"]
+      },
+      {
+        type: "min",
+        params: [1, "name cannot be less than 5 characters"]
+      },
+      {
+        type: "max",
+        params: [2, "name cannot be more than 10 characters"]
+      }
+    ]
+  },
+  {
+    id: "test test",
+    type: "Text",
+    label: "label Text",
+    placeholder: "place holder",
+    defaultValue: "test default",
+    col: { md: 4, sm: 6, xs: 12 },
+    validationType: "string",
+    validations: [
+      {
+        type: "required",
+        params: ["this field is required"]
+      }
+    ]
+  },
+  {
+    id: "test test",
+    type: "Textarea",
+    label: "label Text",
+    placeholder: "place holder",
+    defaultValue: "test default",
+    col: { md: 4, sm: 6, xs: 12 },
+    validationType: "string",
+    validations: [
+      {
+        type: "required",
+        params: ["this field is required"]
+      }
+    ]
+  },
+  {
+    id: "test test",
+    type: "Text",
+    label: "label Text",
+    placeholder: "place holder",
+    defaultValue: "test default",
+    col: { md: 4, sm: 6, xs: 12 },
+    validationType: "string",
+    validations: [
+      {
+        type: "required",
+        params: ["this field is required"]
+      }
+    ]
+  },
+  {
+    type: "Checkbox",
+    label: "7777777777777",
+    id: "selectName232",
+    defaultValue: true,
+    options: [
+      {
+        value: true,
+        fields: [
+          {
+            id: "55555",
+            type: "Select",
+            label: "55555",
+            placeholder: "55",
+            options: [{ label: "options 555", value: "option 555", fields: [] }],
+            col: { xs: 12 },
+            validationType: "string",
+            validations: [
+              {
+                type: "required",
+                params: ["this field is required"]
+              }
+            ]
+          }
+        ]
+      },
+      { value: false, fields: [] }
+    ],
+    col: { xs: 12 },
+    validations: [
+      {
+        type: "required",
+        params: ["this field is required"]
+      }
+      // {
+      //   type: "min",
+      //   params: [1, "name cannot be less than 5 characters"]
+      // },
+      // {
+      //   type: "max",
+      //   params: [2, "name cannot be more than 10 characters"]
+      // }
+    ]
   }
-  // {
-  //   type: "Checkbox",
-  //   label: "7777777777777",
-  //   id: "selectName232",
-  //   defaultValue: true,
-  //   options: [
-  //     {
-  //       value: true,
-  //       fields: [
-  //         {
-  //           id: "55555",
-  //           type: "Select",
-  //           label: "55555",
-  //           placeholder: "55",
-  //           options: [{ label: "options 555", value: "option 555", fields: [] }],
-  //           col: { xs: 12 },
-  //           validationType: "string",
-  //           validations: [
-  //             {
-  //               type: "required",
-  //               params: ["this field is required"]
-  //             }
-  //           ]
-  //         }
-  //       ]
-  //     },
-  //     { value: false, fields: [] }
-  //   ],
-  //   col: { xs: 12 },
-  //   validations: [
-  //     {
-  //       type: "required",
-  //       params: ["this field is required"]
-  //     }
-  //     // {
-  //     //   type: "min",
-  //     //   params: [1, "name cannot be less than 5 characters"]
-  //     // },
-  //     // {
-  //     //   type: "max",
-  //     //   params: [2, "name cannot be more than 10 characters"]
-  //     // }
-  //   ]
-  // }
 ];
 function PageForm() {
   return (

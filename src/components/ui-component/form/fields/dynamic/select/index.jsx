@@ -31,9 +31,9 @@ function DynamicFieldSelect(props) {
           options={options}
           disabled={disabled}
           onBlur={handleBlur}
+          onChange={handleChange}
           value={state?.label ?? null}
           isOptionEqualToValue={(option, value) => option.label === value}
-          onChange={handleChange}
           renderInput={(params) => (
             <CustomInput {...params} label={label} error={showError} helperText={showError ? errors[id] : ""} required={required} placeholder={placeholder} />
           )}

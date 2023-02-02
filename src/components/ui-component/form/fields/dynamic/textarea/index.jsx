@@ -6,7 +6,7 @@ import CustomInput from "components/ui-component/HOC/fields/input";
 
 import Fields from "../..";
 
-function DynamicFieldText(props) {
+function DynamicFieldTextarea(props) {
   // Destructure Data
   const { sx, label, id, disabled, required, placeholder, col, formik, setSchema, defaultValue } = props;
   const { handleBlur, setFieldValue, errors, touched } = formik;
@@ -26,6 +26,8 @@ function DynamicFieldText(props) {
       <Grid2 {...col}>
         <CustomInput
           id={id}
+          rows={4}
+          multiline
           fullWidth
           sx={{ ...sx }}
           value={state}
@@ -46,4 +48,4 @@ function DynamicFieldText(props) {
   );
 }
 
-export default DynamicFieldText;
+export default DynamicFieldTextarea;

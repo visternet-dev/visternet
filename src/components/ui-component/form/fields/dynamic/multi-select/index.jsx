@@ -33,13 +33,13 @@ function DynamicFieldMultiSelect(props) {
         <CustomAutocomplete
           multiple
           id={id}
+          value={state}
           sx={{ ...sx }}
           options={options}
           disabled={disabled}
           onBlur={handleBlur}
-          value={state}
-          getOptionLabel={(option) => option?.label ?? option ?? ""}
           onChange={handleChange}
+          getOptionLabel={(option) => option?.label ?? option ?? ""}
           renderInput={(params) => (
             <CustomInput {...params} label={label} error={showError} helperText={showError ? errors[id] : ""} required={required} placeholder={placeholder} />
           )}
