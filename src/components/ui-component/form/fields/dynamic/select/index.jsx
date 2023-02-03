@@ -6,6 +6,7 @@ import CustomAutocomplete from "components/ui-component/HOC/fields/autocomplete"
 import CustomInput from "components/ui-component/HOC/fields/input";
 
 import Fields from "../..";
+import { getOptionSelected } from "./tools";
 
 function DynamicFieldSelect(props) {
   // Destructure Data
@@ -14,18 +15,18 @@ function DynamicFieldSelect(props) {
   const showError = Boolean(touched[id] && errors[id]);
 
   // Define state for handle UI
-  const [state, setState] = useState(options.find((option) => option?.value === defaultValue) ?? {});
+  const [state, setState] = useState(getOptionSelected({ options, value: defaultValue }));
+
+  // when value change from other things state shoud be change
+  useEffect(() => {
+    setState(getOptionSelected({ options, value: values[id] }));
+  }, [values?.[id]]);
 
   // Handle change
   const handleChange = (e, value) => {
     setState(value);
     setFieldValue(id, value?.value ?? "");
   };
-
-  // when value chnage from other things state shoud be chnage
-  useEffect(() => {
-    setState(options.find((option) => option?.value === values?.[id]) ?? {});
-  }, [values?.[id]]);
 
   return (
     <React.Fragment>

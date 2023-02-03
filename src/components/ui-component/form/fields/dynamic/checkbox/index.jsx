@@ -28,13 +28,6 @@ function DynamicFieldCheckbox(props) {
     // };
   }, [options, values?.[id]]);
 
-  console.log("--------------");
-  console.log("state", state, state?.value);
-  console.log("--------------");
-  console.count();
-
-  const test = true;
-
   return (
     <React.Fragment>
       <Grid2 {...col}>

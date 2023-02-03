@@ -54,8 +54,12 @@ const FormBuilder = ({ data }) => {
     }
   });
 
-  console.log("Values:", formik.values);
-  console.log("Errors:", formik.errors);
+  console.groupCollapsed("formik");
+  console.log("VALUE");
+  console.table(formik.values);
+  console.log("ERROR");
+  console.table(formik.errors);
+  console.groupEnd();
 
   if (sections)
     return (
