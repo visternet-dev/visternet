@@ -1,6 +1,6 @@
 const mockAction = ({ type = "submit", api = "api/test", method = "post" } = {}) => {
   return {
-    type,
+    type, // submit, cancel
     api,
     method
   };

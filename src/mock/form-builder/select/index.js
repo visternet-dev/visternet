@@ -3,7 +3,7 @@ const mockSelectField = ({ fields = [], id: _id = "", defaultValue = "" } = {}) 
 
   return {
     id: "id-" + id,
-    type: "Select",
+    type: "select",
     label: "label-" + id,
     placeholder: "place holder",
     defaultValue,

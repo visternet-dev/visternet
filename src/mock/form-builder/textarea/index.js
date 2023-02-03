@@ -3,7 +3,7 @@ const mockTextareaField = ({ fields = [], id: _id = "", defaultValue = "" } = {}
 
   return {
     id: "id-" + id,
-    type: "Textarea",
+    type: "textarea",
     label: "label-" + id,
     placeholder: "place holder",
     defaultValue,

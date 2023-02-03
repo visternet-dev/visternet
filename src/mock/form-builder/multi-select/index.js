@@ -3,16 +3,20 @@ const mockMultiSelectField = ({ fields = [], id: _id = "", defaultValue = [] } =
 
   return {
     id: "id-" + id,
-    type: "MultiSelect",
+    type: "multi-select",
     label: "label-" + id,
     placeholder: "place holder",
     defaultValue,
     col: { md: 4, sm: 6, xs: 12 },
-    validationType: "mixed",
+    validationType: "array",
     validations: [
       {
         type: "required",
         params: ["this field is required"]
+      },
+      {
+        type: "min",
+        params: [2, "name cannot be less than 5 characters"]
       }
     ],
     options: [

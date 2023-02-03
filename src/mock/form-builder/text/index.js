@@ -3,7 +3,7 @@ const mockTextField = ({ fields = [], id: _id = "", defaultValue = "" } = {}) =>
 
   return {
     id: "id-" + id,
-    type: "Text",
+    type: "text",
     label: "label-" + id,
     placeholder: "place holder",
     defaultValue,
@@ -13,6 +13,10 @@ const mockTextField = ({ fields = [], id: _id = "", defaultValue = "" } = {}) =>
       {
         type: "required",
         params: ["this field is required"]
+      },
+      {
+        type: "min",
+        params: [5, "name cannot be less than 5 characters"]
       }
     ],
     options: [

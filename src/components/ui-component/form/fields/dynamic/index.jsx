@@ -11,11 +11,11 @@ import DynamicFieldText from "./text";
 import DynamicFieldTextarea from "./textarea";
 
 const Fields = {
-  Select: DynamicFieldSelect,
-  Checkbox: DynamicFieldCheckbox,
-  MultiSelect: DynamicFieldMultiSelect,
-  Textarea: DynamicFieldTextarea,
-  Text: DynamicFieldText
+  select: DynamicFieldSelect,
+  checkbox: DynamicFieldCheckbox,
+  "multi-select": DynamicFieldMultiSelect,
+  textarea: DynamicFieldTextarea,
+  text: DynamicFieldText
 };
 
 function DynamicField(props) {
