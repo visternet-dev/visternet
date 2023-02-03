@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
@@ -10,7 +10,7 @@ import Fields from "../..";
 function DynamicFieldSelect(props) {
   // Destructure Data
   const { sx, options, label, id, disabled, required, placeholder, col, formik, setSchema, defaultValue } = props;
-  const { handleBlur, setFieldValue, errors, touched } = formik;
+  const { handleBlur, setFieldValue, errors, touched, values } = formik;
   const showError = Boolean(touched[id] && errors[id]);
 
   // Define state for handle UI
@@ -21,6 +21,11 @@ function DynamicFieldSelect(props) {
     setState(value);
     setFieldValue(id, value?.value ?? "");
   };
+
+  // when value chnage from other things state shoud be chnage
+  useEffect(() => {
+    setState(options.find((option) => option?.value === values?.[id]) ?? {});
+  }, [values?.[id]]);
 
   return (
     <React.Fragment>

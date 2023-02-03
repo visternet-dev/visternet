@@ -11,10 +11,10 @@ const muckFormVuilder = {
       type: "none",
       title: "",
       // fields: [mockSelectField(), mockMultiSelectField(), mockTextField(), mockTextareaField(), mockCheckboxField()]
-      fields: [mockCheckboxField()]
+      fields: [mockSelectField()]
     }
   ],
-  actions: [mockAction()],
+  actions: [mockAction(), mockAction({ type: "reset", title: "Reset" })],
   api: "api/test",
   method: "post"
 };

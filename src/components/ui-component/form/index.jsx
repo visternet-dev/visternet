@@ -2,13 +2,12 @@ import { useFormik } from "formik";
 
 import React, { useState } from "react";
 
+import { Stack } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import { useMutation } from "@tanstack/react-query";
 
 import axios from "utils/axios";
-
-import CustomButton from "components/ui-component/HOC/Button";
 
 import * as Yup from "yup";
 
@@ -55,6 +54,9 @@ const FormBuilder = ({ data }) => {
     }
   });
 
+  console.log("Values:", formik.values);
+  console.log("Errors:", formik.errors);
+
   if (sections)
     return (
       <>
@@ -66,13 +68,13 @@ const FormBuilder = ({ data }) => {
           </SectionBuilder>
         ))}
 
-        {actions.map(({ title, type }, index) => {
-          return (
-            <Grid2 xs={12} key={index}>
-              <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} />
-            </Grid2>
-          );
-        })}
+        <Grid2 xs={12}>
+          <Stack direction="row" spacing={2}>
+            {actions.map(({ title, type }, index) => {
+              return <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} key={index} />;
+            })}
+          </Stack>
+        </Grid2>
       </>
     );
 };

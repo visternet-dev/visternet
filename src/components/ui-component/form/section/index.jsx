@@ -1,6 +1,7 @@
+import None from "components/ui-component/none";
+
 import CardSection from "./card";
 
-const None = ({ children }) => <>{children}</>;
 const sections = {
   none: None,
   card: CardSection

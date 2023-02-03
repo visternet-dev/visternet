@@ -3,8 +3,6 @@ import DynamicField from "./dynamic";
 function FieldsBuilder(props) {
   const { fields } = props || {};
 
-  console.log("fields:", fields);
-
   if (fields)
     return (
       <>
