@@ -4,10 +4,15 @@ import React, { useState } from "react";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
+import { useMutation } from "@tanstack/react-query";
+
+import axios from "utils/axios";
+
 import CustomButton from "components/ui-component/HOC/Button";
 
 import * as Yup from "yup";
 
+import ActionsBuilder from "./actions";
 import FieldsBuilder from "./fields";
 import SectionBuilder from "./section";
 
@@ -30,18 +35,24 @@ import SectionBuilder from "./section";
  */
 
 const FormBuilder = ({ data }) => {
+  // Destructure Data
+  const { actions = [], sections = [], api = "", method = "post" } = data;
+
+  // State for handle schema
   const [schema, setSchema] = useState();
 
-  // const { sections, fields, onSubmit = (data) => console.log("----------------SUBMIT:", data) } = props;
+  // Handle Submit & Update
+  const { mutate, isLoading } = useMutation((data) => {
+    return axios[method](api, data);
+  });
 
-  const onSubmit = (data) => console.log("----------------SUBMIT:", data);
-
-  const { actions = [], sections = [] } = data;
-
+  // use formik for controll form
   const formik = useFormik({
     initialValues: {},
     validationSchema: Yup.object().shape(schema),
-    onSubmit
+    onSubmit: (data) => {
+      mutate(data);
+    }
   });
 
   if (sections)
@@ -55,12 +66,10 @@ const FormBuilder = ({ data }) => {
           </SectionBuilder>
         ))}
 
-        {actions.map((action, index) => {
+        {actions.map(({ title, type }, index) => {
           return (
             <Grid2 xs={12} key={index}>
-              <CustomButton onClick={formik.handleSubmit} variant="contained">
-                Submit
-              </CustomButton>
+              <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} />
             </Grid2>
           );
         })}

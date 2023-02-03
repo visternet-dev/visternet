@@ -1,8 +1,7 @@
-const mockAction = ({ type = "submit", api = "api/test", method = "post" } = {}) => {
+const mockAction = ({ type = "submit", title = "submit" } = {}) => {
   return {
-    type, // submit, cancel
-    api,
-    method
+    type, // submit, cancel, update
+    title
   };
 };
 

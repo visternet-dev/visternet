@@ -1,10 +1,10 @@
-import { Button } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 
 function CustomButton({ children, sx, ...params }) {
   return (
-    <Button sx={{ ...sx, borderRadius: "4px", color: "#fff", boxShadow: "none" }} {...params}>
+    <LoadingButton  sx={{ ...sx, borderRadius: "4px", color: "#fff", boxShadow: "none" }} {...params}>
       {children}
-    </Button>
+    </LoadingButton >
   );
 }
 

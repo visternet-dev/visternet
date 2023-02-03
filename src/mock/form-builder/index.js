@@ -14,7 +14,9 @@ const muckFormVuilder = {
       fields: [mockCheckboxField()]
     }
   ],
-  actions: [mockAction()]
+  actions: [mockAction()],
+  api: "api/test",
+  method: "post"
 };
 
 export default muckFormVuilder;
