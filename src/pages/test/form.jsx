@@ -3,7 +3,9 @@ import React from "react";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Stack } from "@mui/system";
 
-import FormBuilder from "components/ui-component/form/builder";
+import FormBuilder from "components/ui-component/form";
+
+import muckFormVuilder from "mock/form-builder";
 
 /**
  * @name fields [field, ...]
@@ -131,7 +133,7 @@ const muckFields = [
       }
     ],
     col: { md: 4, sm: 6, xs: 12 },
-    validationType: "string",
+    validationType: "mixed",
     validations: [
       {
         type: "required",
@@ -237,11 +239,48 @@ const muckFields = [
     ]
   }
 ];
+
+const data = {
+  sections: [
+    {
+      type: "none",
+      title: "",
+      fields: [
+        {
+          id: "single field",
+          type: "Text",
+          label: "label Text",
+          placeholder: "place holder",
+          defaultValue: "test default",
+          col: { md: 4, sm: 6, xs: 12 },
+          validationType: "string",
+          validations: [
+            {
+              type: "required",
+              params: ["this field is required"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "card",
+      title: "test",
+      fields: muckFields
+    }
+  ],
+  actions: [
+    {
+      api: "test",
+      method: "post"
+    }
+  ]
+};
 function PageForm() {
   return (
     <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>
-        <FormBuilder fields={muckFields} />
+        <FormBuilder data={muckFormVuilder} />
       </Grid2>
     </Stack>
   );

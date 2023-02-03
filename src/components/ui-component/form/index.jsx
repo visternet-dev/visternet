@@ -8,7 +8,8 @@ import CustomButton from "components/ui-component/HOC/Button";
 
 import * as Yup from "yup";
 
-import Fields from "../fields";
+import FieldsBuilder from "./fields";
+import SectionBuilder from "./section";
 
 /**
  * @name fields [field, ...]
@@ -28,10 +29,14 @@ import Fields from "../fields";
  *    @property {Array.<Object>} validations Optional - default="String" - options= string, number, date
  */
 
-const FormBuilder = (props) => {
+const FormBuilder = ({ data }) => {
   const [schema, setSchema] = useState();
 
-  const { fields, onSubmit = (data) => console.log("----------------SUBMIT:", data) } = props;
+  // const { sections, fields, onSubmit = (data) => console.log("----------------SUBMIT:", data) } = props;
+
+  const onSubmit = (data) => console.log("----------------SUBMIT:", data);
+
+  const { actions = [], sections = [] } = data;
 
   const formik = useFormik({
     initialValues: {},
@@ -39,16 +44,26 @@ const FormBuilder = (props) => {
     onSubmit
   });
 
-  if (fields)
+  if (sections)
     return (
       <>
-        <Fields fields={fields} formik={formik} setSchema={setSchema} />
+        {sections.map(({ type, title, fields }, index) => (
+          <SectionBuilder type={type} title={title} key={index}>
+            <Grid2 container xs={12}>
+              <FieldsBuilder fields={fields} formik={formik} setSchema={setSchema} />
+            </Grid2>
+          </SectionBuilder>
+        ))}
 
-        <Grid2 xs={12}>
-          <CustomButton onClick={formik.handleSubmit} variant="contained">
-            Submit
-          </CustomButton>
-        </Grid2>
+        {actions.map((action, index) => {
+          return (
+            <Grid2 xs={12} key={index}>
+              <CustomButton onClick={formik.handleSubmit} variant="contained">
+                Submit
+              </CustomButton>
+            </Grid2>
+          );
+        })}
       </>
     );
 };

@@ -60,6 +60,8 @@ function DynamicField(props) {
     defaultValue
   };
 
+  console.log("type:", type);
+
   const Field = Fields?.[type];
 
   if (Field) return <Field {...params} />;
