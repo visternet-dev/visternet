@@ -18,6 +18,14 @@ const Fields = {
   text: DynamicFieldText
 };
 
+const initials = {
+  select: "",
+  checkbox: {},
+  "multi-select": [],
+  textarea: "",
+  text: ""
+};
+
 function DynamicField(props) {
   const {
     id,
@@ -32,7 +40,7 @@ function DynamicField(props) {
     disabled = false,
     placeholder = "",
     validations = [],
-    defaultValue = ""
+    defaultValue = initials?.[type] ?? ""
   } = props;
 
   const required = validations.some((validation) => validation.type === "required");
@@ -42,7 +50,7 @@ function DynamicField(props) {
     setSchema((prev) => ({ ...prev, [id]: createYupSchema({ validationType, validations }) }));
 
     return () => {
-      formik.setFieldValue(id, "");
+      formik.setFieldValue(id, defaultValue);
     };
   }, []);
 

@@ -1,4 +1,4 @@
-const mockCheckboxField = ({ fields = [], id: _id = "", defaultValue = "" } = {}) => {
+const mockCheckboxField = ({ fields = [], id: _id = "", defaultValue = {}} = {}) => {
   const id = _id || Math.ceil(Math.random() * 100);
 
   return {

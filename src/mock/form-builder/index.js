@@ -10,7 +10,7 @@ const muckFormVuilder = {
     {
       type: "none",
       title: "",
-      fields: [mockSelectField({fields: [mockSelectField()]}), mockMultiSelectField(), mockCheckboxField(), mockTextField(), mockTextareaField()]
+      fields: [mockSelectField({fields: [mockSelectField()]}), mockMultiSelectField(), mockCheckboxField({fields: [mockSelectField()]}), mockTextField(), mockTextareaField()]
       // fields: [mockSelectField()]
     }
   ],
