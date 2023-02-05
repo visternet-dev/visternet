@@ -26,6 +26,8 @@ import muckFormVuilder from "mock/form-builder";
  */
 
 function PageForm() {
+  console.log("muckFormVuilder", muckFormVuilder);
+
   return (
     <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>

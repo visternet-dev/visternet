@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
-import CustomAutocomplete from "components/ui-component/HOC/fields/autocomplete";
-import CustomInput from "components/ui-component/HOC/fields/input";
+import CustomAutocomplete from "components/ui-component/custom/autocomplete";
+import CustomInput from "components/ui-component/custom/input";
 
 import Fields from "../..";
 import { getOptionSelected, serializerFields, serializerValue } from "./tools";

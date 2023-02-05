@@ -12,18 +12,18 @@ const mockCheckboxField = ({ fields = [], id: _id = "", defaultValue = "" } = {}
     options: [
       {
         label: "Lable 1",
-        value: true,
-        fields: fields[0] ?? []
+        value: "ID 1",
+        fields: [fields[0]] ?? []
       },
       {
         label: "Lable 2",
         value: "ID 2",
-        fields: fields[1] ?? []
+        fields: [fields[1]] ?? []
       },
       {
         label: "Lable 3",
         value: "ID 3",
-        fields: fields[2] ?? []
+        fields: [fields[2]] ?? []
       }
     ]
   };

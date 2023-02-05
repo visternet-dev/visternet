@@ -4,7 +4,7 @@ import { Stack } from "@mui/material";
 
 import translate from "utils/locales/translate";
 
-import CustomButton from "components/ui-component/HOC/Button";
+import CustomButton from "components/ui-component/custom/Button";
 
 function LandingActions() {
   const router = useRouter();

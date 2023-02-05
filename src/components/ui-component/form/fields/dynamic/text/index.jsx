@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
-import CustomInput from "components/ui-component/HOC/fields/input";
+import CustomInput from "components/ui-component/custom/input";
 
 import Fields from "../..";
 

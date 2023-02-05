@@ -1,4 +1,4 @@
-import CustomButton from "components/ui-component/HOC/Button";
+import CustomButton from "components/ui-component/custom/Button";
 
 function ActionSubmit({ loading, title, formik, ...params }) {
   return (

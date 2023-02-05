@@ -65,11 +65,7 @@ function DynamicField(props) {
   if (Field) return <Field {...params} />;
 
   // on Error
-  return (
-    <Grid2 xs={12} sx={{ color: "red" }}>
-      This Field is not found!
-    </Grid2>
-  );
+  return <></>;
 }
 
 export default DynamicField;
