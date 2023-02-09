@@ -225,8 +225,14 @@ function PlansFilters({ sx, ...params }) {
   const theme = useTheme();
 
   return (
-    <Stack sx={{ ...sx, bgcolor: theme.palette.background.paper, height: "100%", padding: "24px 16px 24px 16px", position: "relative" }} {...params}>
-      <Typography variant="h3">Filters</Typography>
+    <Stack
+      sx={{ ...sx, bgcolor: theme.palette.background.paper, height: "95vh", padding: "24px 16px 24px 16px", position: "sticky", top: 8, overflow: "auto" }}
+      {...params}
+    >
+      <Stack sx={{ mb: 2 }} spacing={1}>
+        <Typography variant="h3">Filters</Typography>
+        <Typography variant="body1">Apply Filters to Table Data.</Typography>
+      </Stack>
 
       <Stack>
         <FormBuilder data={muckFormVuilder} />
