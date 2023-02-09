@@ -9,7 +9,7 @@ import { useTheme } from "@emotion/react";
 
 import translate from "utils/locales/translate";
 
-import CustomTabsHeader from "components/ui-component/custom/Tabs/header";
+import CustomTabsHeader from "components/ui-component/HOC/Tabs/header";
 
 import LandingAdvanceSearch from "./advance";
 import GoDown from "./go-down";
@@ -63,7 +63,7 @@ function LandingFilter() {
           <LandingAdvanceSearch />
         </TabPanel>
       </TabContext>
- 
+
       {/* arrow go down */}
       <GoDown />
     </Box>
