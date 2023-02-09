@@ -9,7 +9,7 @@ import axios from "utils/axios";
 import * as Yup from "yup";
 
 import ActionsBuilder from "./actions";
-import SectionBuilder from "./section";
+import SectionsBuilder from "./sections";
 
 /**
  * @name fields [field, ...]
@@ -63,20 +63,10 @@ const FormBuilder = ({ data }) => {
     return (
       <>
         {/* Sections */}
-        {sections.map(({ type, title, fields, actions = [], ...params }, index) => (
-          <SectionBuilder type={type} title={title} key={index} fields={fields} formik={formik} setSchema={setSchema} actions={actions} {...params} />
-        ))}
+        <SectionsBuilder sections={sections} formik={formik} setSchema={setSchema} />
 
         {/* Actions */}
-        {/* <Grid2 xs={12}>
-          <Stack direction="row" spacing={2}>
-            {actions.map(({ title, type, ...params }, index) => {
-              return <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} key={index} {...params} />;
-            })}
-          </Stack>
-        </Grid2> */}
-
-        <ActionsBuilder actions={actions} />
+        <ActionsBuilder actions={actions} formik={formik} />
       </>
     );
 };
