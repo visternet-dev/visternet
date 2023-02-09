@@ -16,7 +16,7 @@ const mockMultiSelectField = ({ fields = [], id: _id = "", defaultValue = [] } =
       },
       {
         type: "min",
-        params: [2, "name cannot be less than 5 characters"]
+        params: [2, "less than 2"]
       }
     ],
     options: [

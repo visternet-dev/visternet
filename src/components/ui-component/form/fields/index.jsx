@@ -3,7 +3,7 @@ import DynamicField from "./dynamic";
 function FieldsBuilder(props) {
   const { fields } = props || {};
 
-  if (fields)
+  if (fields) {
     return (
       <>
         {fields.map((fieldProps, index) => (
@@ -11,6 +11,7 @@ function FieldsBuilder(props) {
         ))}
       </>
     );
+  }
 
   return <></>;
 }

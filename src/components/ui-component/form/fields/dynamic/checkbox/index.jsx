@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { FormControl, FormHelperText, Stack, Typography } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
-import { useTheme } from "@emotion/react";
 
 import CustomFormGroup from "components/ui-component/custom/form-group";
 import CustomInpuLabel from "components/ui-component/custom/input-label";
@@ -31,8 +29,10 @@ function DynamicFieldCheckbox(props) {
                 return (
                   <FormControlLabel
                     onChange={(e, value) => {
-                      setState((prev) => ({ ...prev, [item.value]: { fields: value ? item?.fields ?? [] : [] } }));
-                      setFieldValue(id, { ...values?.[id], [item.value]: value });
+                      const fields = item?.fields ?? [];
+
+                      setState((prev) => ({ ...prev, [item.value]: { fields: value ? fields : [] } }));
+                      setFieldValue(id, { ...(values?.[id] ?? {}), [item.value]: value });
                     }}
                     control={<Checkbox disabled={disabled} checked={values?.[id]?.[item.value] ?? false} size="small" />}
                     label={<Typography>{item?.label}</Typography>}

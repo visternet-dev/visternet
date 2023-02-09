@@ -8,14 +8,25 @@ import mockTextareaField from "./textarea";
 const muckFormVuilder = {
   sections: [
     {
-      type: "none",
-      title: "",
-      fields: [mockSelectField({fields: [mockSelectField()]}), mockMultiSelectField(), mockCheckboxField({fields: [mockSelectField()]}), mockTextField(), mockTextareaField()]
-      // fields: [mockSelectField()]
+      type: "card",
+      title: "Test",
+      fields: [
+        // mockSelectField({ fields: [mockSelectField()] }),
+        // mockMultiSelectField(),
+        mockCheckboxField({ fields: [mockSelectField(), mockSelectField()] }),
+        // mockTextField(),
+        // mockTextareaField()
+      ]
     }
   ],
-  actions: [mockAction(), mockAction({ type: "reset", title: "Reset" })],
+  actions: [
+    mockAction(),
+    mockAction({ type: "reset", title: "Reset" }),
+    mockAction({ type: "next-step", title: " < Next Step" }),
+    mockAction({ type: "prev-step", title: "Prev Step >" })
+  ],
   api: "api/test",
+  defaultBody: {},  
   method: "post"
 };
 

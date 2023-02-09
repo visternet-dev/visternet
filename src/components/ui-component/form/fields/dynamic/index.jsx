@@ -46,7 +46,6 @@ function DynamicField(props) {
   const required = validations.some((validation) => validation.type === "required");
 
   useEffect(() => {
-    formik.setFieldValue(id, defaultValue);
     setSchema((prev) => ({ ...prev, [id]: createYupSchema({ validationType, validations }) }));
 
     return () => {

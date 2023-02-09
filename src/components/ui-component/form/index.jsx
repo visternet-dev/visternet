@@ -55,9 +55,10 @@ const FormBuilder = ({ data }) => {
   });
 
   console.groupCollapsed("formik");
-  console.log("VALUE");
+  console.log("--- -- VALUE -- ---");
   console.table(formik.values);
-  console.log("ERROR");
+
+  console.log("--- -- ERROR -- ---");
   console.table(formik.errors);
   console.groupEnd();
 
