@@ -2,9 +2,6 @@ import { useFormik } from "formik";
 
 import React, { useState } from "react";
 
-import { Stack } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
 import { useMutation } from "@tanstack/react-query";
 
 import axios from "utils/axios";
@@ -12,7 +9,6 @@ import axios from "utils/axios";
 import * as Yup from "yup";
 
 import ActionsBuilder from "./actions";
-import FieldsBuilder from "./fields";
 import SectionBuilder from "./section";
 
 /**
@@ -54,6 +50,7 @@ const FormBuilder = ({ data }) => {
     }
   });
 
+  // LOGS
   console.groupCollapsed("formik");
   console.log("--- -- VALUE -- ---");
   console.table(formik.values);
@@ -65,21 +62,21 @@ const FormBuilder = ({ data }) => {
   if (sections)
     return (
       <>
-        {sections.map(({ type, title, fields, ...params }, index) => (
-          <SectionBuilder type={type} title={title} key={index} {...params}>
-            <Grid2 container xs={12}>
-              <FieldsBuilder fields={fields} formik={formik} setSchema={setSchema} />
-            </Grid2>
-          </SectionBuilder>
+        {/* Sections */}
+        {sections.map(({ type, title, fields, actions = [], ...params }, index) => (
+          <SectionBuilder type={type} title={title} key={index} fields={fields} formik={formik} setSchema={setSchema} actions={actions} {...params} />
         ))}
 
-        <Grid2 xs={12}>
+        {/* Actions */}
+        {/* <Grid2 xs={12}>
           <Stack direction="row" spacing={2}>
             {actions.map(({ title, type, ...params }, index) => {
               return <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} key={index} {...params} />;
             })}
           </Stack>
-        </Grid2>
+        </Grid2> */}
+
+        <ActionsBuilder actions={actions} />
       </>
     );
 };

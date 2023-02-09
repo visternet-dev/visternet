@@ -1,25 +1,23 @@
-import None from "components/ui-component/none";
+import React from "react";
 
-import ActionNextStep from "./next-step";
-import ActionPrevStep from "./prev-step";
-import ActionReset from "./reset";
-import ActionSubmit from "./submit";
+import { Stack } from "@mui/material";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
-const actions = {
-  submit: ActionSubmit,
-  reset: ActionReset,
-  "next-step": ActionNextStep,
-  "prev-step": ActionPrevStep
-};
+import DynamicAction from "./dynamic";
 
-function ActionsBuilder(props) {
-  // Destructuer Data
-  const { type } = props;
+function ActionsBuilder({ actions, isLoading, formik, ...params }) {
+  if (actions)
+    return (
+      <Grid2 xs={12} {...params}>
+        <Stack direction="row" spacing={2}>
+          {actions.map(({ title, type, ...actionParams }, index) => {
+            return <DynamicAction type={type} title={title} loading={isLoading} formik={formik} key={index} {...actionParams} />;
+          })}
+        </Stack>
+      </Grid2>
+    );
 
-  //  Get Target Action Based on ype
-  const Action = actions?.[type] ?? None;
-
-  return <Action {...props} />;
+  return <></>;
 }
 
 export default ActionsBuilder;

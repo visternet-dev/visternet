@@ -4,8 +4,6 @@ import { useTheme } from "@emotion/react";
 
 import FormBuilder from "components/ui-component/form";
 
-import mockAction from "mock/form-builder/action";
-
 const muckFormVuilder = {
   sections: [
     {
@@ -17,9 +15,38 @@ const muckFormVuilder = {
           type: "submit",
           title: "Submit Filter",
           fullWidth: true,
-          sx: { width: "100%", position: "absolute", bottom: 0 }
+          sx: { width: "100%" },
+          size: "large",
+          variant: "outlined"
+        },
+        {
+          type: "reset",
+          title: "Reset Filter",
+          variant: false,
+          fullWidth: true,
+          sx: { width: "100%" }
         }
       ],
+      action2: {
+        submit: {
+          type: "submit",
+          title: "Submit Filter",
+          fullWidth: true,
+          sx: { width: "100%" },
+          size: "large",
+          variant: "outlined"
+        },
+        cancel: {},
+        reset: {
+          type: "reset",
+          title: "Reset Filter",
+          variant: false,
+          fullWidth: true,
+          sx: { width: "100%" }
+        },
+        nextStep: {},
+        beforeStep: {}
+      },
       fields: [
         // Do you have a valid Study Permit / Visa?
         {
@@ -187,14 +214,6 @@ const muckFormVuilder = {
     {
       type: "accordion",
       title: "Program Filters"
-    }
-  ],
-  actions: [
-    {
-      type: "submit",
-      title: "Submit Filter",
-      fullWidth: true,
-      sx: { width: "100%", position: "absolute", bottom: 0 }
     }
   ],
   api: "api/test",
