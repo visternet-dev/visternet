@@ -1,5 +1,6 @@
-import LAYOUT from "constant";
 import Layout from "layout";
+
+import LAYOUT from "constant";
 
 function UserDashboard() {
   return <div>UserDashboard</div>;
