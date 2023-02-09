@@ -83,7 +83,7 @@ function Profile() {
             flexWrap="nowrap"
           >
             <Swiper
-              slidesPerView={3}
+              slidesPerView={1}
               spaceBetween={5}
               breakpoints={{
                 640: {
@@ -91,11 +91,11 @@ function Profile() {
                   spaceBetween: 10
                 },
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 4,
                   spaceBetween: 10
                 },
                 1024: {
-                  slidesPerView: 3,
+                  slidesPerView: 6,
                   spaceBetween: 10
                 }
               }}
