@@ -9,3 +9,11 @@ export const serializerFields = (data) => {
     return [...fields, ...obj?.fields];
   }, []);
 };
+
+export const getOptionSelected = ({ options, value }) => {
+  return (
+    options.filter((option) => {
+      return value?.includes(option?.value);
+    }) ?? []
+  );
+};

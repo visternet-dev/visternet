@@ -1,0 +1,42 @@
+const mockTextField = ({ fields = [], id: _id = "", defaultValue = "" } = {}) => {
+  const id = _id || Math.ceil(Math.random() * 100);
+
+  return {
+    id: "id-" + id,
+    type: "text",
+    label: "label-" + id,
+    placeholder: "place holder",
+    defaultValue,
+    col: { md: 4, sm: 6, xs: 12 },
+    validationType: "string",
+    validations: [
+      {
+        type: "required",
+        params: ["this field is required"]
+      },
+      {
+        type: "min",
+        params: [5, "name cannot be less than 5 characters"]
+      }
+    ],
+    options: [
+      {
+        label: "Lable 1",
+        value: "ID 1",
+        fields: fields[0] ?? []
+      },
+      {
+        label: "Lable 2",
+        value: "ID 2",
+        fields: fields[1] ?? []
+      },
+      {
+        label: "Lable 3",
+        value: "ID 3",
+        fields: fields[2] ?? []
+      }
+    ]
+  };
+};
+
+export default mockTextField;

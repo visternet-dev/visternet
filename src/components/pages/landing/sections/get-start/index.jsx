@@ -6,8 +6,8 @@ import { Stack } from "@mui/material";
 import translate from "utils/locales/translate";
 
 import ComingSoon from "components/ui-component/coming-soon";
-import CustomDivider from "components/ui-component/HOC/Divider";
-import CustomTabsHeader from "components/ui-component/HOC/Tabs/header";
+import CustomDivider from "components/ui-component/custom/Divider";
+import CustomTabsHeader from "components/ui-component/custom/Tabs/header";
 
 import LandingTitle from "../../title";
 import LandingSectionApplicants from "./applicants";
