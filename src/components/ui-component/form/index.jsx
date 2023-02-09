@@ -75,8 +75,8 @@ const FormBuilder = ({ data }) => {
 
         <Grid2 xs={12}>
           <Stack direction="row" spacing={2}>
-            {actions.map(({ title, type }, index) => {
-              return <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} key={index} />;
+            {actions.map(({ title, type, ...params }, index) => {
+              return <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} key={index} {...params} />;
             })}
           </Stack>
         </Grid2>
