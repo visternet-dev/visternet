@@ -18,9 +18,10 @@ const CardPlan = () => {
   return (
     <Box
       sx={{
-        boxShadow: "0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06), 0px 0px 0px 4px #F2F4F7",
+        // boxShadow: "0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06), 0px 0px 0px 4px #F2F4F7",
         border: "1px solid #EAECF0",
-        padding: "24px 16px 24px 16px"
+        padding: "24px 16px 24px 16px",
+        bgcolor: theme.palette.background.paper
       }}
     >
       <Typography sx={{ margin: "1rem 1rem" }} component="p" variant="body1">
@@ -85,4 +86,5 @@ const CardPlan = () => {
     </Box>
   );
 };
+
 export default CardPlan;

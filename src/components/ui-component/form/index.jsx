@@ -65,8 +65,8 @@ const FormBuilder = ({ data }) => {
   if (sections)
     return (
       <>
-        {sections.map(({ type, title, fields }, index) => (
-          <SectionBuilder type={type} title={title} key={index}>
+        {sections.map(({ type, title, fields, ...params }, index) => (
+          <SectionBuilder type={type} title={title} key={index} {...params}>
             <Grid2 container xs={12}>
               <FieldsBuilder fields={fields} formik={formik} setSchema={setSchema} />
             </Grid2>
