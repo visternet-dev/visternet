@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
-import CustomAutocomplete from "components/ui-component/HOC/fields/autocomplete";
-import CustomInput from "components/ui-component/HOC/fields/input";
+import CustomAutocomplete from "components/ui-component/custom/autocomplete";
+import CustomInput from "components/ui-component/custom/input";
 
 import Fields from "../..";
-import { serializerFields, serializerValue } from "./tools";
+import { getOptionSelected, serializerFields, serializerValue } from "./tools";
 
 function DynamicFieldMultiSelect(props) {
   // Destructure Data
   const { sx, options, label, id, disabled, required, placeholder, col, formik, setSchema, defaultValue } = props;
-  const { handleBlur, setFieldValue, errors, touched } = formik;
+  const { handleBlur, setFieldValue, errors, touched, values } = formik;
   const showError = Boolean(touched[id] && errors[id]);
 
   // Define state for handle UI
-  const [state, setState] = useState(
-    options.filter((option) => {
-      return defaultValue?.includes(option?.value);
-    }) ?? []
-  );
+  const [state, setState] = useState(getOptionSelected({ options, value: defaultValue }));
+
+  // when value change from other things state shoud be change
+  useEffect(() => {
+    setState(getOptionSelected({ options, value: values[id] }));
+  }, [values?.[id]]);
 
   // Handle change
   const handleChange = (e, value) => {

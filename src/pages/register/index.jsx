@@ -2,7 +2,7 @@ import { Box, Grid, InputBase, styled, Typography } from "@mui/material";
 
 import Layout from "layout";
 
-import CustomButton from "components/ui-component/HOC/Button";
+import CustomButton from "components/ui-component/custom/Button";
 import LAYOUT from "constant";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({

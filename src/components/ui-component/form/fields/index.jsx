@@ -1,9 +1,9 @@
 import DynamicField from "./dynamic";
 
-function Fields(props) {
+function FieldsBuilder(props) {
   const { fields } = props || {};
 
-  if (fields)
+  if (fields) {
     return (
       <>
         {fields.map((fieldProps, index) => (
@@ -11,8 +11,9 @@ function Fields(props) {
         ))}
       </>
     );
+  }
 
   return <></>;
 }
 
-export default Fields;
+export default FieldsBuilder;

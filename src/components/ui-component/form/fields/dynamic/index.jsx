@@ -11,11 +11,19 @@ import DynamicFieldText from "./text";
 import DynamicFieldTextarea from "./textarea";
 
 const Fields = {
-  Select: DynamicFieldSelect,
-  Checkbox: DynamicFieldCheckbox,
-  MultiSelect: DynamicFieldMultiSelect,
-  Textarea: DynamicFieldTextarea,
-  Text: DynamicFieldText
+  select: DynamicFieldSelect,
+  checkbox: DynamicFieldCheckbox,
+  "multi-select": DynamicFieldMultiSelect,
+  textarea: DynamicFieldTextarea,
+  text: DynamicFieldText
+};
+
+const initials = {
+  select: "",
+  checkbox: {},
+  "multi-select": [],
+  textarea: "",
+  text: ""
 };
 
 function DynamicField(props) {
@@ -32,17 +40,16 @@ function DynamicField(props) {
     disabled = false,
     placeholder = "",
     validations = [],
-    defaultValue = ""
+    defaultValue = initials?.[type] ?? ""
   } = props;
 
   const required = validations.some((validation) => validation.type === "required");
 
   useEffect(() => {
-    formik.setFieldValue(id, defaultValue);
     setSchema((prev) => ({ ...prev, [id]: createYupSchema({ validationType, validations }) }));
 
     return () => {
-      formik.setFieldValue(id, "");
+      formik.setFieldValue(id, defaultValue);
     };
   }, []);
 
@@ -65,11 +72,7 @@ function DynamicField(props) {
   if (Field) return <Field {...params} />;
 
   // on Error
-  return (
-    <Grid2 xs={12} sx={{ color: "red" }}>
-      This Field is not found!
-    </Grid2>
-  );
+  return <></>;
 }
 
 export default DynamicField;

@@ -1,6 +1,6 @@
-import CustomButton from "components/ui-component/HOC/Button";
-import CustomAutocomplete from "components/ui-component/HOC/fields/autocomplete";
-import CustomInput from "components/ui-component/HOC/fields/input";
+import CustomButton from "components/ui-component/custom/Button";
+import CustomAutocomplete from "components/ui-component/custom/autocomplete";
+import CustomInput from "components/ui-component/custom/input";
 
 import { Stack } from "@mui/material";
 import { Box } from "@mui/system";
