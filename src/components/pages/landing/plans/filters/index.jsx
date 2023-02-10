@@ -171,56 +171,130 @@ const muckFormVuilder = [
                 fields: []
               }
             ]
+          },
+          // Only Show Direct Admissions
+          {
+            id: "id-Only Show Direct Admissions",
+            type: "checkbox",
+            col: { xs: 12 },
+            options: [
+              {
+                label: "Only Show Direct Admissions",
+                value: "ID 1",
+                fields: []
+              }
+            ]
           }
         ]
-      }
-    ],
-    api: "api/test",
-    defaultBody: {},
-    method: "post",
-
-    actions: [
-      {
-        type: "submit",
-        title: "Submit Filter",
-        fullWidth: true,
-        sx: { width: "100%" },
-        size: "large",
-        variant: "outlined"
       },
+      // Only Show Direct Admissions
       {
-        type: "reset",
-        title: "Reset Filter",
-        variant: false,
-        fullWidth: true,
-        sx: { width: "100%" }
+        id: "id-Only Show Direct Admissions",
+        type: "checkbox",
+        label: null,
+        option: {
+          label: "Only Show Direct Admissions",
+          value: true
+        }
       }
     ],
-    action2: {
+
+    actions: {
       submit: {
         type: "submit",
         title: "Submit Filter",
-        fullWidth: true,
         sx: { width: "100%" },
         size: "large",
-        variant: "outlined"
+        variant: "outlined",
+        api: null
       },
-      cancel: {},
       reset: {
-        type: "reset",
         title: "Reset Filter",
         variant: false,
         fullWidth: true,
         sx: { width: "100%" }
       },
-      nextStep: {},
-      beforeStep: {}
+
+      nextStep: {
+        title: "Next Step",
+        variant: false,
+        fullWidth: true,
+        sx: { width: "100%" }
+      }
     }
   },
   {
     parent: {
       type: "accordion",
       title: "School Filters"
+    },
+    sections: [
+      {
+        type: "none",
+        title: "",
+        fields: [
+          // Do you have a valid Study Permit / Visa?
+          {
+            id: "id-valid-Study",
+            type: "multi-select",
+            label: "Do you have a valid Study Permit / Visa?",
+            placeholder: "place holder",
+            col: { xs: 12 },
+            validationType: "array",
+            options: [
+              {
+                label: "Lable 1",
+                value: "ID 1",
+                fields: []
+              },
+              {
+                label: "Lable 2",
+                value: "ID 2",
+                fields: []
+              },
+              {
+                label: "Lable 3",
+                value: "ID 3",
+                fields: []
+              }
+            ]
+          }
+        ],
+        actions: {
+          submit: {
+            type: "submit",
+            title: "Submit Filter",
+            sx: { width: "100%" },
+            size: "large",
+            variant: "outlined",
+            api: null
+          },
+          reset: {
+            type: "reset",
+            title: "Reset Filter",
+            variant: false,
+            fullWidth: true,
+            sx: { width: "100%" }
+          }
+        }
+      }
+    ],
+    actions: {
+      submit: {
+        type: "submit",
+        title: "Submit Filter",
+        sx: { width: "100%" },
+        size: "large",
+        variant: "outlined",
+        api: null
+      },
+      reset: {
+        type: "reset",
+        title: "Reset Filter",
+        variant: false,
+        fullWidth: true,
+        sx: { width: "100%" }
+      }
     }
   },
   {
@@ -246,7 +320,14 @@ function PlansFilters({ sx, ...params }) {
 
       <Stack>
         {muckFormVuilder?.map((item) => (
-          <FormBuilder data={item} />
+          <FormBuilder
+            data={item}
+            callToActions={{
+              onNextStep: (data) => {
+                console.log("test", data);
+              }
+            }}
+          />
         ))}
       </Stack>
     </Stack>

@@ -8,8 +8,8 @@ import ActionSubmit from "./submit";
 const actions = {
   submit: ActionSubmit,
   reset: ActionReset,
-  "next-step": ActionNextStep,
-  "prev-step": ActionPrevStep
+  nextStep: ActionNextStep,
+  prevStep: ActionPrevStep
 };
 
 function DynamicAction(props) {

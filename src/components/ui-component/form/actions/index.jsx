@@ -5,13 +5,15 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import DynamicAction from "./dynamic";
 
-function ActionsBuilder({ actions, isLoading, formik, ...params }) {
+function ActionsBuilder({ actions, isLoading, formik, mutate, ...params }) {
   if (actions)
     return (
-      <Grid2 xs={12} {...params}>
+      <Grid2 xs={12}>
         <Stack direction="row" spacing={2}>
-          {actions.map(({ title, type, ...actionParams }, index) => {
-            return <DynamicAction type={type} title={title} loading={isLoading} formik={formik} key={index} {...actionParams} />;
+          {Object.keys(actions).map((type, index) => {
+            const actionParams = actions?.[type];
+
+            return <DynamicAction type={type} loading={isLoading} formik={formik} mutate={mutate} key={index} {...actionParams} {...params} />;
           })}
         </Stack>
       </Grid2>

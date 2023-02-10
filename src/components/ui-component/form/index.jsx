@@ -30,35 +30,46 @@ import DynamicSection from "./sections/dynamic";
  *    @property {Array.<Object>} validations Optional - default="String" - options= string, number, date
  */
 
-const FormBuilder = ({ data }) => {
+const FormBuilder = ({ data, callToActions = {} }) => {
+  // TODO: should be completed
+  // Handle call to actions
+  const { onSubmit, onReset, onCancel, onNextStep, onBeforeStepp, onSuccess, onError } = callToActions;
+
   // Destructure Data
   const { parent = {}, sections = [], actions = [], api = "", method = "post" } = data;
 
   // State for handle schema
   const [schema, setSchema] = useState();
 
-  // Handle Submit & Update
-  const { mutate, isLoading } = useMutation((data) => {
-    return axios[method](api, data);
+  // Handle API call Actions
+  const { mutate, isLoading } = useMutation(({ data, api }) => {
+    const { method = "post", url, body, params } = api;
+
+    return axios({
+      method,
+      url,
+      data: {
+        ...body,
+        ...data
+      },
+      params: {
+        ...params
+      }
+    });
   });
+
+  // const overWriteActions = (action) => {
+  //   for
+
+  // };
 
   // use formik for controll form
   const formik = useFormik({
     initialValues: {},
     validationSchema: Yup.object().shape(schema),
-    onSubmit: (data) => {
-      mutate(data);
-    }
+    onSubmit,
+    onReset
   });
-
-  // LOGS
-  console.groupCollapsed("formik");
-  console.log("--- -- VALUE -- ---");
-  console.table(formik.values);
-
-  console.log("--- -- ERROR -- ---");
-  console.table(formik.errors);
-  console.groupEnd();
 
   if (sections)
     return (
@@ -67,7 +78,7 @@ const FormBuilder = ({ data }) => {
         <SectionsBuilder sections={sections} actions={actions} formik={formik} setSchema={setSchema} />
 
         {/* Actions */}
-        <ActionsBuilder actions={actions} formik={formik} />
+        <ActionsBuilder actions={actions} formik={formik} isLoading={isLoading} mutate={mutate} callToActions={callToActions} />
       </DynamicSection>
     );
 };
