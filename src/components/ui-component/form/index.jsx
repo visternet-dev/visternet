@@ -10,6 +10,7 @@ import * as Yup from "yup";
 
 import ActionsBuilder from "./actions";
 import SectionsBuilder from "./sections";
+import DynamicSection from "./sections/dynamic";
 
 /**
  * @name fields [field, ...]
@@ -31,7 +32,7 @@ import SectionsBuilder from "./sections";
 
 const FormBuilder = ({ data }) => {
   // Destructure Data
-  const { actions = [], sections = [], api = "", method = "post" } = data;
+  const { parent = {}, sections = [], actions = [], api = "", method = "post" } = data;
 
   // State for handle schema
   const [schema, setSchema] = useState();
@@ -61,13 +62,13 @@ const FormBuilder = ({ data }) => {
 
   if (sections)
     return (
-      <>
+      <DynamicSection title={parent?.title} type={parent?.type}>
         {/* Sections */}
-        <SectionsBuilder sections={sections} formik={formik} setSchema={setSchema} />
+        <SectionsBuilder sections={sections} actions={actions} formik={formik} setSchema={setSchema} />
 
         {/* Actions */}
         <ActionsBuilder actions={actions} formik={formik} />
-      </>
+      </DynamicSection>
     );
 };
 
