@@ -1,4 +1,6 @@
-import { Avatar, Box, Button, Chip, LinearProgress, Typography, useTheme } from "@mui/material";
+import { Avatar, Box, Chip, LinearProgress, Stack, Typography, useTheme } from "@mui/material";
+
+import CustomButton from "components/ui-component/custom/Button";
 
 function LinearProgressWithLabel(props, { sx }) {
   return (
@@ -74,15 +76,15 @@ const CardPlan = () => {
           </Box>
         </Box>
       </Box>
-      <Box mt="1.5rem" display="flex">
-        <Button fullWidth disableElevation size="large" textColor="light" variant="contained">
+      <Stack mt="1.5rem" direction="row" spacing={2 }>
+        <CustomButton fullWidth disableElevation size="large" variant="contained">
           Start Application
-        </Button>
+        </CustomButton>
 
-        <Button fullWidth size="large" color="primary">
+        <CustomButton fullWidth size="large" color="primary">
           Program Details
-        </Button>
-      </Box>
+        </CustomButton>
+      </Stack>
     </Box>
   );
 };

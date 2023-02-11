@@ -205,19 +205,16 @@ const muckFormVuilder = [
         title: "Submit Filter",
         sx: { width: "100%" },
         size: "large",
-        variant: "outlined",
         api: null
       },
       reset: {
         title: "Reset Filter",
-        variant: false,
         fullWidth: true,
         sx: { width: "100%" }
       },
 
       nextStep: {
         title: "Next Step",
-        variant: false,
         fullWidth: true,
         sx: { width: "100%" }
       }
@@ -272,7 +269,6 @@ const muckFormVuilder = [
           reset: {
             type: "reset",
             title: "Reset Filter",
-            variant: false,
             fullWidth: true,
             sx: { width: "100%" }
           }
@@ -319,14 +315,15 @@ function PlansFilters({ sx, ...params }) {
       </Stack>
 
       <Stack>
-        {muckFormVuilder?.map((item) => (
+        {muckFormVuilder?.map((item, index) => (
           <FormBuilder
             data={item}
-            callToActions={{
+            calltoactions={{
               onNextStep: (data) => {
                 console.log("test", data);
               }
             }}
+            key={index}
           />
         ))}
       </Stack>

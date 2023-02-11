@@ -11,7 +11,7 @@ function ActionSubmit({ loading, title, formik, variant, mutate, api, ...params 
         if (!_.isEmpty(formik.errors) && !_.isNil(api) && !_.isEmpty(api)) mutate({ data: formik.values, api });
       }}
       loading={loading}
-      variant={variant ?? "contained"}
+      variant={variant || "contained"}
       {...params}
     >
       {title}
