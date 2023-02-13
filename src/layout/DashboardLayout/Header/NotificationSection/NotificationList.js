@@ -1,5 +1,4 @@
 // material-ui
-import { useTheme, styled } from '@mui/material/styles';
 import {
   Avatar,
   Button,
@@ -15,21 +14,22 @@ import {
   ListItemText,
   Stack,
   Typography
-} from '@mui/material';
+} from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 
 // assets
-import { IconBrandTelegram, IconBuildingStore, IconMailbox, IconPhoto } from '@tabler/icons';
+import { IconBrandTelegram, IconBuildingStore, IconMailbox, IconPhoto } from "@tabler/icons";
 
-const User1 = '/assets/images/users/user-round.svg';
+const User1 = "/assets/images/users/user-round.svg";
 
 // styles
-const ListItemWrapper = styled('div')(({ theme }) => ({
-  cursor: 'pointer',
+const ListItemWrapper = styled("div")(({ theme }) => ({
+  cursor: "pointer",
   padding: 16,
-  '&:hover': {
-    background: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.primary.light
+  "&:hover": {
+    background: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.primary.light
   },
-  '& .MuiListItem-root': {
+  "& .MuiListItem-root": {
     padding: 0
   }
 }));
@@ -41,45 +41,45 @@ const NotificationList = () => {
 
   const chipSX = {
     height: 24,
-    padding: '0 6px'
+    padding: "0 6px"
   };
   const chipErrorSX = {
     ...chipSX,
     color: theme.palette.orange.dark,
-    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.orange.light,
-    marginRight: '5px'
+    backgroundColor: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.orange.light,
+    marginRight: "5px"
   };
 
   const chipWarningSX = {
     ...chipSX,
     color: theme.palette.warning.dark,
-    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.warning.light
+    backgroundColor: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.warning.light
   };
 
   const chipSuccessSX = {
     ...chipSX,
     color: theme.palette.success.dark,
-    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.success.light,
+    backgroundColor: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.success.light,
     height: 28
   };
 
   return (
     <List
       sx={{
-        width: '100%',
+        width: "100%",
         maxWidth: 330,
         py: 0,
-        borderRadius: '10px',
-        [theme.breakpoints.down('md')]: {
+        borderRadius: "10px",
+        [theme.breakpoints.down("md")]: {
           maxWidth: 300
         },
-        '& .MuiListItemSecondaryAction-root': {
+        "& .MuiListItemSecondaryAction-root": {
           top: 22
         },
-        '& .MuiDivider-root': {
+        "& .MuiDivider-root": {
           my: 0
         },
-        '& .list-container': {
+        "& .list-container": {
           pl: 7
         }
       }}
@@ -123,8 +123,8 @@ const NotificationList = () => {
             <Avatar
               sx={{
                 color: theme.palette.success.dark,
-                backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.success.light,
-                border: theme.palette.mode === 'dark' ? '1px solid' : 'none',
+                backgroundColor: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.success.light,
+                border: theme.palette.mode === "dark" ? "1px solid" : "none",
                 borderColor: theme.palette.success.main
               }}
             >
@@ -162,8 +162,8 @@ const NotificationList = () => {
             <Avatar
               sx={{
                 color: theme.palette.primary.dark,
-                backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.primary.light,
-                border: theme.palette.mode === 'dark' ? '1px solid' : 'none',
+                backgroundColor: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.primary.light,
+                border: theme.palette.mode === "dark" ? "1px solid" : "none",
                 borderColor: theme.palette.primary.main
               }}
             >
@@ -227,7 +227,7 @@ const NotificationList = () => {
               <Grid item xs={12}>
                 <Card
                   sx={{
-                    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.dark.main : theme.palette.secondary.light
+                    backgroundColor: theme.palette.mode === "dark" ? theme.palette.dark.main : theme.palette.secondary.light
                   }}
                 >
                   <CardContent>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import CardPlan from "components/pages/landing/cards/cardPlan";
+import CardPlan from "components/pages/plans/cards/cardPlan";
 import TestAnimation from "components/ui-component/animation/test";
 
 function TextPage() {

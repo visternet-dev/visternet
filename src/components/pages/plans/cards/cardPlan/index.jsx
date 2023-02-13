@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Chip, LinearProgress, Typography, useTheme } from "@mui/material";
+import { Avatar, Box, Button, Chip, Grid, LinearProgress, Typography, useTheme } from "@mui/material";
 
 function LinearProgressWithLabel(props, { sx }) {
   return (
@@ -73,15 +73,18 @@ const CardPlan = () => {
           </Box>
         </Box>
       </Box>
-      <Box mt="1.5rem" display="flex">
-        <Button fullWidth disableElevation size="large" textColor="light" variant="contained">
-          Start Application
-        </Button>
-
-        <Button fullWidth size="large" color="primary">
-          Program Details
-        </Button>
-      </Box>
+      <Grid justifyContent="space-around" mt="1.5rem" container>
+        <Grid md={6} item>
+          <Button fullWidth disableElevation size="large" textColor="light" variant="contained">
+            Start Application
+          </Button>
+        </Grid>
+        <Grid md={6} item>
+          <Button fullWidth size="large" color="primary">
+            Program Details
+          </Button>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
