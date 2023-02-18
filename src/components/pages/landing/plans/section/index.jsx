@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
 
-import CardPlan from "../../cards/cardPlan";
+import CardPlan from "components/pages/plans/cards/cardPlan";
 
 function PlansSection({ sx, ...params }) {
   return (

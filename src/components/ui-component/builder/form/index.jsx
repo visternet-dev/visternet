@@ -8,9 +8,9 @@ import axios from "utils/axios";
 
 import * as Yup from "yup";
 
-import ActionsBuilder from "./actions";
-import SectionsBuilder from "./sections";
-import DynamicSection from "./sections/dynamic";
+import ActionsBuilder from "../actions";
+import SectionsBuilder from "../sections";
+import DynamicSection from "../sections/dynamic";
 
 /**
  * @name fields [field, ...]
@@ -33,7 +33,7 @@ import DynamicSection from "./sections/dynamic";
 const FormBuilder = ({ data, calltoactions = {} }) => {
   // TODO: should be completed
   // Handle call to actions
-  const { onSubmit, onReset, onCancel, onNextStep, onBeforeStepp, onSuccess, onError } = calltoactions;
+  const { onSubmit, onReset, onCancel, onNextStep, onBeforeStep, onSuccess, onError } = calltoactions;
 
   // Destructure Data
   const { parent = {}, sections = [], actions = [], api = "", method = "post" } = data;

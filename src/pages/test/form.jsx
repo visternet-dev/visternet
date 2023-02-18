@@ -3,9 +3,8 @@ import React from "react";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Stack } from "@mui/system";
 
-import FormBuilder from "components/ui-component/form";
-
-import muckFormVuilder from "mock/form-builder";
+import FormBuilder from "components/ui-component/builder/form";
+import StepBuilder from "components/ui-component/builder/step";
 
 /**
  * @name fields [field, ...]
@@ -25,11 +24,442 @@ import muckFormVuilder from "mock/form-builder";
  *    @property {Array.<Object>} validations Optional - default="String" - options= string, number, date
  */
 
+const mock = {
+  steps: [
+    {
+      // parent: {
+      //   type: "accordion",
+      //   title: "Eligibility",
+      //   defaultExpanded: true
+      // },
+      sections: [
+        {
+          type: "none",
+          title: "",
+          fields: [
+            // Do you have a valid Study Permit / Visa?
+            {
+              id: "id-valid-Study",
+              type: "multi-select",
+              label: "Do you have a valid Study Permit / Visa?",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "array",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Nationality
+            {
+              id: "id-Nationality",
+              type: "select",
+              label: "Nationality",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Education Country
+            {
+              id: "id-Education-Country",
+              type: "select",
+              label: "Education Country",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Education Level
+            {
+              id: "id-Education-Level",
+              type: "select",
+              label: "Education Level",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Grading Scheme
+            {
+              id: "id-Grading-Scheme",
+              type: "select",
+              label: "Grading Scheme",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // English-Exam-Type
+            {
+              id: "id-English-Exam-Type",
+              type: "select",
+              label: "English Exam Type",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Only Show Direct Admissions
+            {
+              id: "id-Only Show Direct Admissions",
+              type: "checkbox",
+              col: { xs: 12 },
+              options: [
+                {
+                  label: "Only Show Direct Admissions",
+                  value: "ID 1",
+                  fields: []
+                }
+              ]
+            }
+          ]
+        },
+        // Only Show Direct Admissions
+        {
+          id: "id-Only Show Direct Admissions",
+          type: "checkbox",
+          label: null,
+          option: {
+            label: "Only Show Direct Admissions",
+            value: true
+          }
+        }
+      ],
+
+      actions: {
+        nextStep: {
+          title: "Next Step",
+          fullWidth: true,
+          sx: { width: "100%" }
+        }
+      }
+    },
+
+    // -----------------------------
+    {
+      parent: {
+        type: "card",
+        title: "Test Step 2"
+      },
+      sections: [
+        {
+          type: "none",
+          title: "",
+          fields: [
+            // Do you have a valid Study Permit / Visa?
+            {
+              id: "id-valid-Study",
+              type: "multi-select",
+              label: "Do you have a valid Study Permit / Visa?",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "array",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Nationality
+            {
+              id: "id-Nationality",
+              type: "select",
+              label: "Nationality",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Education Country
+            {
+              id: "id-Education-Country",
+              type: "select",
+              label: "Education Country",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Education Level
+            {
+              id: "id-Education-Level",
+              type: "select",
+              label: "Education Level",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Grading Scheme
+            {
+              id: "id-Grading-Scheme",
+              type: "select",
+              label: "Grading Scheme",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // English-Exam-Type
+            {
+              id: "id-English-Exam-Type",
+              type: "select",
+              label: "English Exam Type",
+              placeholder: "place holder",
+              col: { xs: 12 },
+              validationType: "string",
+              options: [
+                {
+                  label: "Lable 1",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Lable 2",
+                  value: "ID 2",
+                  fields: []
+                },
+                {
+                  label: "Lable 3",
+                  value: "ID 3",
+                  fields: []
+                }
+              ]
+            },
+            // Only Show Direct Admissions
+            {
+              id: "id-Only Show Direct Admissions",
+              type: "checkbox",
+              col: { xs: 12 },
+              options: [
+                {
+                  label: "Only Show Direct Admissions",
+                  value: "ID 1",
+                  fields: []
+                }
+              ]
+            }
+          ]
+        },
+        // Only Show Direct Admissions
+        {
+          id: "id-Only Show Direct Admissions",
+          type: "checkbox",
+          label: null,
+          option: {
+            label: "Only Show Direct Admissions",
+            value: true
+          }
+        }
+      ],
+
+      actions: {
+        // submit: {
+        //   type: "submit",
+        //   title: "Submit Filter",
+        //   sx: { width: "100%" },
+        //   size: "large",
+        //   api: null
+        // },
+        // reset: {
+        //   title: "Reset Filter",
+        //   fullWidth: true,
+        //   sx: { width: "100%" }
+        // },
+
+        prevStep: {
+          title: "Prev Step",
+          fullWidth: true,
+          sx: { width: "100%" }
+        },
+
+        submit: {
+          type: "submit",
+          title: "Submit Filter",
+          sx: { width: "100%" },
+          size: "large",
+          api: null
+        }
+      }
+    }
+  ]
+};
+
 function PageForm() {
   return (
     <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>
-        <FormBuilder data={muckFormVuilder} />
+        <StepBuilder data={mock} />
       </Grid2>
     </Stack>
   );

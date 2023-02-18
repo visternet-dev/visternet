@@ -4,7 +4,6 @@ function ActionNextStep({ loading, title, formik, variant, mutate, calltoactions
   return (
     <CustomButton
       onClick={(data) => {
-        console.log("test:", "------", calltoactions);
         calltoactions?.onNextStep(data);
       }}
       loading={loading}
