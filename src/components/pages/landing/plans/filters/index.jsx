@@ -2,7 +2,7 @@ import { Stack, Typography } from "@mui/material";
 
 import { useTheme } from "@emotion/react";
 
-import FormBuilder from "components/ui-component/form";
+import FormBuilder from "components/ui-component/builder/form";
 
 const muckFormVuilder = [
   {
