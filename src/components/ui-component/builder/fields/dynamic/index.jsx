@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
 import { createYupSchema } from "utils/schema";
 
 import DynamicFieldCheckbox from "./checkbox";
@@ -9,13 +7,15 @@ import DynamicFieldMultiSelect from "./multi-select";
 import DynamicFieldSelect from "./select";
 import DynamicFieldText from "./text";
 import DynamicFieldTextarea from "./textarea";
+import DynamicFieldToggle from "./toggle";
 
 const Fields = {
   select: DynamicFieldSelect,
   checkbox: DynamicFieldCheckbox,
   "multi-select": DynamicFieldMultiSelect,
   textarea: DynamicFieldTextarea,
-  text: DynamicFieldText
+  text: DynamicFieldText,
+  toggle: DynamicFieldToggle
 };
 
 const initials = {

@@ -205,6 +205,39 @@ const mock = {
                   fields: []
                 }
               ]
+            },
+            {
+              label: "Toggle",
+              id: "id-toggle",
+              type: "toggle",
+              defaultValue: true,
+
+              col: { xs: 12 },
+              options: [
+                {
+                  value: true,
+                  fields: [
+
+
+                    {
+                      label: "Toggle sub",
+                      id: "id-toggle sub",
+                      type: "toggle",
+                      defaultValue: true,
+        
+                      col: { xs: 12 },
+                      options: [
+                        {
+                          value: true,
+                          fields: []
+                        }
+                      ]
+                    }
+
+
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -221,6 +254,15 @@ const mock = {
       ],
 
       actions: {
+        submit: {
+          title: "submit",
+          api: {
+            method: "post",
+            url: "api/test",
+            body: {},
+            params: {}
+          }
+        },
         nextStep: {
           title: "Next Step",
           fullWidth: true,

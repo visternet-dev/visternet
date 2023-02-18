@@ -43,7 +43,7 @@ const FormBuilder = ({ data, calltoactions = {} }) => {
 
   // Handle API call Actions
   const { mutate, isLoading } = useMutation(({ data, api }) => {
-    const { method = "post", url, body, params } = api;
+    const { method = "post", url, body = {}, params = {} } = api;
 
     return axios({
       method,
