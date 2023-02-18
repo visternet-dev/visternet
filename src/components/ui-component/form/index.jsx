@@ -2,9 +2,6 @@ import { useFormik } from "formik";
 
 import React, { useState } from "react";
 
-import { Stack } from "@mui/material";
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-
 import { useMutation } from "@tanstack/react-query";
 
 import axios from "utils/axios";
@@ -12,8 +9,8 @@ import axios from "utils/axios";
 import * as Yup from "yup";
 
 import ActionsBuilder from "./actions";
-import FieldsBuilder from "./fields";
-import SectionBuilder from "./section";
+import SectionsBuilder from "./sections";
+import DynamicSection from "./sections/dynamic";
 
 /**
  * @name fields [field, ...]
@@ -33,54 +30,56 @@ import SectionBuilder from "./section";
  *    @property {Array.<Object>} validations Optional - default="String" - options= string, number, date
  */
 
-const FormBuilder = ({ data }) => {
+const FormBuilder = ({ data, calltoactions = {} }) => {
+  // TODO: should be completed
+  // Handle call to actions
+  const { onSubmit, onReset, onCancel, onNextStep, onBeforeStepp, onSuccess, onError } = calltoactions;
+
   // Destructure Data
-  const { actions = [], sections = [], api = "", method = "post" } = data;
+  const { parent = {}, sections = [], actions = [], api = "", method = "post" } = data;
 
   // State for handle schema
   const [schema, setSchema] = useState();
 
-  // Handle Submit & Update
-  const { mutate, isLoading } = useMutation((data) => {
-    return axios[method](api, data);
+  // Handle API call Actions
+  const { mutate, isLoading } = useMutation(({ data, api }) => {
+    const { method = "post", url, body, params } = api;
+
+    return axios({
+      method,
+      url,
+      data: {
+        ...body,
+        ...data
+      },
+      params: {
+        ...params
+      }
+    });
   });
+
+  // const overWriteActions = (action) => {
+  //   for
+
+  // };
 
   // use formik for controll form
   const formik = useFormik({
     initialValues: {},
     validationSchema: Yup.object().shape(schema),
-    onSubmit: (data) => {
-      mutate(data);
-    }
+    onSubmit,
+    onReset
   });
-
-  console.groupCollapsed("formik");
-  console.log("--- -- VALUE -- ---");
-  console.table(formik.values);
-
-  console.log("--- -- ERROR -- ---");
-  console.table(formik.errors);
-  console.groupEnd();
 
   if (sections)
     return (
-      <>
-        {sections.map(({ type, title, fields }, index) => (
-          <SectionBuilder type={type} title={title} key={index}>
-            <Grid2 container xs={12}>
-              <FieldsBuilder fields={fields} formik={formik} setSchema={setSchema} />
-            </Grid2>
-          </SectionBuilder>
-        ))}
+      <DynamicSection title={parent?.title} type={parent?.type}>
+        {/* Sections */}
+        <SectionsBuilder sections={sections} actions={actions} formik={formik} setSchema={setSchema} />
 
-        <Grid2 xs={12}>
-          <Stack direction="row" spacing={2}>
-            {actions.map(({ title, type }, index) => {
-              return <ActionsBuilder type={type} title={title} loading={isLoading} formik={formik} key={index} />;
-            })}
-          </Stack>
-        </Grid2>
-      </>
+        {/* Actions */}
+        <ActionsBuilder actions={actions} formik={formik} isLoading={isLoading} mutate={mutate} calltoactions={calltoactions} />
+      </DynamicSection>
     );
 };
 

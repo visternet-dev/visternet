@@ -1,4 +1,6 @@
-import { Avatar, Box, Button, Chip, Grid, LinearProgress, Typography, useTheme } from "@mui/material";
+import { Avatar, Box, Chip, LinearProgress, Stack, Typography, useTheme } from "@mui/material";
+
+import CustomButton from "components/ui-component/custom/Button";
 
 function LinearProgressWithLabel(props, { sx }) {
   return (
@@ -18,9 +20,10 @@ const CardPlan = () => {
   return (
     <Box
       sx={{
-        boxShadow: "0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06), 0px 0px 0px 4px #F2F4F7",
+        // boxShadow: "0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06), 0px 0px 0px 4px #F2F4F7",
         border: "1px solid #EAECF0",
-        padding: "24px 16px 24px 16px"
+        padding: "24px 16px 24px 16px",
+        bgcolor: theme.palette.background.paper
       }}
     >
       <Typography sx={{ margin: "1rem 1rem" }} component="p" variant="body1">
@@ -73,19 +76,17 @@ const CardPlan = () => {
           </Box>
         </Box>
       </Box>
-      <Grid justifyContent="space-around" mt="1.5rem" container>
-        <Grid md={6} item>
-          <Button fullWidth disableElevation size="large" textColor="light" variant="contained">
-            Start Application
-          </Button>
-        </Grid>
-        <Grid md={6} item>
-          <Button fullWidth size="large" color="primary">
-            Program Details
-          </Button>
-        </Grid>
-      </Grid>
+      <Stack mt="1.5rem" direction="row" spacing={2}>
+        <CustomButton fullWidth disableElevation size="large" variant="contained">
+          Start Application
+        </CustomButton>
+
+        <CustomButton fullWidth size="large" color="primary">
+          Program Details
+        </CustomButton>
+      </Stack>
     </Box>
   );
 };
+
 export default CardPlan;
