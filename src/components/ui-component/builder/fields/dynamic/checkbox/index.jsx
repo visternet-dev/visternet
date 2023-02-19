@@ -11,7 +11,7 @@ import CustomInpuLabel from "components/ui-component/custom/input-label";
 import Fields from "../..";
 import { serializerFields } from "./tools";
 
-// TODO: Handle default Value
+// TODO: Handle default Value / and Handle Semilar multi select
 function DynamicFieldCheckbox(props) {
   const { sx, options, label, id, disabled, required, defaultValue, col, formik, setSchema } = props;
   const { handleBlur, setFieldValue, values, errors, touched } = formik;

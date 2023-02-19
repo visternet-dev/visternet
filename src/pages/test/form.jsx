@@ -206,6 +206,24 @@ const mock = {
                 }
               ]
             },
+
+            {
+              id: "id-Only23",
+              type: "radio",
+              col: { xs: 12 },
+              options: [
+                {
+                  label: "Only1 s",
+                  value: "ID 1",
+                  fields: []
+                },
+                {
+                  label: "Only2 s",
+                  value: "ID 2",
+                  fields: []
+                }
+              ]
+            },
             {
               label: "Toggle",
               id: "id-toggle",

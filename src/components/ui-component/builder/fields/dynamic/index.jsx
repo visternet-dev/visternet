@@ -4,6 +4,7 @@ import { createYupSchema } from "utils/schema";
 
 import DynamicFieldCheckbox from "./checkbox";
 import DynamicFieldMultiSelect from "./multi-select";
+import DynamicFieldRadio from "./radio";
 import DynamicFieldSelect from "./select";
 import DynamicFieldText from "./text";
 import DynamicFieldTextarea from "./textarea";
@@ -15,7 +16,8 @@ const Fields = {
   "multi-select": DynamicFieldMultiSelect,
   textarea: DynamicFieldTextarea,
   text: DynamicFieldText,
-  toggle: DynamicFieldToggle
+  toggle: DynamicFieldToggle, 
+  radio:  DynamicFieldRadio
 };
 
 const initials = {
