@@ -5,6 +5,7 @@ import { Box, Typography } from "@mui/material";
 const Tab = ({ srcIcon = "", onClick, title = { text: "", sx: {} }, caption = { text: "", sx: {} } }) => {
   return (
     <Box
+      onClick={onClick}
       sx={{
         display: "flex",
         alignItems: "flex-start",

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { Box, Grid, Stack, Typography } from "@mui/material";
 
 import { FreeMode, Scrollbar } from "swiper";
@@ -9,59 +11,34 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Layout from "layout";
 
 import { Tab } from "components/pages/dashboards/cards";
+import { EducationInfo } from "components/pages/dashboards/profile/tabs/educationInfo";
+import { FamilyInfo } from "components/pages/dashboards/profile/tabs/familyInfo";
+import { FinancialInfo } from "components/pages/dashboards/profile/tabs/financialInfo";
+import { JobInfo } from "components/pages/dashboards/profile/tabs/jobInfo";
+import { LanguageInfo } from "components/pages/dashboards/profile/tabs/languageInfo";
+import { UserProfile } from "components/pages/dashboards/profile/tabs/userProfile";
 import MainCard from "components/ui-component/cards/MainCard";
 import LAYOUT from "constant";
 
-const Tabs = [
-  {
-    srcIcon: "/assets/images/icons/setting/profile/user-profile.svg",
-    onClick: () => console.log("clicked 1"),
-    title: { text: "User Profile", sx: { color: "#EF6820" } },
-    caption: { text: "completed", sx: { color: "#00C853" } }
-  },
-  {
-    srcIcon: "/assets/images/icons/setting/profile/user-profile.svg",
-    onClick: () => console.log("clicked 1"),
-    title: { text: "User Profile", sx: { color: "#9E9E9E" } },
-    caption: { text: "Not completed", sx: { color: "#EF6820" } }
-  },
-  {
-    srcIcon: "/assets/images/icons/setting/profile/user-profile.svg",
-    onClick: () => console.log("clicked 1"),
-    title: { text: "User Profile", sx: { color: "#9E9E9E" } },
-    caption: { text: "Not completed", sx: { color: "#EF6820" } }
-  },
-  {
-    srcIcon: "/assets/images/icons/setting/profile/user-profile.svg",
-    onClick: () => console.log("clicked 1"),
-    title: { text: "User Profile", sx: { color: "#9E9E9E" } },
-    caption: { text: "Not completed", sx: { color: "#EF6820" } }
-  },
-  {
-    srcIcon: "/assets/images/icons/setting/profile/user-profile.svg",
-    onClick: () => console.log("clicked 1"),
-    title: { text: "User Profile", sx: { color: "#9E9E9E" } },
-    caption: { text: "Not completed", sx: { color: "#EF6820" } }
-  },
-  {
-    srcIcon: "/assets/images/icons/setting/profile/user-profile.svg",
-    onClick: () => console.log("clicked 1"),
-    title: { text: "User Profile", sx: { color: "#9E9E9E" } },
-    caption: { text: "Not completed", sx: { color: "#EF6820" } }
-  }
-];
 function Profile() {
+  const [activeTab, setActiveTab] = useState({ index: 0 });
+
+  const changeActiveTab = (tab, setState) => {
+    setState((prev) => ({ ...prev, index: tab }));
+  };
+
+  console.log(activeTab);
   return (
     <MainCard>
       <Grid gap={5} flexDirection="row" container>
-        <Grid xs={12}>
+        <Grid xs={12} item>
           <Box>
             <Typography component="h4" variant="h4">
               Account Setting
             </Typography>
           </Box>
         </Grid>
-        <Grid sx={12}>
+        <Grid sx={12} item>
           <Stack
             sx={{
               maxHeight: "277px",
@@ -108,16 +85,79 @@ function Profile() {
               modules={[FreeMode, Scrollbar]}
               className="updateVisaCard"
             >
-              {Tabs.map((item, index) => {
-                return (
-                  <SwiperSlide key={index}>
-                    <Tab srcIcon={item.srcIcon} onClick={item.onClick} title={item.title} caption={item.caption} />
-                  </SwiperSlide>
-                );
-              })}
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(0, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#EF6820" } }}
+                  caption={{ text: "completed", sx: { color: "#00C853" } }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(1, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#9E9E9E" } }}
+                  caption={{ text: "Not completed", sx: { color: "#EF6820" } }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(2, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#9E9E9E" } }}
+                  caption={{ text: "Not completed", sx: { color: "#EF6820" } }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(3, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#9E9E9E" } }}
+                  caption={{ text: "Not completed", sx: { color: "#EF6820" } }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(4, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#9E9E9E" } }}
+                  caption={{ text: "Not completed", sx: { color: "#EF6820" } }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(5, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#9E9E9E" } }}
+                  caption={{ text: "Not completed", sx: { color: "#EF6820" } }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(6, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#9E9E9E" } }}
+                  caption={{ text: "Not completed", sx: { color: "#EF6820" } }}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Tab
+                  srcIcon={"/assets/images/icons/setting/profile/user-profile.svg"}
+                  onClick={() => changeActiveTab(7, setActiveTab)}
+                  title={{ text: "User Profile", sx: { color: "#9E9E9E" } }}
+                  caption={{ text: "Not completed", sx: { color: "#EF6820" } }}
+                />
+              </SwiperSlide>
             </Swiper>
           </Stack>
         </Grid>
+        {activeTab.index === 0 && <UserProfile {...activeTab?.props} />}
+        {activeTab.index === 1 && <EducationInfo {...activeTab?.props} />}
+        {activeTab.index === 2 && <JobInfo {...activeTab?.props} />}
+        {activeTab.index === 3 && <LanguageInfo {...activeTab?.props} />}
+        {activeTab.index === 4 && <FinancialInfo {...activeTab?.props} />}
+        {activeTab.index === 5 && <FamilyInfo {...activeTab?.props} />}
       </Grid>
     </MainCard>
   );
