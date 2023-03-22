@@ -73,7 +73,7 @@ const FormBuilder = ({ data, calltoactions = {} }) => {
 
   if (sections)
     return (
-      <DynamicSection title={parent?.title} type={parent?.type}>
+      <DynamicSection title={parent?.title} type={parent?.type} {...parent}>
         {/* Sections */}
         <SectionsBuilder sections={sections} actions={actions} formik={formik} setSchema={setSchema} />
 

@@ -16,7 +16,6 @@ const StepBuilder = ({ data }) => {
               setStep((prev) => prev + 1);
             },
             onPrevStep: () => {
-              console.log("log onPrevStep -------");
               setStep((prev) => prev - 1);
             }
           }}

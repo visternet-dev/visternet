@@ -1,26 +1,54 @@
-import { Box, Grid, InputBase, styled, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 import Layout from "layout";
 
-import CustomButton from "components/ui-component/custom/Button";
+import StepBuilder from "components/ui-component/builder/step";
 import LAYOUT from "constant";
 
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  "label + &": {
-    marginTop: theme.spacing(1)
-  },
-  "& .MuiInputBase-input": {
-    borderRadius: 4,
-    position: "relative",
-    backgroundColor: theme.palette.mode === "light" ? "#fcfcfb" : "#2b2b2b",
-    border: "1px solid #ced4da",
-    fontSize: 16,
-    width: "auto",
-    padding: "10px 12px",
-    width: "100%",
-    transition: theme.transitions.create(["border-color", "background-color", "box-shadow"])
-  }
-}));
+const mock = {
+  steps: [
+    {
+      parent: {
+        type: "grid",
+        rowSpacing: 2,
+        xs: 12
+      },
+      sections: [
+        {
+          type: "none",
+          fields: [
+            {
+              id: "email",
+              type: "text",
+              label: "Email",
+              col: { xs: 12 }
+            },
+            {
+              id: "password",
+              type: "password",
+              label: "Password",
+              col: { xs: 12 }
+            }
+          ]
+        }
+      ],
+      actions: {
+        submit: {
+          title: "Login",
+          sx: { width: "100%" },
+          size: "large",
+          api: {
+            method: "post",
+            url: "api/test",
+            body: {},
+            params: {}
+          }
+        }
+      }
+    }
+  ]
+};
+
 function Login() {
   return (
     <Grid sx={{ height: "100vh" }} container>
@@ -38,8 +66,8 @@ function Login() {
         md={6}
         item
       >
-        <img className="plane" src="/assets/images/pages/loginPlane.svg" alt="Plane" />
-        <img className="map" src="/assets/images/pages/loginMap.svg" alt="Map" />
+        <img className="plane" src="/assets/images/landing/loginAirPlane.svg" alt="Plane" />
+        <img className="map" src="/assets/images/landing/worldMapAuth.svg" alt="Map" />
         <Box
           sx={{
             display: "flex",
@@ -56,19 +84,8 @@ function Login() {
             </Typography>
             <Typography variant="p">Welcome back! Please enter your details.</Typography>
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%" }}>
-            <Box sx={{ display: "flex", flexDirection: "column", label: { fontWeight: "bold", fontSize: "0.875rem" } }}>
-              <label>Email</label>
-              <BootstrapInput type="text" placeholder="Enter your email" />
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "column", label: { fontWeight: "bold", fontSize: "0.875rem" } }}>
-              <label>Password</label>
-              <BootstrapInput type="password" placeholder="••••••••" />
-            </Box>
-          </Box>
-          <CustomButton sx={{ flex: 1, width: "100%", marginTop: "4rem", padding: "10px 18px" }} variant="contained">
-            Search
-          </CustomButton>
+          {/* Handle Form */}
+          <StepBuilder data={mock} />
         </Box>
       </Grid>
       <Grid

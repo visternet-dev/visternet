@@ -31,9 +31,9 @@ function SectionsBuilder({ sections, actions, formik, setSchema }) {
         {sections.map(({ type, title, fields, ...params }, index) => (
           <DynamicSection title={title} type={type} key={index} {...params}>
             {/* Fields */}
-            <Grid2 container xs={12}>
+            {/* <Grid2 container rowSpacing={2} xs={12}> */}
               <FieldsBuilder fields={fields} formik={formik} setSchema={setSchema} />
-            </Grid2>
+            {/* </Grid2> */}
           </DynamicSection>
         ))}
       </>
