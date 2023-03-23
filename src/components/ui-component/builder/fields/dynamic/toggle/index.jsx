@@ -23,7 +23,7 @@ function DynamicFieldToggle(props) {
             <Stack direction="row" justifyContent="space-between">
               <FormControlLabel
                 onChange={(e, value) => {
-                  setState(options.find((option) => option.value == value)?.fields || []);
+                  setState(options?.find((option) => option.value == value)?.fields || []);
 
                   setFieldValue(id, value);
                 }}

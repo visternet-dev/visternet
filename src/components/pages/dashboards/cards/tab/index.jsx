@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { Box, Typography } from "@mui/material";
 
 const Tab = ({ srcIcon = "", onClick, title = { text: "", sx: {} }, caption = { text: "", sx: {} } }) => {

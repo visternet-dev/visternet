@@ -13,7 +13,6 @@ const sections = {
 
 function DynamicSection({ children, type, title, ...params }) {
   const Section = sections[type] ?? None;
-  console.log("none?" , Section)
 
   return (
     <Section title={title} {...params}>

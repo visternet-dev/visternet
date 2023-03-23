@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Box, Grid, Stack, Typography } from "@mui/material";
 
@@ -28,6 +28,7 @@ function Profile() {
   };
 
   console.log(activeTab);
+  
   return (
     <MainCard>
       <Grid gap={5} flexDirection="row" container>
