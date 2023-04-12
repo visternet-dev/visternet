@@ -52,10 +52,10 @@ const mockData = {
   ]
 };
 
-const FormEducation = ({ setActiveStep }) => (
+const Basic = ({ setActiveStep }) => (
   <Box sx={{ width: "100%" }}>
     <StepBuilder data={mockData} calltoactions={{ onSubmit: () => setActiveStep(0) }} />
   </Box>
 );
 
-export default FormEducation;
+export default Basic;
