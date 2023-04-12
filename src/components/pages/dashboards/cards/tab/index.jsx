@@ -1,6 +1,8 @@
+import { FormattedMessage } from "react-intl";
+
 import { Box, Typography } from "@mui/material";
 
-const Tab = ({ srcIcon = "", onClick, title = { text: "", sx: {} }, caption = { text: "", sx: {} }, active = false }) => {
+const Tab = ({ srcIcon = "", onClick, title, active = false, status, ...params }) => {
   return (
     <Box
       onClick={onClick}
@@ -16,14 +18,16 @@ const Tab = ({ srcIcon = "", onClick, title = { text: "", sx: {} }, caption = { 
         alignItems: "center",
         flex: "none",
         order: "1",
-        flexGrow: "1"
+        flexGrow: "1",
+        cursor: "pointer"
       }}
+      {...params}
     >
       {srcIcon && <img src={srcIcon} alt="profile_tab_icon" />}
       <box>
         <Typography
           sx={{
-            fontWeight: 500,
+            fontWeight: 600,
             fontSize: "14px",
             lineHeight: "20px",
             color: active ? "#EF6820" : "grey.500",
@@ -39,12 +43,18 @@ const Tab = ({ srcIcon = "", onClick, title = { text: "", sx: {} }, caption = { 
             fontWeight: 400,
             fontSize: "10px",
             lineHeight: "16px",
-            ...caption.sx
+            color: status === "pendding" ? "#EF6820" : "#00C853"
           }}
           component="span"
           variant="caption"
         >
-          {caption.text}
+          {status === "pendding" ? (
+            <>
+              <FormattedMessage id="not-completed" /> !
+            </>
+          ) : (
+            <FormattedMessage id="completed" />
+          )}
         </Typography>
       </box>
     </Box>

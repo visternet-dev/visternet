@@ -1,4 +1,11 @@
 {
+  "not-completed": "Not Completed",
+  "completed": "Completed",
+  "family": "Family",
+  "financial": "Financial",
+  "languages":"languages", 
+  "job": "Job",
+  "user-profile": "User Profile",
   "education": "Education",
   
   "order": "Order",
