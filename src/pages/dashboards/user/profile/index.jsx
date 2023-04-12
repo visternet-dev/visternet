@@ -11,7 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Layout from "layout";
 
 import { Tab } from "components/pages/dashboards/cards";
-import { EducationInfo } from "components/pages/dashboards/profile/tabs/educationInfo";
+import { EducationInfo } from "components/pages/dashboards/profile/tabs/education/education";
 import { FamilyInfo } from "components/pages/dashboards/profile/tabs/familyInfo";
 import { FinancialInfo } from "components/pages/dashboards/profile/tabs/financialInfo";
 import { JobInfo } from "components/pages/dashboards/profile/tabs/jobInfo";

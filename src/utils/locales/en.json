@@ -1,4 +1,13 @@
 {
+  "education": "Education",
+  
+  "order": "Order",
+  "request": "Request", 
+  "user-information": "User Information",
+  "plans-boockmark": "Plans Boockmark",
+  "dashboard": "Dashboard",
+  "profile": "Profile",
+
   "sample-title": "Sample Title",
 
   "read-more": "Read More",

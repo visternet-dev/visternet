@@ -3,6 +3,14 @@ import React from "react";
 import { Plan } from "components/pages/dashboards/cards";
 import CardPlan from "components/pages/plans/cards/cardPlan";
 import TestAnimation from "components/ui-component/animation/test";
+import Wizard from "components/ui-component/wizard/wizard";
+
+
+const Step1 = () => <div>Step 1</div>;
+const Step2 = () => <div>Step 2</div>;
+const Step3 = () => <div>Step 3</div>;
+
+const steps = [Step1, Step2, Step3];
 
 function TextPage() {
   return (
@@ -10,10 +18,13 @@ function TextPage() {
       {/* <div>
         <TestAnimation />
       </div> */}
-      <div>
+
         {/* <CardPlan /> */}
+
+      {/* <div>
         <Plan />
-      </div>
+      </div> */}
+      <Wizard steps={steps} />
     </>
   );
 }
