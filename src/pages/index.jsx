@@ -1,4 +1,4 @@
-import { Grid, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import Layout from "layout";

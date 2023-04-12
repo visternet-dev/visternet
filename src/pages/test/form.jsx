@@ -3,6 +3,10 @@ import React from "react";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Stack } from "@mui/system";
 
+import { useQuery } from "@tanstack/react-query";
+
+import api from "utils/axios";
+
 import FormBuilder from "components/ui-component/builder/form";
 import StepBuilder from "components/ui-component/builder/step";
 
@@ -235,14 +239,12 @@ const mock = {
                 {
                   value: true,
                   fields: [
-
-
                     {
                       label: "Toggle sub",
                       id: "id-toggle sub",
                       type: "toggle",
                       defaultValue: true,
-        
+
                       col: { xs: 12 },
                       options: [
                         {
@@ -251,8 +253,6 @@ const mock = {
                         }
                       ]
                     }
-
-
                   ]
                 }
               ]
@@ -515,11 +515,17 @@ const mock = {
   ]
 };
 
+const test = async () => {
+  return await api.get(`test`);
+};
+
 function PageForm() {
+  const { isLoading, data } = useQuery(["api-test"], test, { onSuccess: (data) => console.log("Hello", data) });
+  console.log("data", data);
   return (
     <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>
-        <StepBuilder data={mock} />
+        {isLoading ? <>Loading</> : <StepBuilder data={data.data} />}{" "}
       </Grid2>
     </Stack>
   );
