@@ -2,7 +2,7 @@
 import { FormattedMessage } from "react-intl";
 
 // assets
-import { IconMessages, IconUser } from "@tabler/icons";
+import { IconMessages, IconUser , IconBookmark , IconNote } from "@tabler/icons";
 
 // ==============================|| DASHBOARD USER MENU ITEMS ||============================== //
 
@@ -59,13 +59,8 @@ const userDashboard = {
       id: "plans-boockmark",
       title: <FormattedMessage id="plans-boockmark" />,
       type: "item",
-      url: "/??"
-    },
-    {
-      id: "user-information",
-      title: <FormattedMessage id="user-information" />,
-      type: "item",
-      url: "/??"
+      icon: IconBookmark,
+      url: "/dashboards/user/bookmark"
     },
     {
       id: "request",
@@ -79,6 +74,7 @@ const userDashboard = {
       title: <FormattedMessage id="order" />,
       type: "item",
       icon: IconMessages,
+      icon: IconNote, 
       url: "/??"
     }
   ]

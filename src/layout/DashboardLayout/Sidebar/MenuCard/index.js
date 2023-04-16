@@ -113,10 +113,10 @@ const MenuCard = () => {
                   variant="subtitle1"
                   sx={{ color: theme.palette.mode === 'dark' ? theme.palette.dark.light : theme.palette.primary[800] }}
                 >
-                  Get Extra Space
+                  Request Status
                 </Typography>
               }
-              secondary={<Typography variant="caption"> 28/23 GB</Typography>}
+              // secondary={<Typography variant="caption"> 28/23 GB</Typography>}
             />
           </ListItem>
         </List>

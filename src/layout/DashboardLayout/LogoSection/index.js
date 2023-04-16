@@ -1,17 +1,19 @@
-import Link from 'Link';
+import Link from "Link";
+
 // material-ui
-import { Link as MuiLink } from '@mui/material';
+import { Link as MuiLink } from "@mui/material";
+
+import Logo from "layout/components/logo";
 
 // project imports
-import { DASHBOARD_PATH } from 'config';
-import Logo from 'components/ui-component/Logo';
+import { DASHBOARD_PATH } from "config";
 
 // ==============================|| MAIN LOGO ||============================== //
 
 const LogoSection = () => (
-  <MuiLink component={Link} href={DASHBOARD_PATH}>
-    <Logo />
-  </MuiLink>
+  <Logo />
+  // <MuiLink component={Link} href={DASHBOARD_PATH}>/
+  // </MuiLink>
 );
 
 export default LogoSection;

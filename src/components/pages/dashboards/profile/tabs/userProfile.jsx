@@ -14,7 +14,7 @@ export function UserProfile() {
   return (
     <Stack sx={{ minHeight: "20vh" }} justifyContent="center">
       <QueryWrapper isLoading={isLoading} isError={isError} refetch={refetch}>
-        <StepBuilder data={data} />
+        <StepBuilder data={data?.data} />
       </QueryWrapper>
     </Stack>
   );

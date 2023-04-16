@@ -48,5 +48,5 @@ let isMockData = false;
 
 export const getUserProfile = async () => {
   if (isMockData) return mock;
-  return await api.get(`api/user-profile`);
+  return await api.get(`test`);
 };
