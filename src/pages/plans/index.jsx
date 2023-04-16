@@ -11,8 +11,7 @@ import PlansSection from "components/pages/landing/plans/section";
 
 function PlansPage() {
   return (
-    // TODO: chnae bgcolor
-    <Stack sx={{ width: "100%", maxWidth: "100%", bgcolor: "#EBEBEB" }}>
+    <Stack sx={{ width: "100%", maxWidth: "100%", bgcolor: "grey.50" }}>
       <Box sx={{ width: "100%", maxWidth: "100%", mb: 4 }}>
         <img src="/assets/images/plans/header-plans.png" style={{ width: "100%" }} />
       </Box>

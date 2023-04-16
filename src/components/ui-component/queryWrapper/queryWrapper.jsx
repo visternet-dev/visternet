@@ -25,9 +25,9 @@ const QueryWrapper = ({
   ),
   ErrorComponent = (
     <Stack alignItems="center" justifyContent="center" spacing={2} sx={{ py: 4 }}>
-      <Typography variant="errorSubTitle">خطایی رخ داده است دوباره تلاش کنید</Typography>
-      <CustomButton size="medium" variant="contained" onClick={refetch}>
-        تلاش مجدد
+      <Typography variant="h3">Something is Wrong!</Typography>
+      <CustomButton variant="contained" onClick={refetch}>
+        Try Again
       </CustomButton>
     </Stack>
   ),

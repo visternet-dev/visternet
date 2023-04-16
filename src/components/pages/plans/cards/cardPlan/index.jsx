@@ -46,11 +46,11 @@ const CardPlan = () => {
       <Box display="flex" gap="1rem" flexWrap="nowrap" overflow="auto" mb="1rem">
         <Chip label="Toronto,Canada" avatar={<Avatar src="/static/images/avatar/1.jpg" />} />
         <Chip variant="solid" label="Start-up Visa" />
-        <Chip variant="solid" color="error" label="Cloese" />
-        <Chip variant="solid" color="info" label="Cloese" />
+        {/* <Chip variant="solid" color="error" label="Cloese" /> */}
+        {/* <Chip variant="solid" color="info" label="Cloese" />
         <Chip variant="solid" color="primary" label="Cloese" />
         <Chip variant="solid" color="secondary" label="Cloese" />
-        <Chip variant="solid" color="success" label="Cloese" />
+        <Chip variant="solid" color="success" label="Cloese" /> */}
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", width: "100%" }}>

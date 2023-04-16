@@ -49,7 +49,7 @@ function FooterLanding() {
   };
   const theme = useTheme();
   return (
-    <Grid flexDirection="row" sx={{ background: "url(/assets/images/landing/footer.svg)", height: "12rem" }} container>
+    <Grid flexDirection="row" sx={{ background: "url(/assets/images/landing/footer.svg)", zIndex: 999, height: "12rem" }} container>
       <Grid sx={{ background: "#EFF8FF", marginTop: "10rem", padding: "2rem" }} spacing={2} container>
         <Grid xs={12} md={3} item>
           <Logo />
@@ -77,11 +77,7 @@ function FooterLanding() {
             {data.routes.map((each, index) => (
               <ListItem sx={{ cursor: "pointer" }} key={index}>
                 <Link href={each.path}>
-                  <Typography
-                    sx={{ color: theme.palette.primary.main, textTransform: "capitalize", flex: { xs: 4, sm: 1 } }}
-                    variant="h3"
-                    noWrap
-                  >
+                  <Typography sx={{ color: theme.palette.primary.main, textTransform: "capitalize", flex: { xs: 4, sm: 1 } }} variant="h3" noWrap>
                     {each.title}
                   </Typography>
                 </Link>
@@ -90,11 +86,7 @@ function FooterLanding() {
           </List>
         </Grid>
         <Grid xs={12} md={3} item>
-          <Typography
-            sx={{ color: theme.palette.primary.main, paddingTop: "8px", textTransform: "capitalize", flex: { xs: 4, sm: 1 } }}
-            variant="h3"
-            noWrap
-          >
+          <Typography sx={{ color: theme.palette.primary.main, paddingTop: "8px", textTransform: "capitalize", flex: { xs: 4, sm: 1 } }} variant="h3" noWrap>
             {data.backLinkBoxFirst.title}
           </Typography>
           <List>
@@ -106,11 +98,7 @@ function FooterLanding() {
           </List>
         </Grid>
         <Grid xs={12} md={3} item>
-          <Typography
-            sx={{ color: theme.palette.primary.main, paddingTop: "8px", textTransform: "capitalize", flex: { xs: 4, sm: 1 } }}
-            variant="h3"
-            noWrap
-          >
+          <Typography sx={{ color: theme.palette.primary.main, paddingTop: "8px", textTransform: "capitalize", flex: { xs: 4, sm: 1 } }} variant="h3" noWrap>
             {data.backLinkBoxSecond.title}
           </Typography>
           <List>
@@ -123,9 +111,7 @@ function FooterLanding() {
         </Grid>
       </Grid>
       <Grid width={"100%"} sm={12} md={12} item>
-        <Typography sx={{ backgroundColor: "#eff6fd", textAlign: "center", color: "#333", padding: "1rem 0", width: "100%" }}>
-          {data.copyRight}
-        </Typography>
+        <Typography sx={{ backgroundColor: "#eff6fd", textAlign: "center", color: "#333", padding: "1rem 0", width: "100%" }}>{data.copyRight}</Typography>
       </Grid>
     </Grid>
   );
