@@ -470,11 +470,14 @@ const muckFormVuilder = [
       {
         id: "id-Only Show Direct Admissions",
         type: "checkbox",
-        label: null,
-        option: {
-          label: "Only Show Direct Admissions",
-          value: true
-        }
+        col: { xs: 12 },
+        options: [
+          {
+            label: "Only Show Direct Admissions",
+            value: "ID 1",
+            fields: []
+          }
+        ]
       }
     ],
     actions: {
