@@ -11,9 +11,10 @@ import { FamilyInfo } from "components/pages/dashboards/profile/tabs/familyInfo"
 import { FinancialInfo } from "components/pages/dashboards/profile/tabs/financialInfo";
 import { JobInfo } from "components/pages/dashboards/profile/tabs/jobInfo";
 import { LanguageInfo } from "components/pages/dashboards/profile/tabs/languageInfo";
-import { UserProfile } from "components/pages/dashboards/profile/tabs/userProfile";
+// import { UserProfile } from "components/pages/dashboards/profile/tabs/userProfile";
 import TabSection from "components/ui-component/tabSection/tabSection";
 import LAYOUT from "constant";
+import { UserProfile } from "components/pages/dashboards/profile/tabs/userProfile";
 
 function Profile() {
   const data = [

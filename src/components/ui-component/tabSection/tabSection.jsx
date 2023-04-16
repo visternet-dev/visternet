@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box, Fade, Grid, Stack, Typography } from "@mui/material";
 
@@ -13,84 +13,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Tab } from "components/pages/dashboards/cards";
 import MainCard from "components/ui-component/cards/MainCard";
 
-const data = [
-  {
-    tab: {
-      title: "Basic",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 1</>
-  },
-  {
-    tab: {
-      title: "Education2",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 2</>
-  },
-  {
-    tab: {
-      title: "Education2",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 3</>
-  },
-  {
-    tab: {
-      title: "Education2",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 4</>
-  },
-  {
-    tab: {
-      title: "Education2",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 1</>
-  },
-  {
-    tab: {
-      title: "Education2",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 1</>
-  },
-  {
-    tab: {
-      title: "Education2",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 1</>
-  },
-  {
-    tab: {
-      title: "Education2",
-      caption: "complted",
-      status: "complted", //complted, pending
-      srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
-    },
-    panel: <>Plean 1</>
-  }
-];
-
 function TabSection({ data }) {
   const { query } = useRouter();
   const [activeTab, setActiveTab] = useState(+query?.tab - 1 || 0);
+
+  useEffect(() => {
+    const ActiveTabOnRoute = +query?.tab;
+
+    if (data.length < ActiveTabOnRoute) setActiveTab(0);
+    else if (query?.tab) setActiveTab(ActiveTabOnRoute - 1 || 0);
+  }, [query?.tab]);
 
   return (
     <MainCard>
@@ -152,13 +84,7 @@ function TabSection({ data }) {
             >
               {data.map(({ tab }, index) => (
                 <SwiperSlide key={index}>
-                  <Tab
-                    active={index === activeTab}
-                    srcIcon={tab.srcIcon}
-                    onClick={() => setActiveTab(index)}
-                    title={{ text: tab.title }}
-                    status={tab.status}
-                  />
+                  <Tab active={index === activeTab} srcIcon={tab.srcIcon} onClick={() => setActiveTab(index)} title={{ text: tab.title }} status={tab.status} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -167,7 +93,9 @@ function TabSection({ data }) {
 
         {data.map(({ tab }, index) => (
           <Fade timeout={500} in={activeTab === index} key={index}>
-            <Box hidden={activeTab !== index}>{data?.[activeTab]?.panel ?? "Notfound"}</Box>
+            <Box hidden={activeTab !== index} sx={{ width: "100%" }}>
+              {data?.[activeTab]?.panel ?? "Notfound"}
+            </Box>
           </Fade>
         ))}
       </Grid>

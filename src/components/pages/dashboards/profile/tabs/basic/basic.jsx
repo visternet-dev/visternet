@@ -52,10 +52,10 @@ const mockData = {
   ]
 };
 
-const Basic = ({ setActiveStep }) => (
+const userProfile = ({ setActiveStep }) => (
   <Box sx={{ width: "100%" }}>
     <StepBuilder data={mockData} calltoactions={{ onSubmit: () => setActiveStep(0) }} />
   </Box>
 );
 
-export default Basic;
+export default userProfile;

@@ -18,10 +18,40 @@ const userDashboard = {
       icon: IconUser,
       children: [
         {
+          id: "user-profile",
+          title: <FormattedMessage id="user-profile" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=1"
+        },
+        {
           id: "education",
           title: <FormattedMessage id="education" />,
           type: "item",
-          url: "/??"
+          url: "/dashboards/user/profile?tab=2"
+        },
+        {
+          id: "job",
+          title: <FormattedMessage id="job" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=3"
+        },
+        {
+          id: "language",
+          title: <FormattedMessage id="language" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=4"
+        },
+        {
+          id: "financial",
+          title: <FormattedMessage id="financial" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=5"
+        },
+        {
+          id: "family",
+          title: <FormattedMessage id="family" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=6"
         }
       ]
     },
