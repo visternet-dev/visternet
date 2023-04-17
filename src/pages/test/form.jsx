@@ -139,7 +139,88 @@ const mock = {
                 {
                   label: "Lable 2",
                   value: "ID 2",
-                  fields: []
+                  fields: [
+                    // Nationality
+                    {
+                      id: "LABEL 2 LEVEL 1",
+                      type: "select",
+                      label: "LABEL 2 LEVEL 1",
+                      placeholder: "place holder",
+                      col: { xs: 12 },
+                      validationType: "string",
+                      options: [
+                        {
+                          label: "Lable 1",
+                          value: "ID 1",
+                          fields: [
+                            // Nationality
+                            {
+                              id: "LABEL 2 LEVEL 2",
+                              type: "select",
+                              label: "LABEL 2 LEVEL 2",
+                              placeholder: "place holder",
+                              col: { xs: 12 },
+                              validationType: "string",
+                              options: [
+                                {
+                                  label: "Lable 1",
+                                  value: "ID 1",
+                                  fields: [
+                                    // Nationality
+                                    {
+                                      id: "LABEL 2 LEVEL 3",
+                                      type: "select",
+                                      label: "LABEL 2 LEVEL 3",
+                                      placeholder: "place holder",
+                                      col: { xs: 12 },
+                                      validationType: "string",
+                                      options: [
+                                        {
+                                          label: "Lable 1",
+                                          value: "ID 1",
+                                          fields: []
+                                        },
+                                        {
+                                          label: "Lable 2",
+                                          value: "ID 2",
+                                          fields: []
+                                        },
+                                        {
+                                          label: "Lable 3",
+                                          value: "ID 3",
+                                          fields: []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  label: "Lable 2",
+                                  value: "ID 2",
+                                  fields: []
+                                },
+                                {
+                                  label: "Lable 3",
+                                  value: "ID 3",
+                                  fields: []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          label: "Lable 2",
+                          value: "ID 2",
+                          fields: []
+                        },
+                        {
+                          label: "Lable 3",
+                          value: "ID 3",
+                          fields: []
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   label: "Lable 3",
@@ -585,7 +666,7 @@ function PageForm() {
   // console.log("data", data);
 
   return (
-    <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10, overflow: "auto", pt: 10 }}>
+    <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10, overflow: "auto" , height: "120vh", pt: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>
         <StepBuilder data={mock} />
       </Grid2>
