@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 
-import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 
 import FieldsBuilder from "../fields";
 import DynamicSection from "./dynamic";

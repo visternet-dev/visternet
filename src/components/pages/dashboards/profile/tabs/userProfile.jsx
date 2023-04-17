@@ -9,7 +9,6 @@ import QueryWrapper from "components/ui-component/queryWrapper/queryWrapper";
 
 export function UserProfile() {
   const { isLoading, data, isError, refetch } = useQuery(["getUserProfile"], getUserProfile);
-  console.log(isError, isLoading);
 
   return (
     <Stack sx={{ minHeight: "20vh" }} justifyContent="center">

@@ -57,6 +57,8 @@ function DynamicField(props) {
     };
   }, []);
 
+  console.count();
+
   const params = {
     sx,
     id,

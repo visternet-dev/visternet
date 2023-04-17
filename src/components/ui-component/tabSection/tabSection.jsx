@@ -26,15 +26,15 @@ function TabSection({ data }) {
 
   return (
     <MainCard>
-      <Grid gap={5} flexDirection="row" container>
+      <Grid flexDirection="row" container>
         <Grid xs={12} item>
           <Box>
-            <Typography component="h4" variant="h4">
+            <Typography variant="h3" sx={{ fontWeight: 700 }}>
               Account Setting
             </Typography>
           </Box>
         </Grid>
-        <Grid sx={12} item>
+        <Grid sx={{ mb: 2 }} item>
           <Stack
             sx={{
               maxHeight: "277px",

@@ -11,13 +11,13 @@ const Tab = ({ srcIcon = "", onClick, title, active = false, status, ...params }
         alignItems: "flex-start",
         padding: "16px",
         gap: "10px",
-        width: "167.67px",
+        // minWidth: "120.67px",
         height: "74px",
         background: active ? "#f5f5f5" : "#fff",
         borderRadius: "12px",
         alignItems: "center",
-        flex: "none",
-        order: "1",
+        // flex: "none",
+        // order: "1",
         flexGrow: "1",
         cursor: "pointer"
       }}

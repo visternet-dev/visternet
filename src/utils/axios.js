@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "https://test-admin.yarhis.ir/visternet-site"});
+  baseURL: "https://test-api.yarhis.ir"});
 
 // interceptor for http
 api.interceptors.response.use(

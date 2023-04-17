@@ -392,16 +392,6 @@ const mock = {
                   value: "ID 1",
                   fields: []
                 },
-                {
-                  label: "Lable 2",
-                  value: "ID 2",
-                  fields: []
-                },
-                {
-                  label: "Lable 3",
-                  value: "ID 3",
-                  fields: []
-                }
               ]
             },
             // Grading Scheme
@@ -520,12 +510,13 @@ const test = async () => {
 };
 
 function PageForm() {
-  const { isLoading, data } = useQuery(["api-test"], test, { onSuccess: (data) => console.log("Hello", data) });
-  console.log("data", data);
+  // const { isLoading, data } = useQuery(["api-test"], test, { onSuccess: (data) => console.log("Hello", data) });
+  // console.log("data", data);
+
   return (
     <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>
-        {isLoading ? <>Loading</> : <StepBuilder data={data.data} />}{" "}
+        <StepBuilder data={mock} />
       </Grid2>
     </Stack>
   );
