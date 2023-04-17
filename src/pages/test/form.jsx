@@ -53,7 +53,88 @@ const mock = {
                 {
                   label: "Lable 1",
                   value: "ID 1",
-                  fields: []
+                  fields: [
+                    // Nationality
+                    {
+                      id: "LABEL 1 LEVEL 1",
+                      type: "select",
+                      label: "LABEL 1 LEVEL 1",
+                      placeholder: "place holder",
+                      col: { xs: 12 },
+                      validationType: "string",
+                      options: [
+                        {
+                          label: "Lable 1",
+                          value: "ID 1",
+                          fields: [
+                            // Nationality
+                            {
+                              id: "LABEL 1 LEVEL 2",
+                              type: "select",
+                              label: "LABEL 1 LEVEL 2",
+                              placeholder: "place holder",
+                              col: { xs: 12 },
+                              validationType: "string",
+                              options: [
+                                {
+                                  label: "Lable 1",
+                                  value: "ID 1",
+                                  fields: [
+                                    // Nationality
+                                    {
+                                      id: "LABEL 1 LEVEL 3",
+                                      type: "select",
+                                      label: "LABEL 1 LEVEL 3",
+                                      placeholder: "place holder",
+                                      col: { xs: 12 },
+                                      validationType: "string",
+                                      options: [
+                                        {
+                                          label: "Lable 1",
+                                          value: "ID 1",
+                                          fields: []
+                                        },
+                                        {
+                                          label: "Lable 2",
+                                          value: "ID 2",
+                                          fields: []
+                                        },
+                                        {
+                                          label: "Lable 3",
+                                          value: "ID 3",
+                                          fields: []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  label: "Lable 2",
+                                  value: "ID 2",
+                                  fields: []
+                                },
+                                {
+                                  label: "Lable 3",
+                                  value: "ID 3",
+                                  fields: []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          label: "Lable 2",
+                          value: "ID 2",
+                          fields: []
+                        },
+                        {
+                          label: "Lable 3",
+                          value: "ID 3",
+                          fields: []
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   label: "Lable 2",
@@ -68,57 +149,57 @@ const mock = {
               ]
             },
             // Nationality
-            {
-              id: "id-Nationality",
-              type: "select",
-              label: "Nationality",
-              placeholder: "place holder",
-              col: { xs: 12 },
-              validationType: "string",
-              options: [
-                {
-                  label: "Lable 1",
-                  value: "ID 1",
-                  fields: []
-                },
-                {
-                  label: "Lable 2",
-                  value: "ID 2",
-                  fields: []
-                },
-                {
-                  label: "Lable 3",
-                  value: "ID 3",
-                  fields: []
-                }
-              ]
-            },
+            // {
+            //   id: "id-Nationality",
+            //   type: "select",
+            //   label: "Nationality",
+            //   placeholder: "place holder",
+            //   col: { xs: 12 },
+            //   validationType: "string",
+            //   options: [
+            //     {
+            //       label: "Lable 1",
+            //       value: "ID 1",
+            //       fields: []
+            //     },
+            //     {
+            //       label: "Lable 2",
+            //       value: "ID 2",
+            //       fields: []
+            //     },
+            //     {
+            //       label: "Lable 3",
+            //       value: "ID 3",
+            //       fields: []
+            //     }
+            //   ]
+            // },
             // Education Country
-            {
-              id: "id-Education-Country",
-              type: "select",
-              label: "Education Country",
-              placeholder: "place holder",
-              col: { xs: 12 },
-              validationType: "string",
-              options: [
-                {
-                  label: "Lable 1",
-                  value: "ID 1",
-                  fields: []
-                },
-                {
-                  label: "Lable 2",
-                  value: "ID 2",
-                  fields: []
-                },
-                {
-                  label: "Lable 3",
-                  value: "ID 3",
-                  fields: []
-                }
-              ]
-            },
+            // {
+            //   id: "id-Education-Country",
+            //   type: "select",
+            //   label: "Education Country",
+            //   placeholder: "place holder",
+            //   col: { xs: 12 },
+            //   validationType: "string",
+            //   options: [
+            //     {
+            //       label: "Lable 1",
+            //       value: "ID 1",
+            //       fields: []
+            //     },
+            //     {
+            //       label: "Lable 2",
+            //       value: "ID 2",
+            //       fields: []
+            //     },
+            //     {
+            //       label: "Lable 3",
+            //       value: "ID 3",
+            //       fields: []
+            //     }
+            //   ]
+            // },
             // Education Level
             {
               id: "id-Education-Level",
@@ -258,16 +339,6 @@ const mock = {
               ]
             }
           ]
-        },
-        // Only Show Direct Admissions
-        {
-          id: "id-Only Show Direct Admissions",
-          type: "checkbox",
-          label: null,
-          option: {
-            label: "Only Show Direct Admissions",
-            value: true
-          }
         }
       ],
 
@@ -391,7 +462,7 @@ const mock = {
                   label: "Lable 1",
                   value: "ID 1",
                   fields: []
-                },
+                }
               ]
             },
             // Grading Scheme
@@ -514,7 +585,7 @@ function PageForm() {
   // console.log("data", data);
 
   return (
-    <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10 }}>
+    <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10, overflow: "auto", pt: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>
         <StepBuilder data={mock} />
       </Grid2>
