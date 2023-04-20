@@ -47,6 +47,8 @@ function DynamicField(props) {
     defaultValue = initials?.[type] ?? ""
   } = props;
 
+  console.log('test default value:', defaultValue);
+
   const required = validations.some((validation) => validation.type === "required");
 
   useEffect(() => {

@@ -16,13 +16,13 @@ const mock = {
             {
               id: "email",
               type: "text",
-              label: "Email",
+              label: "Email (mock data)",
               col: { xs: 6 }
             },
             {
               id: "password",
               type: "password",
-              label: "Password",
+              label: "Password (mock data)",
               col: { xs: 6 }
             }
           ]
@@ -46,7 +46,72 @@ const mock = {
 
 let isMockData = false;
 
-export const getUserProfile = async () => {
+// ------ ------ ------ ------ ------
+// ------ Get FROM Builder Client ---
+// ------ ------ ------ ------ ------
+
+// Client
+export const getClientFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client/1/generate-form`);
+};
+
+// Education
+export const getEducationFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-edu-info/1/generate-form`);
+};
+
+// Address
+export const getAddressFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-address-info/1/generate-form`);
+};
+
+// Family
+export const getFamilyFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-family-info/1/generate-form`);
+};
+
+// Finacial
+export const getFinacialFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-finacial-info/1/generate-form`);
+};
+
+// Job
+export const getJobFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-job-info/1/generate-form`);
+};
+
+// Language
+export const getLanguageFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-language-info/1/generate-form`);
+};
+
+// Military Service
+export const getMilitaryServiceFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-military-service-info/1/generate-form`);
+};
+
+// Relative Member
+export const getRelativeMemberFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-relative-member-info/1/generate-form`);
+};
+
+// Residance History
+export const getResidanceHistoryFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-residance-history-info/1/generate-form`);
+};
+
+// Travel History
+export const getTravelHistoryFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-travel-history-info/1/generate-form`);
 };
