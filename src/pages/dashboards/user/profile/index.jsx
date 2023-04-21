@@ -6,6 +6,7 @@ import "swiper/css/scrollbar";
 
 import Layout from "layout";
 
+import AddressInfo from "components/pages/dashboards/profile/tabs/address/addressInfo";
 import EducationInfo from "components/pages/dashboards/profile/tabs/education/educationInfo";
 import FamilyInfo from "components/pages/dashboards/profile/tabs/family/familyInfo";
 import FinancialInfo from "components/pages/dashboards/profile/tabs/financial/financialInfo";
@@ -64,6 +65,14 @@ function Profile() {
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
       panel: <FamilyInfo />
+    },
+    {
+      tab: {
+        title: <FormattedMessage id="address" />,
+        status: "pendding", //completed, pending
+        srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
+      },
+      panel: <AddressInfo />
     }
   ];
 
