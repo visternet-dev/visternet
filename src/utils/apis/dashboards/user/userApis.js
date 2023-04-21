@@ -92,7 +92,7 @@ export const getLanguageFormBuilder = async () => {
   return await api.get(`v1/client-language-info/1/generate-form`);
 };
 
-// Military Service
+// Military Service => Done
 export const getMilitaryServiceFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-military-service-info/1/generate-form`);

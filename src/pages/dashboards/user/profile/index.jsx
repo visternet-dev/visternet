@@ -13,6 +13,7 @@ import FinancialInfo from "components/pages/dashboards/profile/tabs/financial/fi
 import JobInfo from "components/pages/dashboards/profile/tabs/job/jobInfo";
 import LanguageInfo from "components/pages/dashboards/profile/tabs/language/languageInfo";
 import MilitaryServiceInfo from "components/pages/dashboards/profile/tabs/militaryService/militaryServiceInfo";
+import RelativeMemberInfo from "components/pages/dashboards/profile/tabs/relativeMember/relativeMemberInfo";
 import UserProfile from "components/pages/dashboards/profile/tabs/userProfile/userProfile";
 import TabSection from "components/ui-component/tabSection/tabSection";
 import LAYOUT from "constant";
@@ -82,6 +83,14 @@ function Profile() {
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
       panel: <MilitaryServiceInfo />
+    },
+    {
+      tab: {
+        title: <FormattedMessage id="relative-member" />,
+        status: "pendding", //completed, pending
+        srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
+      },
+      panel: <RelativeMemberInfo />
     }
   ];
 
