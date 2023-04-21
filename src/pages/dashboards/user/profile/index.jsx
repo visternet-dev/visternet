@@ -17,6 +17,7 @@ import RelativeMemberInfo from "components/pages/dashboards/profile/tabs/relativ
 import UserProfile from "components/pages/dashboards/profile/tabs/userProfile/userProfile";
 import TabSection from "components/ui-component/tabSection/tabSection";
 import LAYOUT from "constant";
+import ResidanceHistoryInfo from "components/pages/dashboards/profile/tabs/residanceHistory/residanceHistoryInfo";
 
 function Profile() {
   const data = [
@@ -91,6 +92,14 @@ function Profile() {
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
       panel: <RelativeMemberInfo />
+    }, 
+    {
+      tab: {
+        title: <FormattedMessage id="residance-history" />,
+        status: "pendding", //completed, pending
+        srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
+      },
+      panel: <ResidanceHistoryInfo />
     }
   ];
 

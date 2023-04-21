@@ -98,7 +98,7 @@ export const getMilitaryServiceFormBuilder = async () => {
   return await api.get(`v1/client-military-service-info/1/generate-form`);
 };
 
-// Relative Member
+// Relative Member => Done
 export const getRelativeMemberFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-relative-member-info/1/generate-form`);
