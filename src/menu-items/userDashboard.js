@@ -52,7 +52,37 @@ const userDashboard = {
           title: <FormattedMessage id="family" />,
           type: "item",
           url: "/dashboards/user/profile?tab=6"
-        }
+        },
+        {
+          id: "address",
+          title: <FormattedMessage id="address" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=7"
+        },
+        {
+          id: "military-service",
+          title: <FormattedMessage id="military-service" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=8"
+        },
+        {
+          id: "relative-member",
+          title: <FormattedMessage id="relative-member" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=9"
+        },
+        {
+          id: "residance-history",
+          title: <FormattedMessage id="residance-history" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=9"
+        },
+        {
+          id: "travel-history",
+          title: <FormattedMessage id="travel-history" />,
+          type: "item",
+          url: "/dashboards/user/profile?tab=10"
+        },
       ]
     },
     {
