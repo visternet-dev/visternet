@@ -10,34 +10,24 @@ const ColorButton = styled(CustomButton)(({ theme }) => ({
 }));
 
 const EducationList = ({ setActiveStep }) => (
-  <Grid container>
-    <Grid xs={12}>
+  <Grid container spacing={1}>
+    <Grid item xs={12}>
+      {/* Go to the create form */}
       <ColorButton onClick={() => setActiveStep(1)} sx={{ border: "1px solid #EF6820", color: "#EF6820" }} size="small">
-        <img src="" />
         Add Education
       </ColorButton>
     </Grid>
-    <Grid mt={2} p={1} xs={6}>
-      <Card
-        title="University Name"
-        subtitle="Azad University Tehran North Branch"
-        items={[{ title: "Country", value: "IRAN" }, { title: "Date", value: "2017 - 2021" }, , { title: "Grade", value: "18.58" }]}
-      />
-    </Grid>
-    <Grid mt={2} p={1} xs={6}>
-      <Card
-        title="University Name"
-        subtitle="Azad University Tehran North Branch"
-        items={[{ title: "Country", value: "IRAN" }, { title: "Date", value: "2017 - 2021" }, , { title: "Grade", value: "18.58" }]}
-      />
-    </Grid>
-    <Grid mt={2} p={1} xs={6}>
-      <Card
-        title="University Name"
-        subtitle="Azad University Tehran North Branch"
-        items={[{ title: "Country", value: "IRAN" }, { title: "Date", value: "2017 - 2021" }, , { title: "Grade", value: "18.58" }]}
-      />
-    </Grid>
+
+    {/* TODO: Get Data from API */}
+    {[1, 2, 3].map(() => (
+      <Grid item xs={6}>
+        <Card
+          title="University Name"
+          subtitle="Azad University Tehran North Branch"
+          items={[{ title: "Country", value: "IRAN" }, { title: "Date", value: "2017 - 2021" }, , { title: "Grade", value: "18.58" }]}
+        />
+      </Grid>
+    ))}
   </Grid>
 );
 
