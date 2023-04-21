@@ -18,6 +18,8 @@ function DynamicFieldRadio(props) {
   const haveError = Boolean(touched[id] && errors[id]);
   const [state, setState] = useState({});
 
+  // TODO: should be add use Effect for Clear value on mounted 
+
   return (
     <React.Fragment>
       <Grid2 {...col}>

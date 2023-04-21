@@ -19,7 +19,7 @@ function DynamicFieldSelect(props) {
 
   // when value change from other things state shoud be change
   useEffect(() => {
-    setState(getOptionSelected({ options, value: values[id] }));
+    setState(getOptionSelected({ options, value: values[id] ?? defaultValue }));
   }, [values?.[id]]);
 
   // Handle change

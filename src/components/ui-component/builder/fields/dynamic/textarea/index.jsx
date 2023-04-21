@@ -17,7 +17,7 @@ function DynamicFieldTextarea(props) {
 
   // when value change from other things state shoud be change
   useEffect(() => {
-    setState(values[id] ?? "");
+    setState(values[id] ?? defaultValue ?? "");
   }, [values?.[id]]);
 
   // Handle change

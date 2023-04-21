@@ -19,7 +19,8 @@ function DynamicFieldMultiSelect(props) {
 
   // when value change from other things state shoud be change
   useEffect(() => {
-    setState(getOptionSelected({ options, value: values[id] }));
+    // TODO: Must be checked
+    setState(getOptionSelected({ options, value: values[id] && values[id].length === 0 ? defaultValue : values[id] }));
   }, [values?.[id]]);
 
   // Handle change

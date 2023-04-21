@@ -15,6 +15,8 @@ function DynamicFieldToggle(props) {
 
   const [state, setState] = useState(options?.find((option) => option.value == defaultValue)?.fields || []);
 
+  // TODO: should be add use Effect for Clear value on mounted
+
   return (
     <React.Fragment>
       <Grid2 {...col}>

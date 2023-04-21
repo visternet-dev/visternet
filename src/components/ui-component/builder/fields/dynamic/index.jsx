@@ -47,8 +47,6 @@ function DynamicField(props) {
     defaultValue = initials?.[type] ?? ""
   } = props;
 
-  console.log('test default value:', defaultValue);
-
   const required = validations.some((validation) => validation.type === "required");
 
   useEffect(() => {
@@ -58,8 +56,6 @@ function DynamicField(props) {
       formik.setFieldValue(id, defaultValue);
     };
   }, []);
-
-  console.count();
 
   const params = {
     sx,
