@@ -1,61 +1,22 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/system";
+
+import { useQuery } from "@tanstack/react-query";
+
+import { getEducationFormBuilder } from "utils/apis/dashboards/user/userApis";
 
 import StepBuilder from "components/ui-component/builder/step";
+import QueryWrapper from "components/ui-component/queryWrapper/queryWrapper";
 
-const mockData = {
-  steps: [
-    {
-      parent: {
-        type: "grid",
-        rowSpacing: 2,
-        columnSpacing: 2,
-        xs: 12
-      },
-      sections: [
-        {
-          type: "none",
-          fields: [
-            {
-              id: "test-id",
-              type: "text",
-              label: "text",
-              col: {
-                xs: 6
-              }
-            }
-          ]
-        }
-      ],
-      actions: {
-        submit: {
-          title: "close",
-          size: "large",
-          api: {
-            method: "post",
-            url: "api/test",
-            body: {},
-            params: {}
-          }
-        },
-        close: {
-          title: "close",
-          size: "large",
-          api: {
-            method: "post",
-            url: "api/test",
-            body: {},
-            params: {}
-          }
-        }
-      }
-    }
-  ]
-};
+function UserProfile({ setActiveStep }) {
+  const { isLoading, data, isError, refetch } = useQuery(["getUserProfile"], getEducationFormBuilder);
 
-const FormEducation = ({ setActiveStep }) => (
-  <Box sx={{ width: "100%" }}>
-    <StepBuilder data={mockData} calltoactions={{ onSubmit: () => setActiveStep(0) }} />
-  </Box>
-);
+  return (
+    <Stack justifyContent="center">
+      <QueryWrapper isLoading={isLoading} isError={isError} refetch={refetch}>
+        <StepBuilder data={data?.data} calltoactions={{ onSubmit: () => setActiveStep(0) }} />
+      </QueryWrapper>
+    </Stack>
+  );
+}
 
-export default FormEducation;
+export default UserProfile;
