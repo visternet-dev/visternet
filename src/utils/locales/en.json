@@ -1,16 +1,17 @@
 {
-  "address":"Address",
+  "military-service": "Military Service",
+  "address": "Address",
   "not-completed": "Not Completed",
   "completed": "Completed",
   "family": "Family",
   "financial": "Financial",
-  "languages":"languages", 
+  "languages": "languages",
   "job": "Job",
   "user-profile": "User Profile",
   "education": "Education",
-  
+
   "order": "Order",
-  "request": "Request", 
+  "request": "Request",
   "user-information": "User Information",
   "plans-boockmark": "Plans Boockmark",
   "dashboard": "Dashboard",

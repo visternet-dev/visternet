@@ -12,6 +12,7 @@ import FamilyInfo from "components/pages/dashboards/profile/tabs/family/familyIn
 import FinancialInfo from "components/pages/dashboards/profile/tabs/financial/financialInfo";
 import JobInfo from "components/pages/dashboards/profile/tabs/job/jobInfo";
 import LanguageInfo from "components/pages/dashboards/profile/tabs/language/languageInfo";
+import MilitaryServiceInfo from "components/pages/dashboards/profile/tabs/militaryService/militaryServiceInfo";
 import UserProfile from "components/pages/dashboards/profile/tabs/userProfile/userProfile";
 import TabSection from "components/ui-component/tabSection/tabSection";
 import LAYOUT from "constant";
@@ -73,6 +74,14 @@ function Profile() {
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
       panel: <AddressInfo />
+    },
+    {
+      tab: {
+        title: <FormattedMessage id="military-service" />,
+        status: "pendding", //completed, pending
+        srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
+      },
+      panel: <MilitaryServiceInfo />
     }
   ];
 

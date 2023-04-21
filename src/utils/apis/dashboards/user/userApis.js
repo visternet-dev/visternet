@@ -62,13 +62,13 @@ export const getEducationFormBuilder = async () => {
   return await api.get(`v1/client-edu-info/1/generate-form`);
 };
 
-// Address
+// Address => Done
 export const getAddressFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-address-info/1/generate-form`);
 };
 
-// Family
+// Family => Done
 export const getFamilyFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-family-info/1/generate-form`);
