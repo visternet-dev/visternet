@@ -50,13 +50,13 @@ let isMockData = false;
 // ------ Get FROM Builder Client ---
 // ------ ------ ------ ------ ------
 
-// Client
+// Client => Done
 export const getClientFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client/1/generate-form`);
 };
 
-// Education
+// Education => Done
 export const getEducationFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-edu-info/1/generate-form`);
@@ -74,19 +74,19 @@ export const getFamilyFormBuilder = async () => {
   return await api.get(`v1/client-family-info/1/generate-form`);
 };
 
-// Finacial
-export const getFinacialFormBuilder = async () => {
+// Financial => Done
+export const getFinancialFormBuilder = async () => {
   if (isMockData) return mock;
-  return await api.get(`v1/client-finacial-info/1/generate-form`);
+  return await api.get(`v1/client-financial-info/1/generate-form`);
 };
 
-// Job
+// Job => Done
 export const getJobFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-job-info/1/generate-form`);
 };
 
-// Language
+// Language => Done
 export const getLanguageFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-language-info/1/generate-form`);

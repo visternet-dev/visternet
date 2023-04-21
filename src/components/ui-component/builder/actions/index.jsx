@@ -6,7 +6,18 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import DynamicAction from "./dynamic";
 
 function ActionsBuilder({ actions, isLoading, formik, mutate, ...params }) {
-  if (actions)
+  if (actions) {
+    if (Array.isArray(actions))
+      return (
+        <Grid2 xs={12}>
+          <Stack direction="row" spacing={2}>
+            {actions.map((actionParams, index) => {
+              return <DynamicAction loading={isLoading} formik={formik} mutate={mutate} key={index} {...actionParams} {...params} />;
+            })}
+          </Stack>
+        </Grid2>
+      );
+
     return (
       <Grid2 xs={12}>
         <Stack direction="row" spacing={2}>
@@ -18,7 +29,7 @@ function ActionsBuilder({ actions, isLoading, formik, mutate, ...params }) {
         </Stack>
       </Grid2>
     );
-
+  }
   return <></>;
 }
 

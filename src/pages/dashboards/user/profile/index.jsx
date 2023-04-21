@@ -6,13 +6,12 @@ import "swiper/css/scrollbar";
 
 import Layout from "layout";
 
-import { EducationInfo } from "components/pages/dashboards/profile/tabs/education/education";
-import { FamilyInfo } from "components/pages/dashboards/profile/tabs/familyInfo";
-import { FinancialInfo } from "components/pages/dashboards/profile/tabs/financialInfo";
-import { JobInfo } from "components/pages/dashboards/profile/tabs/jobInfo";
-import { LanguageInfo } from "components/pages/dashboards/profile/tabs/languageInfo";
+import EducationInfo from "components/pages/dashboards/profile/tabs/education/educationInfo";
+import FamilyInfo from "components/pages/dashboards/profile/tabs/family/familyInfo";
+import FinancialInfo from "components/pages/dashboards/profile/tabs/financial/financialInfo";
+import JobInfo from "components/pages/dashboards/profile/tabs/job/jobInfo";
+import LanguageInfo from "components/pages/dashboards/profile/tabs/language/languageInfo";
 import UserProfile from "components/pages/dashboards/profile/tabs/userProfile/userProfile";
-// import { UserProfile } from "components/pages/dashboards/profile/tabs/userProfile";
 import TabSection from "components/ui-component/tabSection/tabSection";
 import LAYOUT from "constant";
 
