@@ -30,10 +30,10 @@ import DynamicSection from "../sections/dynamic";
  *    @property {Array.<Object>} validations Optional - default="String" - options= string, number, date
  */
 
-const FormBuilder = ({ data, calltoactions = {} }) => {
+const FormBuilder = ({ data, cta = {} }) => {
   // TODO: should be completed
   // Handle call to actions
-  const { onSubmit, onReset, onCancel, onNextStep, onBeforeStep, onSuccess, onError } = calltoactions;
+  const { onSubmit, onReset, onCancel, onNextStep, onBeforeStep, onSuccess, onError } = cta;
 
   // Destructure Data
   const { parent = {}, sections = [], actions = [], api = "", method = "post" } = data;
@@ -78,7 +78,7 @@ const FormBuilder = ({ data, calltoactions = {} }) => {
         <SectionsBuilder sections={sections} actions={actions} formik={formik} setSchema={setSchema} />
 
         {/* Actions */}
-        <ActionsBuilder actions={actions} formik={formik} isLoading={isLoading} mutate={mutate} calltoactions={calltoactions} />
+        <ActionsBuilder actions={actions} formik={formik} isLoading={isLoading} mutate={mutate} cta={cta} />
       </DynamicSection>
     );
 };

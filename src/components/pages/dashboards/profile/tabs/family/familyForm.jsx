@@ -13,7 +13,7 @@ function FamilyForm({ setActiveStep }) {
   return (
     <Stack justifyContent="center">
       <QueryWrapper isLoading={isLoading} isError={isError} refetch={refetch}>
-        <StepBuilder data={data?.data} calltoactions={{ onSubmit: () => setActiveStep(0), onclose: () => setActiveStep(0) }} />
+        <StepBuilder data={data?.data} cta={{ onSubmit: () => setActiveStep(0), onclose: () => setActiveStep(0) }} />
       </QueryWrapper>
     </Stack>
   );

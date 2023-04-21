@@ -1,10 +1,10 @@
 import CustomButton from "components/ui-component/custom/Button";
 
-function ActionPrevStep({ loading, title, formik, variant, mutate, calltoactions, ...params }) {
+function ActionPrevStep({ loading, title, formik, variant, mutate, cta, ...params }) {
   return (
     <CustomButton
       onClick={(data) => {
-        calltoactions?.onPrevStep(data);
+        cta?.onPrevStep(data);
       }}
       loading={loading}
       {...params}

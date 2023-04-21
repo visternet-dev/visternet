@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import FormBuilder from "../form";
 
-const StepBuilder = ({ data, calltoactions }) => {
+const StepBuilder = ({ data, cta }) => {
   const [step, setStep] = useState(0);
   const { steps } = data;
 
@@ -11,15 +11,15 @@ const StepBuilder = ({ data, calltoactions }) => {
       <>
         <FormBuilder
           data={steps?.[step]}
-          calltoactions={{
-            ...calltoactions,
+          cta={{
+            ...cta,
             onNextStep: () => {
               setStep((prev) => prev + 1);
-              calltoactions?.onNextStep();
+              cta?.onNextStep();
             },
             onPrevStep: () => {
               setStep((prev) => prev - 1);
-              calltoactions?.onNextStep();
+              cta?.onNextStep();
             }
           }}
         />

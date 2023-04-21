@@ -510,7 +510,7 @@ function PlansFilters({ sx, ...params }) {
         {muckFormVuilder?.map((item, index) => (
           <FormBuilder
             data={item}
-            calltoactions={{
+            cta={{
               onNextStep: (data) => {
                 console.log("test", data);
               }
