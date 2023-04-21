@@ -31,6 +31,30 @@ import StepBuilder from "components/ui-component/builder/step";
 const mock = {
   steps: [
     {
+      sections: [
+        {
+          type: "none",
+          title: "",
+          fields: [
+            {
+              label: "Toggle 2",
+              id: "id-toggle",
+              type: "date",
+              // defaultValue: true,
+
+              col: { xs: 12 },
+              options: [
+                {
+                  value: true,
+                  fields: []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       // parent: {
       //   type: "accordion",
       //   title: "Eligibility",
@@ -391,7 +415,7 @@ const mock = {
               ]
             },
             {
-              label: "Toggle",
+              label: "Toggle 2",
               id: "id-toggle",
               type: "toggle",
               defaultValue: true,
@@ -666,7 +690,7 @@ function PageForm() {
   // console.log("data", data);
 
   return (
-    <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10, overflow: "auto" , height: "120vh", pt: 10 }}>
+    <Stack justifyContent="center" sx={{ height: "100vh", width: "100%", alignItems: "center", px: 10, overflow: "auto", height: "120vh", pt: 10 }}>
       <Grid2 container spacing={4} sx={{ width: "100%" }}>
         <StepBuilder data={mock} />
       </Grid2>

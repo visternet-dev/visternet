@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { createYupSchema } from "utils/schema";
 
 import DynamicFieldCheckbox from "./checkbox";
+import DynamicDatePicker from "./date-picker";
 import DynamicFieldMultiSelect from "./multi-select";
 import DynamicFieldPassword from "./password";
 import DynamicFieldRadio from "./radio";
@@ -19,7 +20,8 @@ const Fields = {
   text: DynamicFieldText,
   toggle: DynamicFieldToggle,
   radio: DynamicFieldRadio,
-  password: DynamicFieldPassword
+  password: DynamicFieldPassword,
+  date: DynamicDatePicker
 };
 
 const initials = {
