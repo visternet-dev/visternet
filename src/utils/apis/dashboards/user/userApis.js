@@ -104,7 +104,7 @@ export const getRelativeMemberFormBuilder = async () => {
   return await api.get(`v1/client-relative-member-info/1/generate-form`);
 };
 
-// Residance History
+// Residance History => Done
 export const getResidanceHistoryFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-residance-history-info/1/generate-form`);

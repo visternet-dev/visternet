@@ -18,6 +18,7 @@ import UserProfile from "components/pages/dashboards/profile/tabs/userProfile/us
 import TabSection from "components/ui-component/tabSection/tabSection";
 import LAYOUT from "constant";
 import ResidanceHistoryInfo from "components/pages/dashboards/profile/tabs/residanceHistory/residanceHistoryInfo";
+import TravelHistoryInfo from "components/pages/dashboards/profile/tabs/travelHistory/travelHistoryInfo";
 
 function Profile() {
   const data = [
@@ -100,6 +101,14 @@ function Profile() {
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
       panel: <ResidanceHistoryInfo />
+    }, 
+    {
+      tab: {
+        title: <FormattedMessage id="travel-history" />,
+        status: "pendding", //completed, pending
+        srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
+      },
+      panel: <TravelHistoryInfo />
     }
   ];
 
