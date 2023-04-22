@@ -33,7 +33,15 @@ import DynamicSection from "../sections/dynamic";
 const FormBuilder = ({ data, cta = {} }) => {
   // TODO: should be completed
   // Handle call to actions
-  const { onSubmit, onReset, onCancel, onNextStep, onBeforeStep, onSuccess, onError } = cta;
+  const {
+    onSubmit = () => {},
+    onReset = () => {},
+    onCancel = () => {},
+    onNextStep = () => {},
+    onBeforeStep = () => {},
+    onSuccess = () => {},
+    onError = () => {}
+  } = cta;
 
   // Destructure Data
   const { parent = {}, sections = [], actions = [], api = "", method = "post" } = data;
@@ -42,21 +50,24 @@ const FormBuilder = ({ data, cta = {} }) => {
   const [schema, setSchema] = useState();
 
   // Handle API call Actions
-  const { mutate, isLoading } = useMutation(({ data, api }) => {
-    const { method = "post", url, body = {}, params = {} } = api;
+  const { mutate, isLoading } = useMutation(
+    ({ data, api }) => {
+      const { method = "post", url, body = {}, params = {} } = api;
 
-    return axios({
-      method,
-      url,
-      data: {
-        ...body,
-        ...data
-      },
-      params: {
-        ...params
-      }
-    });
-  });
+      return axios({
+        method,
+        url,
+        data: {
+          ...body,
+          ...data
+        },
+        params: {
+          ...params
+        }
+      });
+    },
+    { onSuccess, onError }
+  );
 
   // const overWriteActions = (action) => {
   //   for
