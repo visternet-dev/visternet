@@ -10,6 +10,7 @@ import "@fullcalendar/common/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import { Hydrate, QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // styles
 import "scss/style.scss";
@@ -60,6 +61,7 @@ function App({ Component, pageProps }) {
                         <>
                           {getLayout(<Component {...pageProps} />)}
                           <Snackbar />
+                          <ReactQueryDevtools />
                         </>
                       </AuthProvider>
                     </NavigationScroll>
