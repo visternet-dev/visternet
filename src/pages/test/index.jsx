@@ -1,33 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Plan } from "components/pages/dashboards/cards";
-import CardPlan from "components/pages/plans/cards/cardPlan";
-import TestAnimation from "components/ui-component/animation/test";
-import TabSection from "components/ui-component/tabSection/tabSection";
-import Wizard from "components/ui-component/wizard/wizard";
+import { DatePicker } from '@mui/x-date-pickers';
+import TextField from "@mui/material/TextField";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
-const Step1 = () => <div>Step 1</div>;
-const Step2 = () => <div>Step 2</div>;
-const Step3 = () => <div>Step 3</div>;
+function DynamicDatePicker() {
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
-const steps = [Step1, Step2, Step3];
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
 
-function TextPage() {
   return (
-    <>
-      {/* <div>
-        <TestAnimation />
-      </div> */}
-
-      {/* <CardPlan /> */}
-
-      {/* <div>
-        <Plan />
-      </div> */}
-      <TabSection />
-      <Wizard steps={steps} />
-    </>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      hiii
+      <DatePicker label="Select date" value={selectedDate} onChange={handleDateChange} renderInput={(params) => <TextField {...params} />} />
+    </LocalizationProvider>
   );
 }
 
-export default TextPage;
+export default DynamicDatePicker;
