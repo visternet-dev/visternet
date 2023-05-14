@@ -57,9 +57,14 @@ export const getClientFormBuilder = async () => {
 };
 
 // Education => Done
-export const getEducationFormBuilder = async () => {
+export const getEducationFormBuilder = async ({ update = false }) => {
   if (isMockData) return mock;
-  return await api.get(`v1/client-edu-info/1/generate-form`);
+  if (update) return await api.get(`v1/client-edu-info/1/create-form`);
+  return await api.get("v1/client-edu-info/4/update-form");
+};
+
+export const getEducations = async () => {
+ return await api.get(`/v1/client-edu-info`);
 };
 
 // Address => Done
