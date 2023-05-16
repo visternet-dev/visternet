@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
 
-import { Grid, styled } from "@mui/material";
+import { useState } from "react";
+
+import { Grid, Modal, Stack, styled, Typography } from "@mui/material";
 import { orange } from "@mui/material/colors";
 
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
-import { getEducations } from "utils/apis/dashboards/user/userApis";
+import { deleteEducation, getEducations } from "utils/apis/dashboards/user/userApis";
 
 import CustomButton from "components/ui-component/custom/Button";
+import CustomModal from "components/ui-component/custom/modal";
 import QueryWrapper from "components/ui-component/queryWrapper/queryWrapper";
 
 import Card from "../../card";
@@ -19,6 +22,14 @@ const ColorButton = styled(CustomButton)(({ theme }) => ({
 const EducationList = ({ setActiveStep }) => {
   const router = useRouter();
   const { isLoading, data, isError, refetch } = useQuery(["getEducations"], getEducations);
+  const [open, setOpen] = useState(false);
+  const [id, setId] = useState(null);
+
+  const { isLoading: isLoadingDelete, mutate } = useMutation(() => deleteEducation({ id }), {
+    onSuccess: () => {
+      setOpen(false);
+    }
+  });
 
   return (
     <QueryWrapper isLoading={isLoading} isError={isError} refetch={refetch}>
@@ -42,11 +53,39 @@ const EducationList = ({ setActiveStep }) => {
                 router.push({ query: { id: 4 } });
                 setActiveStep(2);
               }}
-              deleteOnclick={() => console.log("test delete")}
+              deleteOnclick={() => {
+                setOpen(true);
+                setId(4);
+              }}
             />
           </Grid>
         ))}
       </Grid>
+      <CustomModal
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <Typography variant="h4" sx={{ mb: 2 }}>
+          Are You Sure?
+        </Typography>
+        <Stack direction="row" justifyContent="space-between">
+          <CustomButton loading={isLoadingDelete} onClick={() => setOpen(false)}>
+            Close
+          </CustomButton>
+          <CustomButton
+            loading={isLoadingDelete}
+            variant="contained"
+            color="error"
+            onClick={() => {
+              mutate();
+            }}
+          >
+            Yes, I'm Sure
+          </CustomButton>
+        </Stack>
+      </CustomModal>
     </QueryWrapper>
   );
 };

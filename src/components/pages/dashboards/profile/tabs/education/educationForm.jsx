@@ -17,7 +17,20 @@ function EducationForm({ setActiveStep, update }) {
   return (
     <Stack justifyContent="center">
       <QueryWrapper isLoading={isLoading} isError={isError} refetch={refetch}>
-        <StepBuilder data={data?.data} cta={{ onSuccess: () => setActiveStep(0), onReset: () => setActiveStep(0) }} />
+        <StepBuilder
+          data={data?.data}
+          cta={{
+            onSuccess: () => {
+              if (update) router.back();
+              setActiveStep(0);
+            },
+            onReset: () => {
+              console.log("close", update);
+              if (update) router.back();
+              setActiveStep(0);
+            }
+          }}
+        />
       </QueryWrapper>
     </Stack>
   );

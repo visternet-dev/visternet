@@ -7,7 +7,7 @@ import EducationList from "./educationList";
 
 const EducationInfo = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const steps = [<EducationList setActiveStep={setActiveStep} />, <FormEducation setActiveStep={setActiveStep} /> ,  <FormEducation setActiveStep={setActiveStep} />];
+  const steps = [<EducationList setActiveStep={setActiveStep} />, <FormEducation setActiveStep={setActiveStep} /> ,  <FormEducation setActiveStep={setActiveStep} update={true} />];
 
   return <Wizard steps={steps} activeStep={activeStep} setActiveStep={setActiveStep} />;
 };

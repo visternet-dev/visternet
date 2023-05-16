@@ -8,12 +8,13 @@ const style = {
   bgcolor: "background.paper",
   borderRadius: 2,
   boxShadow: 24,
-  p: 4
+  p: 2, 
+  minWidth:"300px"
 };
 
-const CustomModal = ({ isOpen, onClose, sx, children }) => {
+const CustomModal = ({ open, onClose, sx, children }) => {
   return (
-    <Modal open={isOpen} onClose={onClose}>
+    <Modal open={open} onClose={onClose}>
       <Box sx={{ ...sx, ...style }}>{children}</Box>
     </Modal>
   );
