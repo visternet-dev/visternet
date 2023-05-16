@@ -1,23 +1,24 @@
 import { FormattedMessage } from "react-intl";
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 const Tab = ({ srcIcon = "", onClick, title, active = false, status, ...params }) => {
+  const theme = useTheme();
+  const isDarkMode = theme.palette.mode === "dark";
+
   return (
     <Box
       onClick={onClick}
       sx={{
+        transition: "0.5s",
         display: "flex",
         alignItems: "flex-start",
         padding: "16px",
         gap: "10px",
-        // minWidth: "120.67px",
         height: "74px",
-        background: active ? "#f5f5f5" : "#fff",
+        background: active ? (isDarkMode ? theme.palette.dark.main : theme.palette.grey[100]) : theme.palette.background.default,
         borderRadius: "12px",
         alignItems: "center",
-        // flex: "none",
-        // order: "1",
         flexGrow: "1",
         cursor: "pointer"
       }}

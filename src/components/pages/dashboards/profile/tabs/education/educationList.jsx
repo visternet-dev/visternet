@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import { Grid, styled } from "@mui/material";
 import { orange } from "@mui/material/colors";
 
@@ -15,11 +17,8 @@ const ColorButton = styled(CustomButton)(({ theme }) => ({
 }));
 
 const EducationList = ({ setActiveStep }) => {
-  console.log("----------------------");
+  const router = useRouter();
   const { isLoading, data, isError, refetch } = useQuery(["getEducations"], getEducations);
-
-  console.log("----------------------");
-  console.log("data", data, data?.data?.data);
 
   return (
     <QueryWrapper isLoading={isLoading} isError={isError} refetch={refetch}>
@@ -32,12 +31,18 @@ const EducationList = ({ setActiveStep }) => {
         </Grid>
 
         {/* TODO: Get Data from API */}
-        { data?.data?.data.map(() => (
-          <Grid item xs={6}>
+        {data?.data?.data.map((item, index) => (
+          <Grid item xs={12} md={6}>
             <Card
+              key={index}
               title="University Name"
               subtitle="Azad University Tehran North Branch"
               items={[{ title: "Country", value: "IRAN" }, { title: "Date", value: "2017 - 2021" }, , { title: "Grade", value: "18.58" }]}
+              editOnclick={() => {
+                router.push({ query: { id: 4 } });
+                setActiveStep(2);
+              }}
+              deleteOnclick={() => console.log("test delete")}
             />
           </Grid>
         ))}

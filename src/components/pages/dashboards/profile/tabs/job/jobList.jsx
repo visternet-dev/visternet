@@ -19,9 +19,10 @@ const JobList = ({ setActiveStep }) => (
     </Grid>
 
     {/* TODO: Get Data from API */}
-    {[1, 2, 3].map(() => (
+    {[1, 2, 3].map(({ item, index }) => (
       <Grid item xs={6}>
         <Card
+          key={index}
           title="University Name"
           subtitle="Azad University Tehran North Branch"
           items={[{ title: "Country", value: "IRAN" }, { title: "Date", value: "2017 - 2021" }, , { title: "Grade", value: "18.58" }]}

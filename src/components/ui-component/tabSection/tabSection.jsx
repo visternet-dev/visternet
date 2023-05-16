@@ -47,7 +47,6 @@ function TabSection({ data }) {
               },
               ".swiper": { width: "100%", height: "100%", padding: "1rem 0" },
               ".swiper-slide": {
-                background: "#fff",
                 display: "flex"
               }
             }}
