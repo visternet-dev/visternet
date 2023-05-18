@@ -102,7 +102,7 @@ const Plan = () => {
           flexWrap="nowrap"
         >
           <Swiper
-            sliderPerView="auto"
+            sliderperview="auto"
             slidesPerView="auto"
             spaceBetween={5}
             direction="horizontal"

@@ -25,7 +25,7 @@ const Tab = ({ srcIcon = "", onClick, title, active = false, status, ...params }
       {...params}
     >
       {srcIcon && <img src={srcIcon} alt="profile_tab_icon" />}
-      <box>
+      <Box>
         <Typography
           sx={{
             fontWeight: 600,
@@ -57,7 +57,7 @@ const Tab = ({ srcIcon = "", onClick, title, active = false, status, ...params }
             <FormattedMessage id="completed" />
           )}
         </Typography>
-      </box>
+      </Box>
     </Box>
   );
 };

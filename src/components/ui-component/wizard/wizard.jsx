@@ -2,9 +2,9 @@ import { Box, Fade } from "@mui/material";
 
 const Wizard = ({ steps, activeStep }) => {
   return (
-    <Box sx={{width: "100%"}}>
+    <Box sx={{ width: "100%" }}>
       {steps.map((StepContent, index) => (
-        <Fade timeout={750} in={activeStep === index} key={index}>
+        <Fade timeout={750} in={activeStep === index} key={index} unmountOnExit mountOnEnter>
           <Box hidden={activeStep !== index}>{StepContent}</Box>
         </Fade>
       ))}

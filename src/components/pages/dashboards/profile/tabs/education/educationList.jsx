@@ -5,9 +5,9 @@ import { useState } from "react";
 import { Grid, Modal, Stack, styled, Typography } from "@mui/material";
 import { orange } from "@mui/material/colors";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import { deleteEducation, getEducations } from "utils/apis/dashboards/user/userApis";
+import { APIEduication, deleteEducation, getEducations } from "utils/apis/dashboards/user/userApis";
 
 import CustomButton from "components/ui-component/custom/Button";
 import CustomModal from "components/ui-component/custom/modal";
@@ -19,15 +19,18 @@ const ColorButton = styled(CustomButton)(({ theme }) => ({
   color: theme.palette.getContrastText(orange[500])
 }));
 
-const EducationList = ({ setActiveStep }) => {
+const EducationList = ({ setActiveStep, setEditId }) => {
   const router = useRouter();
-  const { isLoading, data, isError, refetch } = useQuery(["getEducations"], getEducations);
+  const { isLoading, data, isError, refetch } = useQuery(["APIEduication.get"], APIEduication.get);
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(null);
+
+  const queryClient = useQueryClient();
 
   const { isLoading: isLoadingDelete, mutate } = useMutation(() => deleteEducation({ id }), {
     onSuccess: () => {
       setOpen(false);
+      queryClient.refetchQueries("APIEduication.get");
     }
   });
 
@@ -36,26 +39,37 @@ const EducationList = ({ setActiveStep }) => {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           {/* Go to the create form */}
-          <ColorButton onClick={() => setActiveStep(1)} sx={{ border: "1px solid #EF6820", color: "#EF6820" }} size="small">
+          <ColorButton
+            onClick={() => {
+              setActiveStep(1);
+              setEditId(null);
+            }}
+            sx={{ border: "1px solid #EF6820", color: "#EF6820" }}
+            size="small"
+          >
             Add Education
           </ColorButton>
         </Grid>
 
         {/* TODO: Get Data from API */}
-        {data?.data?.data.map((item, index) => (
+        {data?.data?.map((item, index) => (
           <Grid item xs={12} md={6}>
             <Card
               key={index}
               title="University Name"
-              subtitle="Azad University Tehran North Branch"
-              items={[{ title: "Country", value: "IRAN" }, { title: "Date", value: "2017 - 2021" }, , { title: "Grade", value: "18.58" }]}
+              subtitle={item?.university_name}
+              items={[
+                { title: "Country", value: item?.country?.vis_country_title || "-" },
+                { title: "Date", value: `${item?.cui_start_year} -  ${item?.cui_end_year}` },
+                { title: "Grade", value: item?.grade || "-" }
+              ]}
               editOnclick={() => {
-                router.push({ query: { id: 4 } });
-                setActiveStep(2);
+                setEditId(item.id_cui);
+                setActiveStep(1);
               }}
               deleteOnclick={() => {
                 setOpen(true);
-                setId(4);
+                setId(item.id_cui);
               }}
             />
           </Grid>

@@ -59,9 +59,11 @@ export const getClientFormBuilder = async () => {
 // Education
 //  -- Form Builder
 export const getEducationFormBuilder = async ({ update = false, id = 1 }) => {
+  console.log(update);
   if (isMockData) return mock;
-  if (update) return await api.get(`v1/client-edu-info/1/create-form`);
   return await api.get(`v1/client-edu-info/${id}/update-form`);
+
+  // return await api.get(`v1/client-edu-info/create-form`);
 };
 
 // -- Get List Education
@@ -72,6 +74,27 @@ export const getEducations = async () => {
 // -- Delete Educaton
 export const deleteEducation = async ({ id }) => {
   return await api.delete(`/v1/client-edu-info/${id}`);
+};
+
+// Education
+export const APIEduication = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-edu-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-edu-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-edu-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-edu-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    console.log(update , id);
+    if (update) return await api.get(`v1/client-edu-info/${id}/update-form`);
+    return await api.get(`v1/client-edu-info/create-form`);
+  }
 };
 
 // Address => Done

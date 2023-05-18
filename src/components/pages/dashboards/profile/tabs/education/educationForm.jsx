@@ -4,15 +4,15 @@ import { Stack } from "@mui/system";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { getEducationFormBuilder } from "utils/apis/dashboards/user/userApis";
+import { APIEduication, getEducationFormBuilder } from "utils/apis/dashboards/user/userApis";
 
 import StepBuilder from "components/ui-component/builder/step";
 import QueryWrapper from "components/ui-component/queryWrapper/queryWrapper";
 
-function EducationForm({ setActiveStep, update }) {
+function EducationForm({ setActiveStep, editId }) {
   const router = useRouter();
-  const id = router.query?.id || 1;
-  const { isLoading, data, isError, refetch } = useQuery(["getEducationFormBuilder"], () => getEducationFormBuilder({ update, id }));
+  const update = !!editId;
+  const { isLoading, data, isError, refetch } = useQuery(["getEducationFormBuilder", editId], () => APIEduication.formBuilder({ update, id: editId }));
 
   return (
     <Stack justifyContent="center">
@@ -25,7 +25,6 @@ function EducationForm({ setActiveStep, update }) {
               setActiveStep(0);
             },
             onReset: () => {
-              console.log("close", update);
               if (update) router.back();
               setActiveStep(0);
             }

@@ -66,7 +66,7 @@ function LandingSectionUpdateVisas() {
           freeMode
           scrollbar
           mousewheel
-          sliderPerView="auto"
+          sliderperview="auto"
           modules={[FreeMode, Scrollbar]}
           className="updateVisaCard"
         >
