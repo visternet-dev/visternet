@@ -50,34 +50,27 @@ let isMockData = false;
 // ------ Get FROM Builder Client ---
 // ------ ------ ------ ------ ------
 
-
-// Client => Done
-export const getClientFormBuilder = async () => {
-  if (isMockData) return mock;
-  return await api.get(`v1/client/1/generate-form`);
+// CLIENT
+export const APIClient = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client/${id}/update-form`);
+    return await api.get(`v1/client/create-form`);
+  }
 };
 
-// Education
-//  -- Form Builder
-export const getEducationFormBuilder = async ({ update = false, id = 1 }) => {
-  console.log(update);
-  if (isMockData) return mock;
-  return await api.get(`v1/client-edu-info/${id}/update-form`);
-
-  // return await api.get(`v1/client-edu-info/create-form`);
-};
-
-// -- Get List Education
-export const getEducations = async () => {
-  return await api.get(`/v1/client-edu-info`);
-};
-
-// -- Delete Educaton
-export const deleteEducation = async ({ id }) => {
-  return await api.delete(`/v1/client-edu-info/${id}`);
-};
-
-// Education
+// EDUCATION
 export const APIEduication = {
   get: async ({ id = "" }) => {
     return await api.get(`/v1/client-edu-info/${id}?expand=country`);
@@ -92,7 +85,6 @@ export const APIEduication = {
     return await api.delete(`/v1/client-edu-info/${id}`);
   },
   formBuilder: async ({ update = false, id = 0 }) => {
-    console.log(update , id);
     if (update) return await api.get(`v1/client-edu-info/${id}/update-form`);
     return await api.get(`v1/client-edu-info/create-form`);
   }
@@ -102,6 +94,25 @@ export const APIEduication = {
 export const getAddressFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-address-info/1/generate-form`);
+};
+
+export const APIEAddress = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-address-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-address-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-address-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-address-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-address-info/${id}/update-form`);
+    return await api.get(`v1/client-address-info/create-form`);
+  }
 };
 
 // Family => Done

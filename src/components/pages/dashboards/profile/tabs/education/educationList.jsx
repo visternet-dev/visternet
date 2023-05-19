@@ -7,7 +7,7 @@ import { orange } from "@mui/material/colors";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import { APIEduication, deleteEducation, getEducations } from "utils/apis/dashboards/user/userApis";
+import { APIEduication } from "utils/apis/dashboards/user/userApis";
 
 import CustomButton from "components/ui-component/custom/Button";
 import CustomModal from "components/ui-component/custom/modal";
@@ -27,7 +27,7 @@ const EducationList = ({ setActiveStep, setEditId }) => {
 
   const queryClient = useQueryClient();
 
-  const { isLoading: isLoadingDelete, mutate } = useMutation(() => deleteEducation({ id }), {
+  const { isLoading: isLoadingDelete, mutate } = useMutation(() => APIEduication.delete({ id }), {
     onSuccess: () => {
       setOpen(false);
       queryClient.refetchQueries("APIEduication.get");
