@@ -24,7 +24,7 @@ function DrawerMenuMobile({ openDrawer, setOpenDrawer, data, width }) {
         }
       }}
     >
-      <Stack sx={{ p: 1, width, bgcolor: "#fff", mx: "auto", pb: 12, borderRadius: "4px" }} spacing={2}>
+      <Stack sx={{ p: 1, width, bgcolor: "background.paper", mx: "auto", pb: 12, borderRadius: "4px" }} spacing={2}>
         {data.map(({ title = "", path = "" }, index) => {
           const isActive = checkActiveItem({ path, pathname });
 

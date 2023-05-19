@@ -6,6 +6,8 @@ import { useTheme } from "@emotion/react";
 
 import Logo from "layout/components/logo";
 
+import FooterBackground from "./footerBackground";
+
 function FooterLanding() {
   const data = {
     info: {
@@ -48,9 +50,15 @@ function FooterLanding() {
     copyRight: "© 2015-2022 Visternet Inc."
   };
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === "dark";
+  // return <></>
   return (
-    <Grid flexDirection="row" sx={{ background: "url(/assets/images/landing/footer.svg)", zIndex: 999, height: "12rem" }} container>
-      <Grid sx={{ background: "#EFF8FF", marginTop: "10rem", padding: "2rem" }} spacing={2} container>
+    <Grid flexDirection="row" sx={{ zIndex: 999, height: "12rem", position: "relative" }} container>
+      <FooterBackground
+        sx={{ display: { xs: "none", md: "block" }, height: "auto", width: "100%", position: "absolute" }}
+        color={isDarkMode ? theme.palette.background.paper : "#EFF8FF"}
+      />
+      <Grid sx={{ backgroundColor: isDarkMode ? "background.paper" : "#EFF8FF", marginTop: "10rem", padding: "2rem", zIndex: 999 }} spacing={2} container>
         <Grid xs={12} md={3} item>
           <Logo />
           <Typography sx={{ margin: "17px 0", color: theme.palette.grey[500] }} variant="h4">
@@ -111,7 +119,9 @@ function FooterLanding() {
         </Grid>
       </Grid>
       <Grid width={"100%"} sm={12} md={12} item>
-        <Typography sx={{ backgroundColor: "#eff6fd", textAlign: "center", color: "#333", padding: "1rem 0", width: "100%" }}>{data.copyRight}</Typography>
+        <Typography sx={{ backgroundColor: isDarkMode ? "background.paper" : "#eff6fd", textAlign: "center", color: "#333", padding: "1rem 0", width: "100%" }}>
+          {data.copyRight}
+        </Typography>
       </Grid>
     </Grid>
   );
