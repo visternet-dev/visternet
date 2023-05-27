@@ -132,10 +132,10 @@ export const tabInfoController = {
   [TAB_INFO_TYPE.RESIDANCE_HISTORY]: {
     type: TAB_INFO_TYPE.RESIDANCE_HISTORY,
     cardTitle: () => "Country",
-    CardSubtitle: ({ item }) => item?.country?.vis_country_title ,
+    CardSubtitle: ({ item }) => item?.country?.vis_country_title,
     cardItems: ({ item }) => [
       { title: "Start Date", value: item?.crh_end_date },
-      { title: "End Date", value: item?.crh_start_date },
+      { title: "End Date", value: item?.crh_start_date }
     ],
     addBtnText: "Add Residance History",
     idKey: "id_crh",
@@ -145,14 +145,14 @@ export const tabInfoController = {
   [TAB_INFO_TYPE.TRAVEL_HOSTORY]: {
     type: TAB_INFO_TYPE.TRAVEL_HOSTORY,
     cardTitle: () => "Country",
-    CardSubtitle: ({ item }) => item?.country?.vis_country_title ,
+    CardSubtitle: ({ item }) => item?.country?.vis_country_title,
     cardItems: ({ item }) => [
       { title: "City", value: item?.city_name },
       { title: "Start Date", value: item?.cth_end_date },
-      { title: "End Date", value: item?.cth_start_date },
+      { title: "End Date", value: item?.cth_start_date }
     ],
-    addBtnText: "Add Residance History",
+    addBtnText: "Add Travel History",
     idKey: "id_cth",
     APIHandler: APITravelHostiry
-  },
+  }
 };
