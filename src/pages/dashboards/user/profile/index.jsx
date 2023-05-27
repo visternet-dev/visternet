@@ -5,20 +5,21 @@ import "swiper/css/free-mode";
 import "swiper/css/scrollbar";
 
 import Layout from "layout";
+import { APIEduication, APIJob } from "utils/apis/dashboards/user/userApis";
 
 import AddressInfo from "components/pages/dashboards/profile/tabs/address/addressInfo";
-import EducationInfo from "components/pages/dashboards/profile/tabs/education/educationInfo";
+import { TAB_INFO_TYPE } from "components/pages/dashboards/profile/tabs/builder/builderTabInfo.constant";
+import { tabInfoController } from "components/pages/dashboards/profile/tabs/builder/builderTabInfo.tools";
+import BuilderTabInfo from "components/pages/dashboards/profile/tabs/builder/educationInfo";
 import FamilyInfo from "components/pages/dashboards/profile/tabs/family/familyInfo";
 import FinancialInfo from "components/pages/dashboards/profile/tabs/financial/financialInfo";
-import JobInfo from "components/pages/dashboards/profile/tabs/job/jobInfo";
-import LanguageInfo from "components/pages/dashboards/profile/tabs/language/languageInfo";
 import MilitaryServiceInfo from "components/pages/dashboards/profile/tabs/militaryService/militaryServiceInfo";
 import RelativeMemberInfo from "components/pages/dashboards/profile/tabs/relativeMember/relativeMemberInfo";
+import ResidanceHistoryInfo from "components/pages/dashboards/profile/tabs/residanceHistory/residanceHistoryInfo";
+import TravelHistoryInfo from "components/pages/dashboards/profile/tabs/travelHistory/travelHistoryInfo";
 import UserProfile from "components/pages/dashboards/profile/tabs/userProfile/userProfile";
 import TabSection from "components/ui-component/tabSection/tabSection";
 import LAYOUT from "constant";
-import ResidanceHistoryInfo from "components/pages/dashboards/profile/tabs/residanceHistory/residanceHistoryInfo";
-import TravelHistoryInfo from "components/pages/dashboards/profile/tabs/travelHistory/travelHistoryInfo";
 
 function Profile() {
   const data = [
@@ -36,7 +37,7 @@ function Profile() {
         status: "completed", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <EducationInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.EDUCATION]} />
     },
     {
       tab: {
@@ -44,7 +45,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <JobInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.JOB]} />
     },
     {
       tab: {
@@ -52,7 +53,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <LanguageInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.LANGUAGE]} />
     },
     {
       tab: {
@@ -60,7 +61,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <FinancialInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.FINANCIAL]} />
     },
     {
       tab: {
@@ -68,7 +69,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <FamilyInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.FAMILY]} />
     },
     {
       tab: {
@@ -76,7 +77,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <AddressInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.ADDRESS]} />
     },
     {
       tab: {
@@ -84,7 +85,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <MilitaryServiceInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.MILITARY_SERVICE]} />
     },
     {
       tab: {
@@ -92,23 +93,23 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <RelativeMemberInfo />
-    }, 
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.RELATIVE_MEMBER]} />
+    },
     {
       tab: {
         title: <FormattedMessage id="residance-history" />,
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <ResidanceHistoryInfo />
-    }, 
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.RESIDANCE_HISTORY]} />
+    },
     {
       tab: {
         title: <FormattedMessage id="travel-history" />,
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <TravelHistoryInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.TRAVEL_HOSTORY]} />
     }
   ];
 

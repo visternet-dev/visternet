@@ -50,34 +50,27 @@ let isMockData = false;
 // ------ Get FROM Builder Client ---
 // ------ ------ ------ ------ ------
 
-
-// Client => Done
-export const getClientFormBuilder = async ({ id = 1 }) => {
-  if (isMockData) return mock;
-  return await api.get(`v1/client/${id}/update-form`);
+// CLIENT
+export const APIClient = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client/${id}/update-form`);
+    return await api.get(`v1/client/create-form`);
+  }
 };
 
-// Education
-//  -- Form Builder
-export const getEducationFormBuilder = async ({ update = false, id = 1 }) => {
-  console.log(update);
-  if (isMockData) return mock;
-  return await api.get(`v1/client-edu-info/${id}/update-form`);
-
-  // return await api.get(`v1/client-edu-info/create-form`);
-};
-
-// -- Get List Education
-export const getEducations = async () => {
-  return await api.get(`/v1/client-edu-info`);
-};
-
-// -- Delete Educaton
-export const deleteEducation = async ({ id }) => {
-  return await api.delete(`/v1/client-edu-info/${id}`);
-};
-
-// Education
+// EDUCATION
 export const APIEduication = {
   get: async ({ id = "" }) => {
     return await api.get(`/v1/client-edu-info/${id}?expand=country`);
@@ -92,9 +85,187 @@ export const APIEduication = {
     return await api.delete(`/v1/client-edu-info/${id}`);
   },
   formBuilder: async ({ update = false, id = 0 }) => {
-    console.log(update, id);
     if (update) return await api.get(`v1/client-edu-info/${id}/update-form`);
     return await api.get(`v1/client-edu-info/create-form`);
+  }
+};
+
+// JOB
+export const APIJob = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-job-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-job-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-job-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-job-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-job-info/${id}/update-form`);
+    return await api.get(`v1/client-job-info/create-form`);
+  }
+};
+
+// LANGUAGE
+export const APILanguage = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-language-info/${id}?expand=certificate,language`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-language-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-language-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-language-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-language-info/${id}/update-form`);
+    return await api.get(`v1/client-language-info/create-form`);
+  }
+};
+
+// FINANCIAL
+export const APIFinancial = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-financial-info/${id}`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-financial-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-financial-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-financial-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-financial-info/${id}/update-form`);
+    return await api.get(`v1/client-financial-info/create-form`);
+  }
+};
+
+// FAMILY
+export const APIFamily = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-family-info/${id}?expand=relation_type,relation`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-family-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-family-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-family-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-family-info/${id}/update-form`);
+    return await api.get(`v1/client-family-info/create-form`);
+  }
+};
+
+export const APIAddress = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-address-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-address-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-address-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-address-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-address-info/${id}/update-form`);
+    return await api.get(`v1/client-address-info/create-form`);
+  }
+};
+
+// MILITARY_SERVICE
+export const APIMilitaryService = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-military-service-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-military-service-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-military-service-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-military-service-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-military-service-info/${id}/update-form`);
+    return await api.get(`v1/client-military-service-info/create-form`);
+  }
+};
+
+// RELATIVE_MEMBER
+export const APIRelativeMember = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-relative-member-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-relative-member-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-relative-member-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-relative-member-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-relative-member-info/${id}/update-form`);
+    return await api.get(`v1/client-relative-member-info/create-form`);
+  }
+};
+
+// RESIDANCE_HISTORY
+export const APIRecidanceHistory = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-residance-history-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-residance-history-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-residance-history-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-residance-history-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-residance-history-info/${id}/update-form`);
+    return await api.get(`v1/client-residance-history-info/create-form`);
+  }
+};
+
+// TRAVEL_HISTORY
+export const APITravelHostiry = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-travel-history-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-travel-history-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-travel-history-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-travel-history-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-travel-history-info/${id}/update-form`);
+    return await api.get(`v1/client-travel-history-info/create-form`);
   }
 };
 
@@ -103,7 +274,6 @@ export const getAddressFormBuilder = async () => {
   if (isMockData) return mock;
   return await api.get(`v1/client-address-info/1/generate-form`);
 };
-
 // Family => Done
 export const getFamilyFormBuilder = async () => {
   if (isMockData) return mock;

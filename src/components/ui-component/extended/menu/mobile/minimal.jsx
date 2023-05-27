@@ -27,7 +27,7 @@ function MinimalMenuMobile({ width, data, setOpenDrawer }) {
         boxShadow: theme.shadows[24],
         position: "relative",
         zIndex: 9999999,
-        bgcolor: "#fff"
+        bgcolor: "background.paper"
       }}
     >
       {data.map(({ title = "", path = "" }, index) => {

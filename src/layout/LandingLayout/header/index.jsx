@@ -11,7 +11,7 @@ import LandingActions from "../Actions";
 
 function HeaderLanding() {
   return (
-    <Box sx={{ display: "flex", bgcolor: "#fff", justifyContent: "space-between", alignItems: "center", py: 2, px: 3 }}>
+    <Box sx={{ display: "flex", bgcolor: "background.default", justifyContent: "space-between", alignItems: "center", py: 2, px: 3 }}>
       <Logo />
       <CustomMenu data={LANDING.LIST_MENU} />
       <LandingActions />

@@ -1,13 +1,9 @@
-import { useRouter } from "next/router";
-
 import { useState } from "react";
 
 import { Grid, Stack, styled, Typography } from "@mui/material";
 import { orange } from "@mui/material/colors";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
-import { APIEduication } from "utils/apis/dashboards/user/userApis";
 
 import CustomButton from "components/ui-component/custom/Button";
 import CustomModal from "components/ui-component/custom/modal";
@@ -19,18 +15,20 @@ const ColorButton = styled(CustomButton)(({ theme }) => ({
   color: theme.palette.getContrastText(orange[500])
 }));
 
-const EducationList = ({ setActiveStep, setEditId }) => {
-  const router = useRouter();
-  const { isLoading, data, isError, refetch } = useQuery(["APIEduication.get"], APIEduication.get);
+const EducationList = ({ setActiveStep, setEditId, controller }) => {
+  // CPNTROLLER
+  const { type, APIHandler = () => {}, addBtnText = "", cardItems = () => {}, cardTitle = () => {}, CardSubtitle = () => {}, idKey } = controller;
+
+  const { isLoading, data, isError, refetch } = useQuery([`API-${type}-get`], APIHandler.get);
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(null);
 
   const queryClient = useQueryClient();
 
-  const { isLoading: isLoadingDelete, mutate } = useMutation(() => APIEduication.delete({ id }), {
+  const { isLoading: isLoadingDelete, mutate } = useMutation(() => APIHandler.delete({ id }), {
     onSuccess: () => {
       setOpen(false);
-      queryClient.refetchQueries("APIEduication.get");
+      queryClient.refetchQueries("APIHandler.get");
     }
   });
 
@@ -47,35 +45,30 @@ const EducationList = ({ setActiveStep, setEditId }) => {
             sx={{ border: "1px solid #EF6820", color: "#EF6820" }}
             size="small"
           >
-            Add Education
+            {addBtnText}
           </ColorButton>
         </Grid>
 
+        {/* TODO: Get Data from API */}
         {data?.data?.map((item, index) => (
           <Grid item xs={12} md={6}>
             <Card
               key={index}
-              title="University Name"
-              subtitle={item?.university_name}
-              items={[
-                { title: "Country", value: item?.country?.vis_country_title || "-" },
-                { title: "Date", value: `${item?.cui_start_year} -  ${item?.cui_end_year}` },
-                { title: "Grade", value: item?.grade || "-" }
-              ]}
+              title={cardTitle()}
+              subtitle={CardSubtitle({ item })}
+              items={cardItems({ item })}
               editOnclick={() => {
-                setEditId(item.id_cui);
+                setEditId(item?.[idKey]);
                 setActiveStep(1);
               }}
               deleteOnclick={() => {
                 setOpen(true);
-                setId(item.id_cui);
+                setId(item?.[idKey]);
               }}
             />
           </Grid>
         ))}
       </Grid>
-
-      {/* Modal */}
       <CustomModal
         open={open}
         onClose={() => {
