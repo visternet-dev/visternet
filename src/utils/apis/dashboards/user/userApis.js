@@ -170,13 +170,7 @@ export const APIFamily = {
   }
 };
 
-// Address => Done
-export const getAddressFormBuilder = async () => {
-  if (isMockData) return mock;
-  return await api.get(`v1/client-address-info/1/generate-form`);
-};
-
-export const APIEAddress = {
+export const APIAddress = {
   get: async ({ id = "" }) => {
     return await api.get(`/v1/client-address-info/${id}?expand=country`);
   },
@@ -195,6 +189,91 @@ export const APIEAddress = {
   }
 };
 
+// MILITARY_SERVICE
+export const APIMilitaryService = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-military-service-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-military-service-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-military-service-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-military-service-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-military-service-info/${id}/update-form`);
+    return await api.get(`v1/client-military-service-info/create-form`);
+  }
+};
+
+// RELATIVE_MEMBER
+export const APIRelativeMember = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-relative-member-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-relative-member-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-relative-member-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-relative-member-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-relative-member-info/${id}/update-form`);
+    return await api.get(`v1/client-relative-member-info/create-form`);
+  }
+};
+
+// RESIDANCE_HISTORY
+export const APIRecidanceHistory = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-residance-history-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-residance-history-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-residance-history-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-residance-history-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-residance-history-info/${id}/update-form`);
+    return await api.get(`v1/client-residance-history-info/create-form`);
+  }
+};
+
+// TRAVEL_HISTORY
+export const APITravelHostiry = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-travel-history-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-travel-history-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-travel-history-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-travel-history-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-travel-history-info/${id}/update-form`);
+    return await api.get(`v1/client-travel-history-info/create-form`);
+  }
+};
+
+// Address => Done
+export const getAddressFormBuilder = async () => {
+  if (isMockData) return mock;
+  return await api.get(`v1/client-address-info/1/generate-form`);
+};
 // Family => Done
 export const getFamilyFormBuilder = async () => {
   if (isMockData) return mock;

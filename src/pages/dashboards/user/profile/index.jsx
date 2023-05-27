@@ -77,7 +77,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <AddressInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.ADDRESS]} />
     },
     {
       tab: {
@@ -85,7 +85,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <MilitaryServiceInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.MILITARY_SERVICE]} />
     },
     {
       tab: {
@@ -93,7 +93,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <RelativeMemberInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.RELATIVE_MEMBER]} />
     },
     {
       tab: {
@@ -101,7 +101,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <ResidanceHistoryInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.RESIDANCE_HISTORY]} />
     },
     {
       tab: {
@@ -109,7 +109,7 @@ function Profile() {
         status: "pendding", //completed, pending
         srcIcon: "/assets/images/icons/setting/profile/user-profile.svg"
       },
-      panel: <TravelHistoryInfo />
+      panel: <BuilderTabInfo controller={tabInfoController[TAB_INFO_TYPE.TRAVEL_HOSTORY]} />
     }
   ];
 
