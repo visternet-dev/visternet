@@ -90,6 +90,86 @@ export const APIEduication = {
   }
 };
 
+// JOB
+export const APIJob = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-job-info/${id}?expand=country`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-job-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-job-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-job-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-job-info/${id}/update-form`);
+    return await api.get(`v1/client-job-info/create-form`);
+  }
+};
+
+// LANGUAGE
+export const APILanguage = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-language-info/${id}?expand=certificate,language`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-language-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-language-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-language-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-language-info/${id}/update-form`);
+    return await api.get(`v1/client-language-info/create-form`);
+  }
+};
+
+// FINANCIAL
+export const APIFinancial = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-financial-info/${id}`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-financial-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-financial-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-financial-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-financial-info/${id}/update-form`);
+    return await api.get(`v1/client-financial-info/create-form`);
+  }
+};
+
+// FAMILY
+export const APIFamily = {
+  get: async ({ id = "" }) => {
+    return await api.get(`/v1/client-family-info/${id}?expand=relation_type,relation`);
+  },
+  post: async ({ body = {} }) => {
+    return await api.post(`/v1/client-family-info/`, body);
+  },
+  put: async ({ id = "" }) => {
+    return await api.put(`/v1/client-family-info/${id}`);
+  },
+  delete: async ({ id }) => {
+    return await api.delete(`/v1/client-family-info/${id}`);
+  },
+  formBuilder: async ({ update = false, id = 0 }) => {
+    if (update) return await api.get(`v1/client-family-info/${id}/update-form`);
+    return await api.get(`v1/client-family-info/create-form`);
+  }
+};
+
 // Address => Done
 export const getAddressFormBuilder = async () => {
   if (isMockData) return mock;
