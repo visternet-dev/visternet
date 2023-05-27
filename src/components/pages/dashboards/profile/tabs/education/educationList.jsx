@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import { useState } from "react";
 
-import { Grid, Modal, Stack, styled, Typography } from "@mui/material";
+import { Grid, Stack, styled, Typography } from "@mui/material";
 import { orange } from "@mui/material/colors";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -27,7 +27,7 @@ const EducationList = ({ setActiveStep, setEditId }) => {
 
   const queryClient = useQueryClient();
 
-  const { isLoading: isLoadingDelete, mutate } = useMutation(() => deleteEducation({ id }), {
+  const { isLoading: isLoadingDelete, mutate } = useMutation(() => APIEduication.delete({ id }), {
     onSuccess: () => {
       setOpen(false);
       queryClient.refetchQueries("APIEduication.get");
@@ -51,7 +51,6 @@ const EducationList = ({ setActiveStep, setEditId }) => {
           </ColorButton>
         </Grid>
 
-        {/* TODO: Get Data from API */}
         {data?.data?.map((item, index) => (
           <Grid item xs={12} md={6}>
             <Card
@@ -75,6 +74,8 @@ const EducationList = ({ setActiveStep, setEditId }) => {
           </Grid>
         ))}
       </Grid>
+
+      {/* Modal */}
       <CustomModal
         open={open}
         onClose={() => {

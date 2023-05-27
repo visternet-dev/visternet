@@ -51,9 +51,9 @@ let isMockData = false;
 // ------ ------ ------ ------ ------
 
 // Client => Done
-export const getClientFormBuilder = async () => {
+export const getClientFormBuilder = async ({ id = 1 }) => {
   if (isMockData) return mock;
-  return await api.get(`v1/client/1/generate-form`);
+  return await api.get(`v1/client/${id}/update-form`);
 };
 
 // Education
@@ -91,7 +91,7 @@ export const APIEduication = {
     return await api.delete(`/v1/client-edu-info/${id}`);
   },
   formBuilder: async ({ update = false, id = 0 }) => {
-    console.log(update , id);
+    console.log(update, id);
     if (update) return await api.get(`v1/client-edu-info/${id}/update-form`);
     return await api.get(`v1/client-edu-info/create-form`);
   }
